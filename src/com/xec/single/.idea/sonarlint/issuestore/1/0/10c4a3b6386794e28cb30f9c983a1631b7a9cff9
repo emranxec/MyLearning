@@ -1,0 +1,9 @@
+
+Q	java:S125
+"<This block of commented-out lines of code should be removed.(·î¤Ô
+i
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(àáØ>
+j
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(²ÜœÚ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ˆÉ‰óÿÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÀõÈ›þÿÿÿÿ

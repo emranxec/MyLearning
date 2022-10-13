@@ -1,0 +1,13 @@
+
+Q
+java:S1610"6Convert the abstract class "insect" into an interface.(æ¡¹¹ýÿÿÿÿ
+C	java:S108")Either remove or fill this block of code.(ð±‡Øúÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(„ë˜âÿÿÿÿÿ
+C	java:S108")Either remove or fill this block of code.(ð±‡Øúÿÿÿÿ
+S	java:S106$"9Replace this use of System.out or System.err by a logger.(ž±†¾ÿÿÿÿÿ
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(æ¡¹¹ýÿÿÿÿ
+b	java:S101 "MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(·š†‡
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦®Þÿ
+b
+java:S1223""LRename this method to prevent any misunderstanding or make it a constructor.(Çµí‘
+f	java:S114"QRename this interface name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÖðÖâ

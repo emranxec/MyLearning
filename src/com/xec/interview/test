@@ -1,0 +1,506 @@
+print 4th highest salary
+
+
+select top 4 emp.name, count(salary) as max_salary from Employee emp
+group by  emp.name
+order by max_salary desc;
+
+
+1,1,2,3,5,8,13,21
+
+sout("1");
+int sum=1;//2
+for(int i=1;i<=10,i+sum){
+	sum=sum+i;//3,
+	sout(sum);//1,2
+};
+
+
+
+
+Class Parent{
+
+	Parent();
+
+	void Run(){
+	walk();
+	}
+
+	void walk();
+}
+
+class child extends Parent{
+
+	child()
+
+	void Run(){
+	super.Run();
+	}
+
+	void walk(){
+	super.walk();
+	}
+
+}
+
+
+Parent p = new Child();
+p.run();
+
+
+sum of the squares of all the odd numbers in the array.
+
+int[] num={1,2,3,4,5,6,7}
+
+int sum= IntergerStream.of(num).filter(e->e%2==1).map(e->e*e).sum();
+
+
+A - BOOK_id, AUTHER_name
+
+
+select auther_name, count(book_id) as total_books from A
+group by auther_name
+having A.total_books>10;
+
+
+
+Given an array of n integers and a number k, find the pairs of numbers in the array such that the difference between the pair is k.
+
+
+int[] pairs={7,8,9,1,2,3,4,5,6,}; ,k=4
+
+
+
+Map hashh=new Hashmap();
+
+for(int i=0;i<=pairs.length;i++){
+hash.put(pairs[i);
+if(hash.contains(pairs[i])){
+
+}
+
+
+Write a function to return the longest even length word in a sentence.
+
+String sentence="my name is, imran khan-";
+
+public String findLongest(String sentence){
+
+String[] subs=String.replaceAll(rejex(/a-z/A-Z),sentense).split(sentence," ");
+
+String longest="";
+for(String sub:subs){
+	if(subs.length%2==0 && sub.length()>longest.length()){
+		longest=sub;
+	}
+}
+return 	longest;
+
+}
+
+
+
+reference= String ="imran"
+
+"imrank"
+
+String s1=new String("imran")  ----->  new object in heap
+String s2=new String("imran")  ------> new object in heap
+String s3="imran"----------> StringPool("imran")
+String s4="imran"-----------> pointet-s3
+
+
+
+
+
+
+
+•	Can one use an Employee class as a key in a HashMap?
+		hashmap and equals, if changesdo (immutable class of employee)
+•	Consider a class Person with two attributes -
+String name and List<String> degrees. How will you make this class immutable.
+
+        return Collections.unmodifiableList(courses);
+
+->
+
+•	Advantanges of immutable classes
+->
+
+•	Getter method
+
+
+•	We have a Parent class with 2 methods walk and run.
+We have a child class which overrides both the methods.
+Both child class methods just call their respective Super implementation.
+Parent class run method calls walk().
+class Parent Parent p = new Child(); p.run(); Tell the order in which each method is called
+
+
+•	Multithreading
+->
+•	Design and Architecture
+•	Given a List of integers (List<Integer>),
+ write code in Java 8 style to get the sum of the squares
+ of all the odd numbers in the array.
+
+ int sum = IntStream.of(A).filter(e->e%2==1).map(a->a*a).sum();
+
+•	Given an array of n integers and a number k,
+find the pairs of numbers in the array such that the difference between the pair is k.
+ Find the optimal solution with and without extra storage
+
+  if(arr[i]-arr[j]==k||
+     arr[j]-arr[i]==k){
+      count++;
+
+
+
+•	Write a function to count the number of unique digits in a number
+
+
+ while(num>0){
+            digits.add(num%10);
+            num/=10;
+        }
+        return digits.size();
+
+
+
+
+•	Java 8 Features
+•	What are Indexes and Its Types?
+cluster
+non-cluster
+column based index
+unique index
+hash index
+•	Exception handling scenario based
+
+
+
+
+String s1="imran";//god
+
+
+if(s1.length<2){
+return s1;
+}
+
+char[] data=s1.toCharArray();
+
+for(int i=0;i<data.length;i++){
+
+for(int j=0;j<data.length;j++){
+		if(i==j){
+			continue;
+		}
+	System.out.println(data[i]+"" + data[j]) + data[j+1]; //god,ogd,dgo
+	System.out.println(data[i]+"" + data[j+1]) + data[j]; //gdo,odg,dog
+}
+
+}
+
+
+
+
+
+
+public class Test {
+    public static void main(String[] args) {
+        String s = new String("5");
+        System.out.println(1 + 10 + s + 1 + 10); //115110
+    }
+}
+
+//checked(IO error,sql) & unchecked(RuntimeTime-null,arithmetic)
+
+//
+
+
+table1: employee
+Columns:
+id,employee_name,department_id
+
+
+table2: department
+Columns:
+id,department_name
+
+
+all the employee name from department ->AB
+
+
+select emp.employee_name from emplyee emp
+join department d on emp.department_id=d.id
+where d.department_name='AB'
+
+
+
+
+
+
+
+
+
+
+employee  : id, dep_id, date of joining,
+
+
+
+dep id name
+
+//which department has maximum emplooyees join which year
+
+IT 2022
+
+
+
+
+person_id, person_name,person_gender.
+101, imran, M
+102, Kopal, F
+103, Sri,   M
+
+
+relation
+
+child_id,parent_id
+101	,102
+101 ,103
+
+
+child father mother
+imran	sri    kopal
+
+
+
+
+select children.name, father.name, mother.name from relation child
+
+join person father on father.id=child.parent_id and father.gender ="M"
+
+inner join person mother on mother.id= child.parent_id and father.gender ="F"
+
+join person children on children.id=child.child_id;
+
+
+
+
+SELECT c.name Child,
+       MAX(CASE WHEN p.gender = 'F' THEN p.name END) Mother,
+       MAX(CASE WHEN p.gender = 'M' THEN p.name END) Father
+FROM relation r
+INNER JOIN people c ON c.id = r.cid
+INNER JOIN people p ON p.id = r.pid
+GROUP BY r.cid, c.name;
+
+
+// here sumr is for storing the sum of right elements
+    // Here suml is for storing the sum of left elements
+    int sumr =0;
+    int suml=0;
+    int pivot =0;
+
+
+    for(int i=0;i<nums.length;i++){
+         suml=0;
+         sumr=0;
+         pivot=i;
+        // for getting suml required condition
+        for(int j=0;j<pivot;j++){
+            suml+=nums[j];
+        }
+        // for getting sumr required condition
+        for(int k=pivot+1;k<nums.length;k++){
+            sumr+=nums[k];
+        }
+
+        if(suml==sumr)
+        {
+            return pivot;
+        }
+    }
+    return -1;
+};
+
+int arr[] = {10, 324, 45, 90, 9808};
+       /// int max = Arrays.stream(arr).max().getAsInt();
+
+
+	   int max=Arrays.stream(arr).max().getAsInt();
+
+
+
+
+
+
+
+
+		// package whatever; // don't place package name!
+// Installed Libraries: JSON-Simple, JUNit 4, Apache Commons Lang3
+import java.io.*;
+
+class MyCode {
+	public static void main (String[] args) {
+		System.out.println("Hello Java");
+    String thrusday = "Thursday";
+
+    for(enum a:enumType){
+      if(a==Thursday){
+        System.out.print("present"));
+      }
+    }
+
+	}
+}
+
+
+enum enumType{
+  Monday,Tuesday,Wednesday
+}
+
+
+class BaseService {}
+class ChildService extends BaseService {}
+
+class Base {
+    public void display(BaseService service) {
+        System.out.println("In Base");
+    }
+}
+
+class Child extends Base {
+    public void display(ChildService service) {
+        System.out.println("In Child");
+    }
+}
+public class CompileTime {
+    public static void main(String[] args) {
+        Base base = new Child();
+        base.display(new ChildService());// In Child
+
+        Child child = new Child();
+        child.display(new BaseService());// compile time exception
+    }
+}
+
+
+
+class Employee {
+    private String name;
+    public Employee(String name) {
+        this.name = name;
+    }
+}
+class Address {
+    private String streetName;
+    public Address(String streetName) {
+        this.streetName = streetName;
+    }
+}
+public class Collections {
+    public static void main(String[] args) {
+        Map<Employee, List<Address>> hashMap = new HashMap<>();
+        hashMap.put(new Employee("A"),
+                Arrays.asList(new Address("St1"), new Address("St2")));
+
+        hashMap.put(new Employee("A"),
+                Arrays.asList(new Address("St3"), new Address("St4")));
+        System.out.println(hashMap.size());//1
+        List<Address> address = hashMap.get(new Employee("A"));
+        System.out.println(address);// "St3","St4"
+    }
+}
+
+
+========Complexities==========
+ArrayList
+get -- O(1)
+add -- O(1)
+remove --O(n)
+contain --O(1)
+=====================================================
+Employee --id, name, dept, salary
+List<Employee> emplist = new ArrayList<>();//100
+
+// Iterator
+Iterator<Employee> it = emplist.iterator();//hasNext, next, remove
+dept = "IT" modifying the salary increase 5%
+1. there is no issue in this operation--
+2. there is exception in this operation--
+
+dept = "IT" remove that employee from iterator
+//==================JAVA 8============
+Employee --id, name, dept, salary
+List<Employee> emplist = new ArrayList<>();
+//1. get only employee having dept = "IT"
+
+emplist.steam().flatMap(e->e.department).filter(d->d.getName.equals("IT")).collect(Colleaction.tolist());
+
+2. Convert in map key--id, value--Employee
+
+emplist.stream().collect(groupingBy(e->e.id,e)Collect(Collectors.toMap()));
+
+
+Map<Integer,Emplyee> empMap= new Hashmap<>();
+for(Employee e:emplist){
+  empMap.put(e.id,e);
+}
+
+
+3. Employee count based on depart
+"IT", 25
+"Civil", 39
+
+emplist.stream().collect(mapping(e->e.department).groupingby(e->e.department),count()).collect(Collectors.toMap());
+
+// Database
+Employee-- id, name, mgid
+id, name, mgid
+1.  Alok  3
+2   Niraj 3
+3   Saurya 4
+4   Siva   5
+
+name , mgname
+Alok  Saurya
+Niraj Saurya,
+Saurya Siva
+
+select emp.name,man.name from Employee emp
+join Employee man on emp.id=man.mgid;
+
+Employee --id, name, dept, salary
+Employee count based on depart
+"Civil", 39
+"IT", 25
+
+select emp.dept,count(emp.name) from Employee emp
+group by emp.dept;
+
+//JPA Mapping
+@Entity
+@Table(name ="employee")
+class Employee//1:1
+private String id;
+
+@MappedBy(Department.id,Lazy)
+private String dep_id
+
+@Entity
+@Table(name ="department")
+class Department//1:M
+private String id
+
+private List<Employee> employees;
+
+
+
+
+
+
+
+
+
+

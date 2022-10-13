@@ -1,0 +1,78 @@
+
+E
+java:S3740["/Provide the parametrized type for this generic.(÷Úõ¸
+M
+java:S1135"2Complete the task associated to this TODO comment.(ØŸƒ¯ÿÿÿÿÿ
+H
+java:S1135"2Complete the task associated to this TODO comment.(ß¼Èú
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¿„¶Ñÿÿÿÿÿ
+S	java:S106 "9Replace this use of System.out or System.err by a logger.(¿„¶Ñÿÿÿÿÿ
+S	java:S106""9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+S	java:S106#"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ
+M
+java:S1135("2Complete the task associated to this TODO comment.(Å¹ùÿÿÿÿ
+H
+java:S1135,"2Complete the task associated to this TODO comment.(Î¬»
+S	java:S1066"9Replace this use of System.out or System.err by a logger.(šÆ“şÿÿÿÿ
+Q	java:S1253"<This block of commented-out lines of code should be removed.(¥È‹©
+M
+java:S11352"2Complete the task associated to this TODO comment.(û“‚ıÿÿÿÿ
+M
+java:S11355"2Complete the task associated to this TODO comment.(àçÙ†ùÿÿÿÿ
+Q	java:S1257"<This block of commented-out lines of code should be removed.(¿´ï¾
+\
+java:S1854w"ARemove this useless assignment to local variable "obeserverMap1".(¤ÓĞÁıÿÿÿÿ
+V
+java:S1854s"@Remove this useless assignment to local variable "obeserverMap".(ƒÊî
+\
+java:S1854r"GRemove this useless assignment to local variable "obeserverMembership".(µ±À
+W
+java:S1854q"ARemove this useless assignment to local variable "obeserverList".(‰È‘º
+Q	java:S125o"<This block of commented-out lines of code should be removed.(ä°µİ
+H
+java:S1481q"2Remove this unused "obeserverList" local variable.(‰È‘º
+M
+java:S1481r"8Remove this unused "obeserverMembership" local variable.(µ±À
+G
+java:S1481s"1Remove this unused "obeserverMap" local variable.(ƒÊî
+M	java:S106u"9Replace this use of System.out or System.err by a logger.(ÚÃëb
+N	java:S106v"9Replace this use of System.out or System.err by a logger.(õü¬¼
+B
+java:S1612v",Replace this lambda with a method reference.(õü¬¼
+G
+java:S1612w",Replace this lambda with a method reference.(¤ÓĞÁıÿÿÿÿ
+M
+java:S1481w"2Remove this unused "obeserverMap1" local variable.(¤ÓĞÁıÿÿÿÿ
+N	java:S106z"9Replace this use of System.out or System.err by a logger.(ä€ìŸ
+S	java:S106{"9Replace this use of System.out or System.err by a logger.(‘àôªüÿÿÿÿ
+S	java:S106|"9Replace this use of System.out or System.err by a logger.(µÇ«Ğüÿÿÿÿ
+S	java:S106}"9Replace this use of System.out or System.err by a logger.(Ø™€üÿÿÿÿ
+S	java:S106~"9Replace this use of System.out or System.err by a logger.(«óûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(øİ˜«üÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(®ıáëûÿÿÿÿ
+W	java:S125‡"<This block of commented-out lines of code should be removed.(ËÀÚùÿÿÿÿ
+W	java:S125Œ"<This block of commented-out lines of code should be removed.(ËÀÚùÿÿÿÿ
+W	java:S125‘"<This block of commented-out lines of code should be removed.(³öÍ—ıÿÿÿÿ
+R	java:S125”"<This block of commented-out lines of code should be removed.(‚ƒ»”
+j
+java:S2975«"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(ÖÄªÑ
+_
+java:S1182«"HUse super.clone() to create and seed the cloned instance to be returned.(ÖÄªÑ
+O	java:S106×"9Replace this use of System.out or System.err by a logger.(²ÄÕ¬
+T	java:S106Ü"9Replace this use of System.out or System.err by a logger.(ºÂ’½ûÿÿÿÿ
+o
+java:S2975“"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(ğ±îˆüÿÿÿÿ
+j
+java:S2975¥"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(¯áÑë
+O	java:S106¯"9Replace this use of System.out or System.err by a logger.(…ÉÀ³
+p
+java:S2293µ"YReplace the type specification in this constructor call with the diamond operator ("<>").(¦ı†å
+j
+java:S2975Ì"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(¯áÑë
+O	java:S106Ù"9Replace this use of System.out or System.err by a logger.(«‹Îõ
+k
+java:S1192."PDefine a constant instead of duplicating this literal "Fundamental 101" 4 times.( áõ­şÿÿÿÿ
+k	java:S117>"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å‰ïƒùÿÿÿÿ
+k	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íã¼‘ûÿÿÿÿ
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ëøÿ 
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÀõÈ›şÿÿÿÿ
