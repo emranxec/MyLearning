@@ -1,12 +1,0 @@
-
-[	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(«¤ÜÕ
-‚
-java:S1130"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(«¤ÜÕ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(åë¹‚şÿÿÿÿ
-=
-java:S1481&"'Remove this unused "os" local variable.(¸£ı‡
-A
-java:S5960("+Remove this assertion from production code.(¢âè¢
-b
-java:S1192'"GDefine a constant instead of duplicating this literal "KIDNEY" 4 times.(Ûçµøÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÀõÈ›şÿÿÿÿ
