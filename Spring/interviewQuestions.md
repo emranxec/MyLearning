@@ -463,14 +463,179 @@ High Performance : Less xml & soap overhead and More caching enable Restful serv
 40. What is the difference between REST and SOAP Based Services?
 > First of all, REST is a set of architectural principles defining how a RESTful service should look look like. SOAP is a message exchange format. SOAP defines the structure of message to exchanged. How should the header be? How should the request content be? So, there is no real comparison between REST and SOAP.
 
-To get a real comparison, I compare two popular implementation of these concepts.
+    To get a real comparison, I compare two popular implementation of these concepts.
+    
+    Restful Sample Implementation : JSON over HTTP
+    SOAP Sample Implementation : XML over SOAP over HTTP
+    All comparison is between the Sample Restful and SOAP implementations described above.
+    
+    REST is built over simple HTTP protocol. SOAP services are more complex to implement and more complex to consume.
+    REST has better performance and scalability. REST reads can be cached, SOAP based reads cannot be cached.
+    REST permits many different data formats (JSON is the most popular choice) where as SOAP only permits XML.
+    SOAP services have well defined structure and interface (WSDL).
+    SOAP is based on well defined standards (WS-Security, WS-AtomicTransaction and WS-ReliableMessaging).
 
-Restful Sample Implementation : JSON over HTTP
-SOAP Sample Implementation : XML over SOAP over HTTP
-All comparison is between the Sample Restful and SOAP implementations described above.
+41. What is the core problem that the Spring Framework solves?
 
-REST is built over simple HTTP protocol. SOAP services are more complex to implement and more complex to consume.
-REST has better performance and scalability. REST reads can be cached, SOAP based reads cannot be cached.
-REST permits many different data formats (JSON is the most popular choice) where as SOAP only permits XML.
-SOAP services have well defined structure and interface (WSDL).
-SOAP is based on well defined standards (WS-Security, WS-AtomicTransaction and WS-ReliableMessaging).
+Think long and hard. What’s the problem the Spring Framework solves?
+
+The most important feature of the Spring Framework is Dependency Injection. At the core of all Spring Modules is Dependency Injection, or IOC Inversion of Control.
+
+Why is this important? Because, when DI or IOC is used properly, we can develop loosely coupled applications. And loosely coupled applications can be easily unit tested.
+
+Let’s consider a simple example:
+
+Example without Dependency Injection
+Consider the example below: WelcomeController depends on WelcomeService to get the welcome message. What is it doing to get an instance of WelcomeService? WelcomeService service = new WelcomeService();. It’s creating an instance of it. And that means they are tightly coupled. For example, If I create a mock for WelcomeService in a unit test for WelcomeController, how do I make WelcomeController use the mock? Not easy!
+
+	```
+@RestController
+public class WelcomeController {
+
+    private WelcomeService service = new WelcomeService();
+
+	@RequestMapping("/welcome")
+	public String welcome() {
+		return service.retrieveWelcomeMessage();
+	}
+}
+ ```
+```
+Same Example with Dependency Injection
+The world looks much easier with dependency injection. You let the spring framework do the hard work. We just use two simple annotations: @Service and @Autowired.
+
+Using @Service, we tell the Spring Framework: “Hey there, this is a bean that you need to manage.”
+Using @Autowired, we tell Spring Framework: Hey, find the correct match for this specific type and autowire it in.
+In the example below, the Spring framework would create a bean for WelcomeService and autowire it into WelcomeController
+
+In a unit test, I can ask the Spring framework to auto-wire the mock of WelcomeService into WelcomeController. Spring Boot makes it easy to do this with @MockBean. But, that’s a different story altogether.
+
+```
+@Service
+public class WelcomeService {
+//Bla Bla Bla
+}
+
+@RestController
+public class WelcomeController {
+
+    @Autowired
+    private WelcomeService service;
+
+	@RequestMapping("/welcome")
+	public String welcome() {
+		return service.retrieveWelcomeMessage();
+	}
+}
+```
+
+42. What else does the Spring Framework solve?
+>  ### Problem 1: Duplication/Plumbing Code
+Does the Spring Framework stop with Dependency Injection? No It builds on the core concept of dependency injection with a number of spring modules.
+
+    Spring JDBC
+    Spring MVC
+    Spring AOP
+    Spring ORM
+    Spring JMS
+    Spring Test
+    Consider Spring JMS and Spring JDBC for a moment.
+    
+    Do these modules bring in any new functionality? No We can do all this with J2EE or JEE. So, what do these bring in? They bring in simple abstractions. The aim of these abstractions is to
+    
+    Reduce Boilerplate Code/Reduce Duplication.
+    Promoting Decoupling/Increasing Unit Testablity
+    For example, you need much less code to use a JDBCTemplate or a JMSTemplate compared to traditional JDBC or JMS.
+
+   ### Problem 2: Good Integration with Other Frameworks
+    The great thing about the Spring Framework is that it does not try to solve problems which are already solved. All that it does is provide a great integration with frameworks that provide great solutions.
+    
+    Hibernate for ORM
+    iBatis for Object Mapping
+    JUnit & Mockito for Unit Testing
+    What is the core problem that the Spring MVC Framework solves?
+    The Spring MVC Framework provides a decoupled way of developing web applications. With simple concepts like Dispatcher Servlet, ModelAndView, and View Resolver, it makes it easy to develop web applications.
+
+33. Why do we need Spring Boot?
+> Spring-based applications have a lot of configuration.
+    When we use Spring MVC, we need to configure component scanning, dispatcher servlet, a view resolver,
+> and web jars (for delivering static content), among other things.
+
+ ### Problem # 1: Spring Boot Auto Configuration: Can we think differently?
+> The Spring Boot brings in a new thought process around this. 
+> Can we bring more intelligence into this? When a spring mvc jar is added into an application, can we auto configure some beans automatically?
+How about auto configuring a Data Source if Hibernate jar is on the classpath?
+How about auto configuring a Dispatcher Servlet if a Spring MVC jar is on the classpath?
+There would be provisions to override the default auto configuration.
+Spring Boot looks at: a) Frameworks available on the CLASSPATH b) Existing configuration for the application. Based on these, Spring Boot provides the basic configuration needed to configure the application with these frameworks. This is called Auto Configuration.
+
+ ### Problem #2: Spring Boot Starter Projects: Built around well-known patterns
+> Let’s say we want to develop a web application.
+First of all, we would need to identify the frameworks we want to use, which versions of frameworks to use, and how to connect them together.
+All web applications have similar needs. Listed below are some of the dependencies we use in our Spring MVC Course. These include Spring MVC, Jackson Databind (for data binding), Hibernate-Validator (for server side validation using the Java Validation API) and Log4j (for logging). When creating this course, we had to choose the compatible versions of all these frameworks.
+
+```
+<dependency>
+   <groupId>org.springframework</groupId>
+   <artifactId>spring-webmvc</artifactId>
+   <version>6.0.0-M4</version>
+</dependency>
+
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.13.3</version>
+</dependency>
+
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>7.0.4.Final</version>
+</dependency>
+
+<dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+</dependency>
+
+```
+
+>Here’s what the Spring Boot documentation says about starters.
+Starters are a convenient set of dependency descriptors that you can include in your application. You get a one-stop-shop for all the Spring and related technology that you need, without having to hunt through sample code and copy-paste loads of dependency descriptors. For example, if you want to get started using Spring and JPA for database access, just include the spring-boot-starter-data-jpa dependency in your project, and you are good to go.
+Let’s consider an example starter—Spring Boot Starter Web.
+If you want to develop a web application or an application to expose RESTful services, 
+> Spring Boot Start Web is the starter to pick. Let’s create a quick project with Spring Boot Starter Web using Spring Initializr.
+
+### Dependencies can be classified into:
+
+> Spring - core, beans, context, aop
+Web MVC - (Spring MVC)
+Jackson - for JSON Binding
+Validation - Hibernate Validator, Validation API
+Embedded Servlet Container - Tomcat
+Logging - logback, slf4j
+Any typical web application would use all these dependencies. The Spring Boot Starter Web comes pre-packaged with these. As a developer, I would not need to worry about either these dependencies or their compatible versions.
+
+> Spring Boot Starter Project Options
+As we see from Spring Boot Starter Web, starter projects help us to quickly get started with developing specific types of applications.
+
+> spring-boot-starter-web-services - SOAP Web Services
+spring-boot-starter-web - Web & RESTful applications
+spring-boot-starter-test - Unit testing and Integration Testing
+spring-boot-starter-jdbc - Traditional JDBC
+spring-boot-starter-hateoas - Add HATEOAS features to your services
+spring-boot-starter-security - Authentication and Authorization using Spring Security
+spring-boot-starter-data-jpa - Spring Data JPA with Hibernate
+spring-boot-starter-cache - Enabling Spring Framework’s caching support
+spring-boot-starter-data-rest - Expose Simple REST Services using Spring Data REST
+Other Goals of Spring Boot
+There are a few starters for technical stuff as well.
+spring-boot-starter-actuator - To use advanced features like monitoring & tracing to your application out of the box
+spring-boot-starter-undertow, spring-boot-starter-jetty, spring-boot-starter-tomcat - To pick your specific choice of embedded servlet container,
+spring-boot-starter-logging - For Logging using logback
+spring-boot-starter-log4j2 - Logging using Log4j2
+Spring Boot aims to enable production-ready applications in quick time.
+Actuator : It enables advanced monitoring and tracing of applications.
+Embedded Server Integrations - Since the server is integrated into the application, I would not need to have a separate application server installed on the server.
+Default Error Handling
