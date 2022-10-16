@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Azure/Azure.iml" filepath="$PROJECT_DIR$/Azure/Azure.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSA/DSA.iml" filepath="$PROJECT_DIR$/DSA/DSA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DevOps/DevOps.iml" filepath="$PROJECT_DIR$/DevOps/DevOps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Docker/Docker.iml" filepath="$PROJECT_DIR$/Docker/Docker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HackerRank/HackerRank.iml" filepath="$PROJECT_DIR$/HackerRank/HackerRank.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hibernate/Hibernate.iml" filepath="$PROJECT_DIR$/Hibernate/Hibernate.iml" />
       <module fileurl="file://$PROJECT_DIR$/Interview/Interview.iml" filepath="$PROJECT_DIR$/Interview/Interview.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java/Java.iml" filepath="$PROJECT_DIR$/Java/Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaEight/JavaEight.iml" filepath="$PROJECT_DIR$/JavaEight/JavaEight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/K8v/K8v.iml" filepath="$PROJECT_DIR$/K8v/K8v.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kafka/Kafka.iml" filepath="$PROJECT_DIR$/Kafka/Kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Microservices/Microservices.iml" filepath="$PROJECT_DIR$/Microservices/Microservices.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyLearnings.iml" filepath="$PROJECT_DIR$/MyLearnings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SQL/SQL.iml" filepath="$PROJECT_DIR$/SQL/SQL.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spring/Spring.iml" filepath="$PROJECT_DIR$/Spring/Spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/Threads/Threads.iml" filepath="$PROJECT_DIR$/Threads/Threads.iml" />
       <module fileurl="file://$PROJECT_DIR$/designPattern/designPattern.iml" filepath="$PROJECT_DIR$/designPattern/designPattern.iml" />
