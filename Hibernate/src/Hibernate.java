@@ -1,5 +1,3 @@
-package com.xec.Hibernate;
-
 public class Hibernate {
 
 /*    public Employee getEmployeeByEmail(String empEmail) {

@@ -7,8 +7,7 @@ import static java.util.stream.Collectors.*;
 
 /**
  * composite design pattern
- * Prototype design pattern
- * Oberserver design pattern
+ * Observer design pattern
  */
 
 public class azure {
@@ -39,6 +38,7 @@ public class azure {
 
 
         //todo cloning to get object copy
+        // Prototype design pattern
         CertificationCoursesInterface clonedCertification=  azureCertificationCourses.clone();
         clonedCertification.setCloudName("AWS");
 
@@ -107,7 +107,7 @@ class AzureCertificationCoursesInterface implements Cloneable, CertificationCour
     }
 
     @Override
-    public void notifySubscriber(String cloudName, int price){
+    public void notifySubscriber(String courseName, int price){
 
        // List<Obeserver> obeserverList=obeservers.stream().collect(filtering((Obeserver obeserver)->obeserver.getMembership().equals("gold"),toList()));
         //List<Obeserver> obeserverList=obeservers.stream().filter(obeserver -> obeserver.getMembership().equals("gold")).collect(toList());
@@ -144,11 +144,11 @@ class AzureCertificationCoursesInterface implements Cloneable, CertificationCour
 
 
         /*for (Obeserver obeserver : obeserverList){
-            obeserver.update(cloudName, 100);
+            obeserver.update(courseName, 100);
         }*/
-       // obeservers.stream().filter(obeserver -> obeserverList.contains(obeserver)).forEach(obeserver -> obeserver.update(cloudName,price));
+       // obeservers.stream().filter(obeserver -> obeserverList.contains(obeserver)).forEach(obeserver -> obeserver.update(courseName,price));
         /*for (Obeserver obeserver : obeservers.stream().filter(obeserver -> !obeserverList.contains(obeserver)).collect(toList())){
-            obeserver.update(cloudName, price);
+            obeserver.update(courseName, price);
         }*/
 
     }
@@ -180,6 +180,7 @@ class AzureCertificationCoursesInterface implements Cloneable, CertificationCour
 
     @Override
     public Course addNewCourse(String courseName, int price){
+        System.out.println("new course added with name: " + courseName + " & price  :" + price);
         if(!obeservers.isEmpty()) {
             notifySubscriber(courseName, price);
         }
