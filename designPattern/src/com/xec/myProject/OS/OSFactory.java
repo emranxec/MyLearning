@@ -1,5 +1,9 @@
 package com.xec.myProject.OS;
 
+/**
+ * creational
+ * Factory design pattern
+ */
 public class OSFactory {
     public static void main(String[] args) {
         OS myOS = getInstance("new");
@@ -41,7 +45,7 @@ class ProjectOSFactory {
 class Android implements OS {
     @Override
     public String getSpecs() {
-        return "OPEN User favourite Com.xec.OS.OS";
+        return "User favourite operating system";
     }
 }
 
@@ -50,7 +54,7 @@ class IOS implements OS {
 
     @Override
     public String getSpecs() {
-        return "Most costly Com.xec.OS.OS";
+        return "Most costly operating system";
     }
 }
 
@@ -59,7 +63,7 @@ class Windows implements OS {
 
     @Override
     public String getSpecs() {
-        return "Outdated Com.xec.OS.OS";
+        return "Outdated operating system";
     }
 }
 
@@ -67,6 +71,6 @@ class Go implements OS {
 
     @Override
     public String getSpecs() {
-        return "new Operating system Com.xec.OS.OS";
+        return "new Operating system";
     }
 }

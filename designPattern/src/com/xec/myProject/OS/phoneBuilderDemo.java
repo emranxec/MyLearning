@@ -1,6 +1,8 @@
 package com.xec.myProject.OS;
 
 /**
+ *
+ *
  * Com.xec.OS.Builder shop
  */
 
@@ -44,6 +46,10 @@ class Phone{
     }
 }
 
+/**
+ * Builder design pattern
+ *
+ */
 class PhoneBuilder {
 
     private OS os;

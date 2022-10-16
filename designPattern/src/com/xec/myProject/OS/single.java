@@ -4,6 +4,7 @@ import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+
 public class single {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, IOException, CloneNotSupportedException {
@@ -41,12 +42,12 @@ public class single {
 
 
         //todo best way
-        Singleton myCar = Singleton.INSTANCE;
+        SingletonUsingEnum myCar = SingletonUsingEnum.INSTANCE;
         myCar.i = 5;
         myCar.getI();
         System.out.println("hashcode for enam 1 is " + myCar.hashCode());
 
-        Singleton myCar1 = Singleton.INSTANCE;
+        SingletonUsingEnum myCar1 = SingletonUsingEnum.INSTANCE;
         myCar1.i = 6;
         myCar.getI();
         System.out.println("hashcode for enam 2 is " + myCar1.hashCode());
@@ -56,7 +57,16 @@ public class single {
 
 }
 
-
+/**
+ * singleton design pattern
+ * one instance per JVM
+ * default to unit test
+ * Spring bean - default
+ *
+ *
+ * private constructor
+ * static variable & method
+ */
 class SingletonReal implements Serializable, Cloneable {
     static SingletonReal singletonReal; //eager if defined
 
@@ -96,7 +106,7 @@ class SingletonReal implements Serializable, Cloneable {
 
 }
 
-enum Singleton{
+enum SingletonUsingEnum {
     INSTANCE;
     int i;
     public void getI(){

@@ -1,5 +1,8 @@
 package com.xec.myProject.azure;
 
+/**
+ * Observer Design pattern
+ */
 public interface Obeserver {
     void update(String courseName, int price);
 

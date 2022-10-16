@@ -15,7 +15,7 @@ public class AzureVm {
     }
 
     void bootOS(){
-        System.out.println("Operating System rebooted succeffuly with : " +os.getSpecs());
+        System.out.println("Operating System rebooted succeffuly with : " +getOs().getSpecs());
     }
 }
 

@@ -1,12 +1,16 @@
 package com.xec.myProject.azure;
 
 
+import com.xec.myProject.OS.OS;
+import com.xec.myProject.OS.OSFactory;
+import com.xec.myProject.OS.WindowsOSBooter;
+
 public class OSAdapterTest {
 
 
-    OSAdapter osAdapter=new OSAdapter(); //interface for windows
-
+    //AzureOSAdapter azureOsAdapter =new AzureOSAdapter(); //interface for windows
 /*
+
     @Mock
     WindowsOSBooter windowsOSService=Mockito.mock(WindowsOSBooter.class); //interface for windows
 

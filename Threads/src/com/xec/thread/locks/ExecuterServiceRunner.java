@@ -1,4 +1,6 @@
-package com.xec.thread;
+package com.xec.thread.locks;
+
+import com.xec.thread.ThreadColor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +18,15 @@ public class ExecuterServiceRunner {
         List<String> buffer = new ArrayList<String>();
         ReentrantLock bufferLock=new ReentrantLock(true);
 
-        MyProducer1 producer = new MyProducer1(buffer, ThreadColor.ANSI_YELLOW,bufferLock);
-        MyProducer1 producer1 = new MyProducer1(buffer, ThreadColor.ANSI_BLUE,bufferLock);
-        MyProducer1 producer2 = new MyProducer1(buffer, ThreadColor.ANSI_GREEN,bufferLock);
-        MyProducer1 producer3 = new MyProducer1(buffer, ThreadColor.ANSI_CYAN,bufferLock);
+        ReentrantProducer producer = new ReentrantProducer(buffer, ThreadColor.ANSI_YELLOW,bufferLock);
+        ReentrantProducer producer1 = new ReentrantProducer(buffer, ThreadColor.ANSI_BLUE,bufferLock);
+        ReentrantProducer producer2 = new ReentrantProducer(buffer, ThreadColor.ANSI_GREEN,bufferLock);
+        ReentrantProducer producer3 = new ReentrantProducer(buffer, ThreadColor.ANSI_CYAN,bufferLock);
 
-        MyConsumer1 consumer1 = new MyConsumer1(buffer, ThreadColor.ANSI_PURPLE,bufferLock);
-        MyConsumer1 consumer2 = new MyConsumer1(buffer, ThreadColor.ANSI_RED,bufferLock);
-        MyConsumer1 consumer3 = new MyConsumer1(buffer, ThreadColor.ANSI_BLACK,bufferLock);
-        MyConsumer1 consumer4 = new MyConsumer1(buffer, ThreadColor.ANSI_WHITE,bufferLock);
+        ReentrantConsumer consumer1 = new ReentrantConsumer(buffer, ThreadColor.ANSI_PURPLE,bufferLock);
+        ReentrantConsumer consumer2 = new ReentrantConsumer(buffer, ThreadColor.ANSI_RED,bufferLock);
+        ReentrantConsumer consumer3 = new ReentrantConsumer(buffer, ThreadColor.ANSI_BLACK,bufferLock);
+        ReentrantConsumer consumer4 = new ReentrantConsumer(buffer, ThreadColor.ANSI_WHITE,bufferLock);
 
         executorService.execute(producer);
         executorService.execute(producer1);
