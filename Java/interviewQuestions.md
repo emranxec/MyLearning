@@ -644,3 +644,105 @@ Lamda Expressions. Example : Runnable java8Runner = () -> { sop("I am running");
 Nashorn : javascript engine that enables us to run javascript to run on a jvm
 String.join() function
 Streams
+
+
+What are Generics?
+Generics are used to create Generic Classes and Generic methods which can work with different Types(Classes).
+
+Why do we need Generics? Can you give an example of how Generics make a program more flexible?
+Consider the class below:
+
+class MyList {
+private List<String> values;
+
+    void add(String value) {
+        values.add(value);
+    }
+
+    void remove(String value) {
+        values.remove(value);
+    }
+}
+MyList can be used to store a list of Strings only.
+
+        MyList myList = new MyList();
+        myList.add("Value 1");
+        myList.add("Value 2");
+To store integers, we need to create a new class. This is problem that Generics solve. Instead of hard-coding String class as the only type the class can work with, we make the class type a parameter to the class.
+
+Example with Generics
+Let’s replace String with T and create a new class. Now the MyListGeneric class can be used to create a list of Integers or a list of Strings
+
+class MyListGeneric<T> {
+private List<T> values;
+
+    void add(T value) {
+        values.add(value);
+    }
+
+    void remove(T value) {
+        values.remove(value);
+    }
+
+    T get(int index) {
+        return values.get(index);
+    }
+}
+
+MyListGeneric<String> myListString = new MyListGeneric<String>();
+myListString.add("Value 1");
+myListString.add("Value 2");
+
+MyListGeneric<Integer> myListInteger = new MyListGeneric<Integer>();
+myListInteger.add(1);
+myListInteger.add(2);
+How do you declare a Generic Class?
+Note the declaration of class:Instead of T, We can use any valid identifier.
+
+class MyListGeneric<T>
+What are the restrictions in using generic type that is declared in a class declaration?
+If a generic is declared as part of class declaration, it can be used any where a type can be used in a class - method (return type or argument), member variable etc. For Example: See how T is used as a parameter and return type in the class MyListGeneric.
+
+How can we restrict Generics to a subclass of particular class?
+In MyListGeneric, Type T is defined as part of class declaration. Any Java Type can be used a type for this class. If we would want to restrict the types allowed for a Generic Type, we can use a Generic Restrictions. Consider the example class below: In declaration of the class, we specified a constraint "T extends Number". We can use the class MyListRestricted with any class extending (any sub class of) Number - Float, Integer, Double etc.
+
+class MyListRestricted<T extends Number> {
+private List<T> values;
+
+    void add(T value) {
+        values.add(value);
+    }
+
+    void remove(T value) {
+        values.remove(value);
+    }
+
+    T get(int index) {
+        return values.get(index);
+    }
+}
+
+MyListRestricted<Integer> restrictedListInteger = new MyListRestricted<Integer>();
+restrictedListInteger.add(1);
+restrictedListInteger.add(2);
+String not valid substitute for constraint "T extends Number".
+
+//MyListRestricted<String> restrictedStringList =
+//                new MyListRestricted<String>();//COMPILER ERROR
+How can we restrict Generics to a super class of particular class?
+In MyListGeneric, Type T is defined as part of class declaration. Any Java Type can be used a type for this class. If we would want to restrict the types allowed for a Generic Type, we can use a Generic Restrictions. In declaration of the class, we specified a constraint "T super Number". We can use the class MyListRestricted with any class that is a super class of Number class.
+
+Can you give an example of a Generic Method?
+A generic type can be declared as part of method declaration as well. Then the generic type can be used anywhere in the method (return type, parameter type, local or block variable type).
+
+Consider the method below:
+
+    static <X extends Number> X doSomething(X number){
+        X result = number;
+        //do something with result
+        return result;
+    }
+The method can now be called with any Class type extend Number.
+
+Integer i = 5;
+Integer k = doSomething(i);

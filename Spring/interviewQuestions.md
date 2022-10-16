@@ -333,4 +333,65 @@ Spring Security is used to implement Authentication and Authorization for a web 
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+What is a REST Web Service?
+There are a set of architectural constraints (we will discuss them shortly) called Rest Style Constraints. Any service which satisfies these constraints is called RESTful Web Service.
 
+There are a lot of misconceptions about REST Web Services : They are over HTTP , based on JSON etc. Yes : More than 90% of RESTful Web Services are JSON over HTTP. But these are not necessary constraints. We can have RESTful Web Services which are not using JSON and which are not over HTTP.
+
+What are important constraints for a RESTful Web Service?
+The five important constraints for RESTful Web Service are
+
+Client - Server : There should be a service producer and a service consumer.
+The interface (URL) is uniform and exposing resources. Interface uses nouns (not actions)
+The service is stateless. Even if the service is called 10 times, the result must be the same.
+The service result should be Cacheable. HTTP cache, for example.
+Service should assume a Layered architecture. Client should not assume direct connection to server - it might be getting info from a middle layer - cache.
+What is Richardson Maturity Model?
+Richardson Maturity Model defines the maturity level of a Restful Web Service. Following are the different levels and their characteristics.
+
+Level 0 : Expose SOAP web services in REST style. Expose action based services (http://server/getPosts, http://server/deletePosts, http://server/doThis, http://server/doThat etc) using REST.
+Level 1 : Expose Resources with proper URI’s (using nouns). Ex: http://server/accounts, http://server/accounts/10. However, HTTP Methods are not used.
+Level 2 : Resources use proper URI's + HTTP Methods. For example, to update an account, you do a PUT to . The create an account, you do a POST to . Uri’s look like posts/1/comments/5 and accounts/1/friends/1.
+Level 3 : HATEOAS (Hypermedia as the engine of application state). You will tell not only about the information being requested but also about the next possible actions that the service consumer can do. When requesting information about a facebook user, a REST service can return user details along with information about how to get his recent posts, how to get his recent comments and how to retrieve his friend’s list.
+What are the best practices in designing RESTful APIs?
+While designing any API, the most important thing is to think about the api consumer i.e. the client who is going to use the service. What are his needs? Does the service uri make sense to him? Does the request, response format make sense to him?
+In Rest, we think Nouns (resources) and NOT Verbs (NOT actions). So, URI’s should represent resources. URI’s should be hierarchical and as self descriptive as possible. Prefer plurals.
+Always use HTTP Methods. Best practices with respect to each HTTP method is described in the next question.
+What are the best practices in using HTTP methods with Restful Web Services?
+GET : Should not update anything. Should be idempotent (same result in multiple calls). Possible Return Codes 200 (OK) + 404 (NOT FOUND) +400 (BAD REQUEST)
+POST : Should create new resource. Ideally return JSON with link to newly created resource. Same return codes as get possible. In addition : Return code 201 (CREATED) is possible.
+PUT : Update a known resource. ex: update client details. Possible Return Codes : 200(OK)
+DELETE : Used to delete a resource.
+Can you explain a little bit about JAX-RS?
+JAX-RS is the JEE Specification for Restful web services implemented by all JEE compliant web servers (and application servers).
+
+Important Annotations:
+
+@ApplicationPath("/"). @Path("users") : used on class and methods to define the url path.
+@GET @POST : Used to define the HTTP method that invokes the method.
+@Produces(MediaType.APPLICATION_JSON) : Defines the output format of Restful service.
+@Path("/{id}") on method (and) @PathParam("id") on method parameter : This helps in defining a dynamic parameter in Rest URL. @Path("{user_id}/followers/{follower_id}") is a more complicated example.
+@QueryParam("page") : To define a method parameter ex: /users?page=10.
+Useful methods:
+
+Response.OK(jsonBuilder.build()).build() returns json response with status code.
+Json.createObjectBuilder(). add("id",user.getId()); creates a user object.
+What are the advantages of Restful web services?
+Lightweight : Easy to consume from mobile devices also.
+Easy to expose : Little or no restrictions on output format and communication protocol.
+Most Restful services use HTTP protocol : Entire web is based on HTTP and is built for efficiency of HTTP. Things like HTTP caching enable Restful services to be effective.
+High Performance : Less xml & soap overhead and More caching enable Restful services to be highly performant.
+What is the difference between REST and SOAP Based Services?
+First of all, REST is a set of architectural principles defining how a RESTful service should look look like. SOAP is a message exchange format. SOAP defines the structure of message to exchanged. How should the header be? How should the request content be? So, there is no real comparison between REST and SOAP.
+
+To get a real comparison, I compare two popular implementation of these concepts.
+
+Restful Sample Implementation : JSON over HTTP
+SOAP Sample Implementation : XML over SOAP over HTTP
+All comparison is between the Sample Restful and SOAP implementations described above.
+
+REST is built over simple HTTP protocol. SOAP services are more complex to implement and more complex to consume.
+REST has better performance and scalability. REST reads can be cached, SOAP based reads cannot be cached.
+REST permits many different data formats (JSON is the most popular choice) where as SOAP only permits XML.
+SOAP services have well defined structure and interface (WSDL).
+SOAP is based on well defined standards (WS-Security, WS-AtomicTransaction and WS-ReliableMessaging).
