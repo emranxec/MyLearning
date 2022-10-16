@@ -1,88 +1,88 @@
 1. table name
 
-@Table(name = "orders",
+        @Table(name = "orders",
         uniqueConstraints = @UniqueConstraint(name="customerId",columnNames = {"id","customerId"}))
 
 2. id generator
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//todo :: interview ::
-    private UUID id;
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)//todo :: interview ::
+            private UUID id;
 3. what is optimistic locking
 
-@version
-@Column(name="version_number")
-public Integer getVersion;
+        @version
+        @Column(name="version_number")
+        public Integer getVersion;
 
 4. How do you implement single table per class hierarchy strategy with Hibernate?
 
-single table per class hierarchy strategy
+        single table per class hierarchy strategy
 
-@Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(
-    name="cartype",
-    discriminatorType=DiscriminatorType.STRING
-)
+        @Entity
+        @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+        @DiscriminatorColumn(
+            name="cartype",
+            discriminatorType=DiscriminatorType.STRING
+        )
 
-@DiscriminatorValue("Car")
-public class Car { ... }
+        @DiscriminatorValue("Car")
+        public class Car { ... }
 
-@Entity
-@DiscriminatorValue("Formula1")
-public class FormulaOneCar extends Car { ... }
+        @Entity
+        @DiscriminatorValue("Formula1")
+        public class FormulaOneCar extends Car { ... }
 
 5. How do you implement table per class strategy with Hibernate?
 
-Table per class strategy is the default strategy for Hibernate.
+        Table per class strategy is the default strategy for Hibernate.
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Car implements Serializable { ... }
+        @Entity
+        @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+        public class Car implements Serializable { ... }
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class FormulaOneCar implements Serializable { ... }
+        @Entity
+        @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+        public class FormulaOneCar implements Serializable { ... }
 
 6. How do you specify a one to many unidirectional relationship with Hiberate?
 
-public class Parent {
-    @Id
-    @GeneratedValue
-    private long id;
+        public class Parent {
+            @Id
+            @GeneratedValue
+            private long id;
 
-    @OneToMany
-    private Set<Child> children;
-}
+            @OneToMany
+            private Set<Child> children;
+        }
 
-public class Child {
-   @Id 
-   @GeneratedValue
-   private long id;
-   private String name;
-}
+        public class Child {
+           @Id 
+           @GeneratedValue
+           private long id;
+           private String name;
+        }
 
 7. How do you specify a one-to-many bidirectional relationship with Hibernate?
 
 
-public class Parent {
-@Id
-@GeneratedValue
-private long id;
+        public class Parent {
+        @Id
+        @GeneratedValue
+        private long id;
 
-    @OneToMany
-    private Set<Child> children;
-}
+            @OneToMany
+            private Set<Child> children;
+        }
 
-public class Child {
-@Id
-@GeneratedValue
-private long id;
-private String name;
+        public class Child {
+        @Id
+        @GeneratedValue
+        private long id;
+        private String name;
 
-    @ManyToOne
-    private Parent parent;
-    }
+            @ManyToOne
+            private Parent parent;
+            }
 
 8. How do you implement pagination with Hibernate?
 
