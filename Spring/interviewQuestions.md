@@ -1071,6 +1071,6 @@ public ConfigurableApplicationContext run(String... args) {
 
 >The run() is responsible to manage the context, environment, listeners, applicationArguments, printedBanner as we can see in
 ```  
-prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+== prepareContext(context, environment, listeners, applicationArguments, printedBanner); ==
 ```  
 
