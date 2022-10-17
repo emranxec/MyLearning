@@ -1010,3 +1010,67 @@ It launches up tomcat when it sees that you are developing a web application!
     
     Using -Dspring.profiles.active=prod in VM Arguments
     Use spring.profiles.active=prod in application.properties
+
+
+57. Why to overide run in springApplication?
+> By launching the Application class, we can complete a series of operations
+> such as Spring initialization, automatic assembly, and so on. 
+> The start-up process through two entry points: @SpringBootApplication and SpringApplication.run
+
+### 1.Entry method:
+
+> A static helper that can be used to run a SpringApplication from the specified 
+source using default settings which primarySource the primary source to load, 
+args the application arguments (usually passed from a Java main method) 
+which results in the running ApplicationContext
+```  
+public static ConfigurableApplicationContext run(Class<?> primarySource, String... args) {
+    return run(new Class<?>[] { primarySource }, args);
+}
+```  
+
+>After calling the static run method, through a series of calls we will eventually 
+> enter the following position in the Spring Application class
+As you can see, this method does two things, initializes the Spring Application class,
+> and calls the internal public run method.
+
+### 2. Spring Application initialization
+
+>Run the Spring application, creating and refreshing a new ApplicationContext
+> with-param args the application arguments (usually passed from a Java main method) 
+> that return a running ApplicationContext
+
+```  
+public ConfigurableApplicationContext run(String... args) {
+
+      ...
+
+      try {
+            ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);
+            ConfigurableEnvironment environment = prepareEnvironment(listeners, applicationArguments);
+            configureIgnoreBeanInfo(environment);
+            Banner printedBanner = printBanner(environment);
+            context = createApplicationContext();
+            exceptionReporters = getSpringFactoriesInstances(SpringBootExceptionReporter.class,
+                    new Class[] { ConfigurableApplicationContext.class }, context);
+            prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+            refreshContext(context);
+            afterRefresh(context, applicationArguments);
+            stopWatch.stop();
+            if (this.logStartupInfo) {
+                new StartupInfoLogger(this.mainApplicationClass).logStarted(getApplicationLog(), stopWatch);
+            }
+            listeners.started(context);
+            callRunners(context, applicationArguments);
+        }
+
+      ...
+
+}
+```  
+
+>The run() is responsible to manage the context, environment, listeners, applicationArguments, printedBanner as we can see in
+```  
+prepareContext(context, environment, listeners, applicationArguments, printedBanner);
+```  
+
