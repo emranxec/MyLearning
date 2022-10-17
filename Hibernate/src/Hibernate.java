@@ -1,6 +1,24 @@
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 public class Hibernate {
 
-/*    public Employee getEmployeeByEmail(String empEmail) {
+
+    public static void main(String[] args) {
+        SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
+        Session session= sessionFactory.openSession();
+        session.beginTransaction();
+
+        Query query=session.createQuery("from Employee where email = :email");
+        query.setParameter("email","imran@gmail.com");
+        query.setCacheable(true);
+        session.getTransaction();
+        session.close();
+    }
+/*  public Employee getEmployeeByEmail(String empEmail) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Employee where email = :email");
         query.setParameter("email", empEmail);
         return (Employee) query.list().get(0);

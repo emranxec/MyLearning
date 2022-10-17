@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="net.sf.ehcache" type="repository">
+    <properties maven-id="net.sf.ehcache:ehcache:2.9.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache/2.9.0/ehcache-2.9.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
