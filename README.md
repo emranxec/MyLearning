@@ -323,8 +323,50 @@ throws ClientProtocolException, IOException {
 
 16. how to process: 10000 request handling at once & persist in DB ?
 17. what is SAAS?
-> 
-18. what is Transactions in Spring?
+> What is SaaS? Software as a service (or SaaS) is a way of delivering applications over the Internet—as a service. 
+> Instead of installing and maintaining software, you simply access it via the Internet, 
+> freeing yourself from complex software and hardware management.
+> eg. Netflix, Spotify, Dropbox and Slack are common SaaS products, in which the product 
+> is then delivered to users over the internet on a subscription basis, 
+> giving users the flexibility to not have to worry about upfront installation purchases or ongoing maintenance costs.
+
+18. How to handle Transactions in Spring?
+> ### Using @Transactional power
+> As we defined before, in a transaction, if a single process fails then all transactions should fail. 
+> We can implement this behavior using @Transactional annotation.
+ ```
+@Service
+public class TransferService {
+
+private UserService userService;
+private AccountService accountService;
+
+@Autowired
+public TransferService(UserService userService, AccountService accountService) {
+this.userService = userService;
+this.accountService = accountService;
+}
+
+@Transactional // This makes all difference
+public void transferMoney(long accountFrom, long accountTo){
+try {
+userService.validateUserAccount(accountTo);
+accountService.validateAccountMoney(accountFrom);
+accountService.discountMoneyFromAccount(accountFrom);
+accountService.addMoneyToAccount(accountTo);
+} catch (TrasferException e) {
+// Something in case the transaction fails
+}
+}
+
+}
+ ```
+>@Transactional will make sure all our operations are successfully executed, 
+> if not, it will roll back all operations at the database as if nothing happened.
+>Resuming why we should use transaction management:
+Transactional operations are atomic units
+The same connection is reused across all transactions.
+* To keep in mind, @Transactional could be used at class level too, then all inner methods will be considered single transaction. *
 19. explain Transactions in hibernate?
 20. explain RESTFUL FLOW ?
 21. what are RESTFUL annotations?
