@@ -275,11 +275,49 @@ List<Integer> flatList
 > With serverless computing, your application still runs on servers, but all the server management is done by AWS.
 
 11. what is java steams?
->
+>Introduced in Java 8, the Stream API is used to process collections of objects. 
+> A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result.
+The features of Java stream are –
+- A stream is not a data structure instead it takes input from the Collections, Arrays or I/O channels.
+- Streams don’t change the original data structure, they only provide the result as per the pipelined methods.
+- Each intermediate operation is lazily executed and returns a stream as a result, 
+- hence various intermediate operations can be pipelined. 
+- Terminal operations mark the end of the stream and return the result.
+
 12. what factory class java having?
+
+>This design pattern has been widely used in JDK, such as
+- getInstance() method of java.util.Calendar, NumberFormat, and ResourceBundle uses factory method design pattern. 
+- All the wrapper classes like Integer, Boolean etc, in Java uses this pattern to evaluate the values using valueOf() method.
+- java.nio.charset.Charset.forName(), 
+- java.sql.DriverManager#getConnection(), 
+- java.net.URL.openConnection(), 
+- java.lang.Class.newInstance(), 
+- java.lang.Class.forName() are some of their example where factory method design pattern has been used.
+
 13. flow of Spring MVC?
+
 14. How you test json implementation?
+ ```
+@Test
+public void givenUserDoesNotExists_whenUserInfoIsRetrieved_then404IsReceived()
+throws ClientProtocolException, IOException {
+
+    // Given
+    String name = RandomStringUtils.randomAlphabetic( 8 );
+    HttpUriRequest request = new HttpGet( "https://api.github.com/users/" + name );
+
+    // When
+    HttpResponse httpResponse = HttpClientBuilder.create().build().execute( request );
+
+    // Then
+    assertThat(
+      httpResponse.getStatusLine().getStatusCode(),
+      equalTo(HttpStatus.SC_NOT_FOUND));
+}
+ ```
 15. Explain MVC architectute?
+
 16. how to process: 10000 request handling at once & persist inDB
 17. what is SAAS?
 18. what is Transactions in Spring?
