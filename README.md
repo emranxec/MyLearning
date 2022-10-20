@@ -60,6 +60,10 @@ List<Integer> withoutDupes = withDupes.stream() .distinct() .collect(Collectors.
 ```
 
 4. design patterns in spring?
+
+> [design patterns](https://github.com/emranxec/MyLearning/blob/master/designPattern/interviewQuestions.md)
+
+
 6.  how to connect DB from spring?
 7.  Map vs flatMap?
 8.  what is singleton, factory pattern,builder pattern ?
