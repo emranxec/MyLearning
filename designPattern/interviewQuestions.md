@@ -3,7 +3,7 @@ Idea behind this article is to give an overview of Design Patterns and not reall
 
 There are three different types of Design Patterns
 
-Design Patterns interview questions
+# Design Patterns interview questions
 
 Creational Patterns : Concerned with creation of Objects. Prototype, Singleton, Builder etc.
 Structural Patterns : Concerned with structure of Objects and the relationships between them. Decorator, Facade, Adapter etc.
@@ -11,16 +11,16 @@ Behavioural Patterns : Concerned with interaction between objects. Strategy, Tem
 Creational Patterns
 Creational Patterns deal with creation of objects.
 
-“Creational"
+## “Creational"
 
-Prototype
+### Prototype
 Prototype is defined as “A fully initialized instance to be copied or cloned”. Let’s consider a Chess Game. At the start of the game, the way the pieces are arranged on a board is the same. Following strategy can be used in a chess program to setup a new game:
 
 Create a fully initialized instance of a chess game with the correct positions for all pieces.This is the prototype.
 
 Whenever there is a need to create a new chess game, clone or copy the initial chess game prototype.
 
-Builder
+### Builder
 Builder pattern is usually used to hide the complexity of an object construction. Certain objects might have complex internal structure. Every time an instance is created, the entire structure needs to be created. It is a good practice to hide this complexity from the dependant objects. And that’s where the Builder pattern comes in.
 
 Builder pattern is defined as “Separates object construction from its representation”.
@@ -42,7 +42,8 @@ meal.addItem(new PineappleJuice());
 return meal;
 }
 }
-Singleton
+
+### Singleton
 Singleton is defined as “A class of which only a single instance can exist (in a jvm). A good example of Singleton class in Java is java.lang.System.
 
 If you are a Java guys, then these things might be useful:
@@ -54,16 +55,16 @@ In Spring, all beans are singletons by default (in the scope of application cont
 Structural
 Structural patterns deal with the structure of objects and their relationships.
 
-“Structural
+## “Structural
 
-Proxy
+### Proxy
 Proxy is defined as “An object representing another object”.
 
 A good example of a proxy is a Debit Card. It represents the bank account but is really not the bank account itself. It acts as a proxy to our Bank Account.
 
 EJB’s typically have two interfaces - Remote and Home. Home interface is a good example of a proxy.
 
-Decorator
+### Decorator
 Decorator is defined as “Add responsibilities to objects dynamically”.
 
 Let’s take an example of a Pizza shop offering 10 types of Pizzas. Currently these are defined using an inheritance chain. All these 10 pizza types extend AbstractPizza class. Now, there is a new functionality requested - we would want to allow 3 different types of toppings for each of the pizza type. We have two options
@@ -76,7 +77,7 @@ Good example for decorator is the Java IO Class Structure. To create a LineNumbe
 
 Disadvantage of Decorator is the resulting complexity in creating objects.
 
-Facade
+### Facade
 Facade is defined as “A single class that represents an entire subsystem”.
 
 A good example of facade in real life is an event manager. We approach an event manager to organize an event and they would take care of arranging everything related to the event - Decoration, Food, Invitations, Music Band etc.
@@ -99,36 +100,36 @@ Defined as “Match interfaces of different classes”. All the translators that
 
 A good real life example would be Power Adapters.
 
-Behavioural
+## Behavioural
 “Behavioural
 
-Chain of Responsibility
+### Chain of Responsibility
 Defined as “A way of passing a request between a chain of objects”.
 
 A good real time example is the Loan or Leave Approval Process. When a loan approval is needed, it first goes to the clerk. If he cannot handle it (large amount), it goes to his manager and so on until it is approved or rejected.
 
 Another good example is Exception Handling in most programming languages. When an exception is thrown from a method with no exception handling, it is thrown to the calling method. If there is no exception handling in that method too, it is further thrown up to its calling method and so on. This happens until an appropriate exception handler is found.
 
-Iterator
+### Iterator
 Defined as “Sequentially access the elements of a collection”.
 
 Different objects might have different internal representations. Iterator defines one way of looping through the objects in a list or a collection or a map, so that the internal complexities are hidden.
 
-Strategy
+### Strategy
 Defined as “Encapsulates an algorithm inside a class”.
 
 Typically used to decouple the algorithm or strategy used from the implementation of the class so that the algorithm can be changed independent of the class.
 
 A good example in Java is the Comparator interface. java.util.Comparator#compare()
 
-Observer
+### Observer
 Defined as “A way of notifying change to a number of classes”.
 
 A good example is Online Bidding. Different people can register as observers. They all are notified when there is a new bid.
 
 If you are a Java programmer, Observer design pattern is already built for you. Look up the Observer interface and Observable class.
 
-Template Method
+### Template Method
 Defined as “Defer the exact steps of an algorithm to a subclass”.
 
 Good example is a House Plan. A high level floor plan is provided first. Within a floor plan, the foundation, framing, plumbing, and wiring will be identical for each house. Variations for each house can be added in later - additional wing, wooden flooring/carpet, which color to paint.
@@ -158,18 +159,9 @@ In a number of games, we have the feature to do an intermediate save and return 
 
 Another good example is the Undo / Redo Operations in text or image editing software. Software saves the intermediate state at various points so that we can easily return back to that state.
 
-Mediator
+### Mediator
 Defined as “Defines simplified communication between classes”.
 
 A good example of Mediator is an Enterprise Service Bus. Instead of allowing applications to directly communicate with each other, they go through an ESB.
 
 A good real life example is Air Traffic Controller. All the flights talk to ATC to decide the route to take. Imagine the chaos if each flight has to talk to all other flights to decide the route.
-
-If you loved these Questions, you will love our PDF Interview Guide with 400+ Questions.
-Download it now!.
-
-400+ Interview Questions in 4 Categories:
-Java : Core Java, Advanced Java, Generics, Exception Handling, Serialization, Threads, Synchronization, Java New Features
-Frameworks : Spring, Spring MVC, Struts, Hibernate
-Design : Design, Design Patterns, Code Review
-Architecture : Architecture, Performance & Load Testing, Web Services, REST Web Services,Security, Continuous Integration
