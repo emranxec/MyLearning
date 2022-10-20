@@ -1,5 +1,3 @@
-# MyLearning interview
-
 1. how to create a immutable class?
 2. what is sequential & parallel streams?
 3. remove duplicate using streams?
