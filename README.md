@@ -468,7 +468,33 @@ this.color = color;
 
 25. Explain how to create user defined annotations ?
 
+## Create Custom Annotation
+- Class Level Annotation
+- Field Level Annotation
+- Method Level Annotation
+
+### Class Level Annotation
+
+`@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.Type)
+public @interface GFG {
+}`
+
+### Field Level Annotation
+`@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.FIELD)
+public @interface GFGElement {
+public String key() default "";
+}`
+
+### Method Level Annotation
+`@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface Init {
+}`
+
 26. How many ways to connect DB from Hibernate & Spring ?
+
 27. what are Microservices design patterns?
 28. SQL queries with Functions & stored procedures
 29. Basic packages requires to create spring boot application
