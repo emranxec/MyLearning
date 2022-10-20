@@ -27,7 +27,26 @@ final class immmutableClass{
 ```
 2. what is sequential & parallel streams?
 
-   [parallel-vs-sequential-stream-in-java](https://www.geeksforgeeks.org/parallel-vs-sequential-stream-in-java/) 
+> A stream in Java is a sequence of objects which operates on a data source such as an array or a collection 
+> and supports various methods.  
+> It was introduced in Java 8’s java.util.stream package. 
+> Stream supports many aggregate operations like filter, map, limit, reduce, find, and match 
+> to customize the original data into a different form according to the need of the programmer. 
+> The operations performed on a stream do not modify its source hence a new stream is created according to the operation applied to it. 
+> The new data is a transformed copy of the original form.
+
+[parallel-vs-sequential-stream-in-java](https://www.geeksforgeeks.org/parallel-vs-sequential-stream-in-java/) 
+```
+// we are using stream() method
+// for sequential stream
+// Iterate and print each element
+// of the stream
+list.stream().forEach(System.out::print);
+
+// using parallelStream()
+// method for parallel stream
+list.parallelStream().forEach(System.out::print);
+```
 
 3. remove duplicate using streams?
 4. design patterns in spring?
