@@ -494,7 +494,7 @@ public @interface Init {
 }`
 
 26. How many ways to connect DB from Hibernate & Spring ?
-
+----
 27. what are Microservices design patterns?
 >Microservices Design Patterns:
 Aggregator
@@ -508,7 +508,7 @@ Command Query Responsibility Segregator
 Circuit Breaker
 Decomposition
 [design-patterns-for-microservices](https://dzone.com/articles/design-patterns-for-microservices)
-
+----
 28. SQL queries with Functions & stored procedures
 29. Basic packages requires to create spring boot application
 30. What inbuilt server spring uses?
