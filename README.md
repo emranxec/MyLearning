@@ -49,6 +49,16 @@ list.parallelStream().forEach(System.out::print);
 ```
 
 3. remove duplicate using streams?
+
+> You can use the Stream.distinct() method to remove duplicates from a Stream in Java 8 and beyond.
+> The distinct() method behaves like a distinct clause of SQL, which eliminates duplicate rows from the result set.
+
+```
+List<Integer> withDupes = Arrays.asList(10, 10, 20, 20, 30, 30, 40, 50); 
+System.out.println("List with duplicates: " + withDupes); 
+List<Integer> withoutDupes = withDupes.stream() .distinct() .collect(Collectors.toList());
+```
+
 4. design patterns in spring?
 6.  how to connect DB from spring?
 7.  Map vs flatMap?
