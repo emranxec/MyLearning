@@ -366,8 +366,42 @@ accountService.addMoneyToAccount(accountTo);
 >Resuming why we should use transaction management:
 Transactional operations are atomic units
 The same connection is reused across all transactions.
-* To keep in mind, @Transactional could be used at class level too, then all inner methods will be considered single transaction. *
+
+* To keep in mind, @Transactional could be used at class level too,
+* then all inner methods will be considered single transaction. 
+
+### Isolation
+>Spring allows managing the isolation level. The default strategy for most databases is READ_COMMITTED, 
+but we have other ones such as: READ_UNCOMMITTED, REPEATABLE_READ and SERIALIZABLE.
+
+- READ_COMMITTED will only read committed operations to the database and maintain us safe from dirty reads.
+- READ_UNCOMMITTED allows the current transaction to read the uncommitted changes from another transaction. The lowest isolation level.
+- REPEATABLE_READ prevent dirty reads and if one row is read more than one time in a single transaction, the read result will always be the same.
+- SERIALIZABLE prevents non-repeatable reads, dirty reads, and phantom reads. Has impact on performance.
+
+### Propagation
+>Below are propagation levels:
+REQUIRED
+REQUIRES_NEW
+SUPPORTS
+MANDATORY
+NEVER
+NOT_SUPPORTED
+NESTED
+
+### Rollback rules
+>We can add specific configuration to allow rollback or non-rollback depending on the exception thrown:
+ ```
+@Transactional(rollbackFor=MyException.class, noRollbackFor=OtherException.class)
+public void addMoneyToAccount(long account) {
+ ```
+
+[spring-core-managing-transactions](https://medium.com/javarevisited/spring-core-managing-transactions-effectively-781bba6c47e8)
+[Transaction Management](https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html)
+
 19. explain Transactions in hibernate?
+
+
 20. explain RESTFUL FLOW ?
 21. what are RESTFUL annotations?
 22. Explain microservices?
