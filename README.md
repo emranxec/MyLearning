@@ -391,13 +391,13 @@ NESTED
 
 ### Rollback rules
 >We can add specific configuration to allow rollback or non-rollback depending on the exception thrown:
- ```
-@Transactional(rollbackFor=MyException.class, noRollbackFor=OtherException.class)
-public void addMoneyToAccount(long account) {
- ```
+
+`@Transactional(rollbackFor=MyException.class, noRollbackFor=OtherException.class)
+public void addMoneyToAccount(long account) {`
 
 - [spring-core-managing-transactions](https://medium.com/javarevisited/spring-core-managing-transactions-effectively-781bba6c47e8)
 - [Transaction Management](https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html)
+
 
 19. explain Transactions in hibernate?
 
