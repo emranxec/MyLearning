@@ -13,6 +13,18 @@
 - A parameterized constructor should initialize all the fields performing a deep copy so that data members can’t be modified with an object reference.
 - Deep Copy of objects should be performed in the getter methods to return a copy rather than returning the actual object reference)
 
+```
+final class immmutableClass{
+    final private String name;
+
+    immmutableClass(String name){
+        this.name=name;
+    }
+    String getName(){
+        return name;
+    }
+}
+```
 2. what is sequential & parallel streams?
 3. remove duplicate using streams?
 4. design patterns in spring?
