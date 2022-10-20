@@ -64,7 +64,8 @@ List<Integer> withoutDupes = withDupes.stream() .distinct() .collect(Collectors.
 > [design patterns](https://github.com/emranxec/MyLearning/blob/master/designPattern/interviewQuestions.md)
 
 > ## Singleton Pattern
-    The singleton pattern is a mechanism that ensures only one instance of an object exists per application. This pattern can be useful when managing shared resources or providing cross-cutting services, such as logging.
+    The singleton pattern is a mechanism that ensures only one instance of an object exists per application. 
+This pattern can be useful when managing shared resources or providing cross-cutting services, such as logging.
 
 ### Singleton Beans
 > Generally, a singleton is globally unique for an application, but in Spring, this constraint is relaxed. Instead, Spring restricts 
@@ -75,7 +76,8 @@ a singleton to one object per Spring IoC container. In practice, this means Spri
 > First, we create a BookRepository that manages our Book domain objects.
 > Next, we create LibraryController, which uses the BookRepository to return the number of books in the library
 > In the application output, we see that both BookRepository objects have the same object ID
-> NOTE: We can create separate instances of the BookRepository bean by changing the bean scope from singleton to prototype using the @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) annotation.
+> NOTE: We can create separate instances of the BookRepository bean by changing the bean scope from singleton to prototype
+> using the @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) annotation.
 
 ## Factory Method Pattern
 
@@ -225,16 +227,55 @@ BlogRespository blogRespository;
 >Actuator brings production-ready features to our application.
 >Monitoring our app, gathering metrics, understanding traffic, or the state of our database become trivial with this dependency.
 >The main benefit of this library is that we can get production-grade tools without having to actually implement these features ourselves.
->Actuator is mainly used to expose operational information about the running application — health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it.
+>Actuator is mainly used to expose operational information about the running application — health, metrics, info, dump, env, etc. 
+> It uses HTTP endpoints or JMX beans to enable us to interact with it.
 
 7. Map vs flatMap?
+>map() can be used where we have to map the elements of a particular collection to a certain function, and then we need to return the stream which contains the updated results.
+Example: Multiplying All the elements of the list by 3 and returning the updated list.
+flatMap() can be used where we have to flatten or transform out the string, as we cannot flatten our string using map().
+Example: Getting the 1st Character of all the String present in a List of Strings and returning the result in form of a stream.
+ ```
+List list = fruit.stream()
+.map(s -> s.length())
+.collect(Collectors.toList());
 
-8.  what is singleton, factory pattern,builder pattern ?
+List<Integer> flatList
+= number.stream()
+.flatMap(list -> list.stream())
+.collect(Collectors.toList());
+ ```
+> [difference-between-map-and-flatmap-in-java-stream](https://www.geeksforgeeks.org/difference-between-map-and-flatmap-in-java-stream/) 
+
+8. what is singleton, factory pattern,builder pattern ?
+
+> [design patterns](https://github.com/emranxec/MyLearning/blob/master/designPattern/interviewQuestions.md)
+
 9.  what is Azure function?
+
+> Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, 
+> and save on costs. Instead of worrying about deploying and maintaining servers, 
+> the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
+
 10. Azure kubernate?
+
+>Azure Kubernetes Service is a managed container orchestration service based on the open source 
+> Kubernetes system, which is available on the Microsoft Azure public cloud. An organization can 
+> use AKS to handle critical functionality such as deploying, scaling and managing Docker containers and container-based applications.\
+
 11. what is responsive UI in JS?
+
+>Responsive design is a graphic user interface (GUI) design approach used to create content that adjusts smoothly 
+> to various screen sizes. Designers size elements in relative units (%) and apply media queries, 
+> so their designs can automatically adapt to the browser space to ensure content consistency across devices.
+
+
 12. what is Serverless computing?
+> Serverless computing allows you to build and run applications and services without thinking about servers. 
+> With serverless computing, your application still runs on servers, but all the server management is done by AWS.
+
 11. what is java steams?
+>
 12. what factory class java having?
 13. flow of Spring MVC?
 14. How you test json implementation?
