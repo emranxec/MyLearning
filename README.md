@@ -396,8 +396,8 @@ NESTED
 public void addMoneyToAccount(long account) {
  ```
 
-[spring-core-managing-transactions](https://medium.com/javarevisited/spring-core-managing-transactions-effectively-781bba6c47e8)
-[Transaction Management](https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html)
+- [spring-core-managing-transactions](https://medium.com/javarevisited/spring-core-managing-transactions-effectively-781bba6c47e8)
+- [Transaction Management](https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html)
 
 19. explain Transactions in hibernate?
 
