@@ -296,6 +296,7 @@ The features of Java stream are –
 - java.lang.Class.forName() are some of their example where factory method design pattern has been used.
 
 13. flow of Spring MVC?
+> ![MVC](https://user-images.githubusercontent.com/16031518/196950237-c8c079a6-ebd3-448a-aab8-a35486abf2ec.png)
 
 14. How you test json implementation?
  ```
@@ -317,9 +318,12 @@ throws ClientProtocolException, IOException {
 }
  ```
 15. Explain MVC architectute?
+    
+> ![MVC](https://user-images.githubusercontent.com/16031518/196950237-c8c079a6-ebd3-448a-aab8-a35486abf2ec.png)
 
-16. how to process: 10000 request handling at once & persist inDB
+16. how to process: 10000 request handling at once & persist in DB ?
 17. what is SAAS?
+> 
 18. what is Transactions in Spring?
 19. explain Transactions in hibernate?
 20. explain RESTFUL FLOW ?
