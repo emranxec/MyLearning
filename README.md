@@ -483,7 +483,7 @@ public @interface GFG {
 ### Field Level Annotation
 `@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface GFGElement {
+public @interface GFGElement { 
 public String key() default "";
 }`
 
