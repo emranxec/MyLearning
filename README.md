@@ -63,8 +63,112 @@ List<Integer> withoutDupes = withDupes.stream() .distinct() .collect(Collectors.
 
 > [design patterns](https://github.com/emranxec/MyLearning/blob/master/designPattern/interviewQuestions.md)
 
+> ## Singleton Pattern
+    The singleton pattern is a mechanism that ensures only one instance of an object exists per application. This pattern can be useful when managing shared resources or providing cross-cutting services, such as logging.
 
-6.  how to connect DB from spring?
+### Singleton Beans
+> Generally, a singleton is globally unique for an application, but in Spring, this constraint is relaxed. Instead, Spring restricts 
+a singleton to one object per Spring IoC container. In practice, this means Spring will only create one bean for each type per application context.
+
+### Autowired Singletons
+> we can create two controllers within a single application context and inject a bean of the same type into each.
+> First, we create a BookRepository that manages our Book domain objects.
+> Next, we create LibraryController, which uses the BookRepository to return the number of books in the library
+> In the application output, we see that both BookRepository objects have the same object ID
+> NOTE: We can create separate instances of the BookRepository bean by changing the bean scope from singleton to prototype using the @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) annotation.
+
+## Factory Method Pattern
+
+### Application Context
+> Spring uses this technique at the root of its Dependency Injection (DI) framework.
+Fundamentally, Spring treats a bean container as a factory that produces beans.
+Thus, Spring defines the BeanFactory interface as an abstraction of a bean container:
+```
+public interface BeanFactory {
+
+    getBean(Class<T> requiredType);
+    getBean(Class<T> requiredType, Object... args);
+    getBean(String name);
+
+    // ...
+]
+```
+
+>Each of the getBean methods is considered a factory method, which returns a bean matching the criteria supplied to the method, like the bean's type and name.
+Spring then extends BeanFactory with the ApplicationContext interface, which introduces additional application configuration. 
+
+## Proxy Pattern
+
+### Transactions
+> To create a proxy, we create an object that implements the same interface as our subject and contains a reference to the subject.
+We can then use the proxy in place of the subject.
+In Spring, beans are proxied to control access to the underlying bean. We see this approach when using transactions:
+```
+@Service
+public class BookManager {
+
+    @Autowired
+    private BookRepository repository;
+
+    @Transactional
+    public Book create(String author) {
+        System.out.println(repository.getClass().getName());
+        return repository.create(author);
+    }
+}
+```
+>In our BookManager class, we annotate the create method with the @Transactional annotation. 
+> This annotation instructs Spring to atomically execute our create method. Without a proxy, 
+> Spring wouldn't be able to control access to our BookRepository bean and ensure its transactional consistency.
+
+## Template Method Pattern
+
+### JdbcTemplate
+> The JdbcTemplate class provides the query method, which accepts a query String and ResultSetExtractor object:
+```
+public class JdbcTemplate {
+
+    public <T> T query(final String sql, final ResultSetExtractor<T> rse) throws DataAccessException {
+        // Execute query...
+    }
+
+    // Other methods...
+}
+```
+
+> The ResultSetExtractor converts the ResultSet object — representing the result of the query — into a domain object of type T:
+```
+@FunctionalInterface
+public interface ResultSetExtractor<T> {
+T extractData(ResultSet rs) throws SQLException, DataAccessException;
+}
+```
+
+>Spring further reduces boilerplate code by creating more specific callback interfaces.
+For example, the RowMapper interface is used to convert a single row of SQL data into a domain object of type T.
+
+```
+@FunctionalInterface
+public interface RowMapper<T> {
+T mapRow(ResultSet rs, int rowNum) throws SQLException;
+}
+```
+>With this converter, we can then query a database using the JdbcTemplate and map each resulting row:
+```
+JdbcTemplate template = // create template...
+template.query("SELECT * FROM books", new BookRowMapper());
+```
+>Apart from JDBC database management, Spring also uses templates for:
+- Java Message Service (JMS)
+- Java Persistence API (JPA)
+- Hibernate (now deprecated)
+- Transactions
+
+
+5. how to connect DB from spring?
+
+
+6. 
 7.  Map vs flatMap?
 8.  what is singleton, factory pattern,builder pattern ?
 9.  what is Azure function?
