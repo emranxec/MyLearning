@@ -167,9 +167,68 @@ template.query("SELECT * FROM books", new BookRowMapper());
 
 5. how to connect DB from spring?
 
+>Now, since you have understood the benefits of connecting Spring Boot to MySQL, it’s time that you learn how to actually go through with it. The following steps will help you in setting up the Spring Boot MySQL Integration:
 
-6. 
-7.  Map vs flatMap?
+- Step 1: Creating a MySQL Database
+> CREATE DATABASE restapi;
+USE restapi;
+CREATE TABLE blog (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(500) NOT NULL,
+content VARCHAR(5000) NOT NULL
+);
+- Step 2: Append MySQL Dependencies
+```
+><dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+</dependency>
+```
+- Step 3: Set Spring Boot MySQL Connection Configuration
+>spring.datasource.url=jdbc:mysql://localhost:3306/restapi
+spring.datasource.username=root
+spring.datasource.password=
+- Step 4: Build a Repository Class for Spring Boot
+```
+- @Repository
+public interface BlogRespository extends JpaRepository<Blog, Integer> {
+
+    // custom query to search to blog post by title or content
+    List<Blog> findByTitleContainingOrContentContaining(String text, String textAgain);  
+    
+ ```
+- Step 5: Convert the Blog Class to Entity
+ ```
+@Entity
+public class Blog {
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+private int id;
+
+    private String title;
+    private String content;
+
+    public Blog() {  }
+ ```
+- Step 6: Add the Controller to Spring Boot MySQL Integration
+ ```
+@Autowired
+BlogRespository blogRespository;
+ ```
+>This will allow you to use blogRepository anywhere in your controller without having to repeatedly instantiate it
+
+6. what is spring actuators?
+>Actuator brings production-ready features to our application.
+>Monitoring our app, gathering metrics, understanding traffic, or the state of our database become trivial with this dependency.
+>The main benefit of this library is that we can get production-grade tools without having to actually implement these features ourselves.
+>Actuator is mainly used to expose operational information about the running application — health, metrics, info, dump, env, etc. It uses HTTP endpoints or JMX beans to enable us to interact with it.
+
+7. Map vs flatMap?
+
 8.  what is singleton, factory pattern,builder pattern ?
 9.  what is Azure function?
 10. Azure kubernate?
