@@ -402,7 +402,8 @@ public void addMoneyToAccount(long account) {`
 19. explain Transactions in hibernate?
 
 ## Transaction Interface in Hibernate
->In hibernate framework, we have Transaction interface that defines the unit of work. It maintains abstraction from the transaction implementation (JTA,JDBC).
+>In hibernate framework, we have Transaction interface that defines the unit of work. 
+> It maintains abstraction from the transaction implementation (JTA,JDBC).
 A transaction is associated with Session and instantiated by calling session.beginTransaction().
 
 ### The methods of Transaction interface are as follows:
@@ -417,11 +418,56 @@ A transaction is associated with Session and instantiated by calling session.beg
 - boolean wasRolledBack() checks if the transaction is rolledback successfully.
 
 20. explain RESTFUL FLOW ?
+
+
+
 21. what are RESTFUL annotations?
+>>JAX-RS Annotations
+@Path(‘Path‘)
+@GET
+@POST
+@PUT
+@DELETE
+@Produces(MediaType.TEXT_PLAIN [, more-types])
+@Consumes(type[, more-types])
+@PathParam()
+@QueryParam()
+@MatrixParam()
+@FormParam()
+
+
 22. Explain microservices?
+
+
 23. What DB model is prefered in microservice architecture?
+>Different services have different data storage requirements. For some services, a relational database 
+> is the best choice. Other services might need a NoSQL database such as MongoDB,
+> which is good at storing complex, unstructured data, or Neo4J, 
+> which is designed to efficiently store and query graph data.
+
 24. What is @autowire usage?
+>The @Autowired annotation provides more fine-grained control over where and how 
+> autowiring should be accomplished. The @Autowired annotation can be used to 
+> autowire bean on the setter method just like @Required annotation, 
+> constructor, a property or methods with arbitrary names and/or multiple arguments.
+
+
+`@Qualifier("redBean")
+class Red implements Color {
+// Class code here
+}`
+`@Qualifier("blueBean")
+class Blue implements Color {
+// Class code here
+}`
+`@Autowired
+@Qualifier("redBean")
+public void setColor(Color color) {
+this.color = color;
+}`
+
 25. Explain how to create user defined annotations ?
+
 26. How many ways to connect DB from Hibernate & Spring ?
 27. what are Microservices design patterns?
 28. SQL queries with Functions & stored procedures
