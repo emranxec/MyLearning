@@ -25,6 +25,7 @@ final class immmutableClass{
     }
 }
 ```
+----
 2. what is sequential & parallel streams?
 
 > A stream in Java is a sequence of objects which operates on a data source such as an array or a collection 
@@ -47,7 +48,7 @@ list.stream().forEach(System.out::print);
 // method for parallel stream
 list.parallelStream().forEach(System.out::print);
 ```
-
+----
 3. remove duplicate using streams?
 
 > You can use the Stream.distinct() method to remove duplicates from a Stream in Java 8 and beyond.
@@ -58,7 +59,7 @@ List<Integer> withDupes = Arrays.asList(10, 10, 20, 20, 30, 30, 40, 50);
 System.out.println("List with duplicates: " + withDupes); 
 List<Integer> withoutDupes = withDupes.stream() .distinct() .collect(Collectors.toList());
 ```
-
+----
 4. design patterns in spring?
 
 > [design patterns](https://github.com/emranxec/MyLearning/blob/master/designPattern/interviewQuestions.md)
@@ -166,7 +167,7 @@ template.query("SELECT * FROM books", new BookRowMapper());
 - Hibernate (now deprecated)
 - Transactions
 
-
+----
 5. how to connect DB from spring?
 
 >Now, since you have understood the benefits of connecting Spring Boot to MySQL, it’s time that you learn how to actually go through with it. The following steps will help you in setting up the Spring Boot MySQL Integration:
@@ -222,14 +223,14 @@ private int id;
 BlogRespository blogRespository;
  ```
 >This will allow you to use blogRepository anywhere in your controller without having to repeatedly instantiate it
-
+----
 6. what is spring actuators?
 >Actuator brings production-ready features to our application.
 >Monitoring our app, gathering metrics, understanding traffic, or the state of our database become trivial with this dependency.
 >The main benefit of this library is that we can get production-grade tools without having to actually implement these features ourselves.
 >Actuator is mainly used to expose operational information about the running application — health, metrics, info, dump, env, etc. 
 > It uses HTTP endpoints or JMX beans to enable us to interact with it.
-
+----
 7. Map vs flatMap?
 >map() can be used where we have to map the elements of a particular collection to a certain function, and then we need to return the stream which contains the updated results.
 Example: Multiplying All the elements of the list by 3 and returning the updated list.
@@ -246,34 +247,34 @@ List<Integer> flatList
 .collect(Collectors.toList());
  ```
 > [difference-between-map-and-flatmap-in-java-stream](https://www.geeksforgeeks.org/difference-between-map-and-flatmap-in-java-stream/) 
-
+----
 8. what is singleton, factory pattern,builder pattern ?
 
 > [design patterns](https://github.com/emranxec/MyLearning/blob/master/designPattern/interviewQuestions.md)
-
+----
 9.  what is Azure function?
 
 > Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, 
 > and save on costs. Instead of worrying about deploying and maintaining servers, 
 > the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
-
+----
 10. Azure kubernate?
 
 >Azure Kubernetes Service is a managed container orchestration service based on the open source 
 > Kubernetes system, which is available on the Microsoft Azure public cloud. An organization can 
 > use AKS to handle critical functionality such as deploying, scaling and managing Docker containers and container-based applications.\
-
+----
 11. what is responsive UI in JS?
 
 >Responsive design is a graphic user interface (GUI) design approach used to create content that adjusts smoothly 
 > to various screen sizes. Designers size elements in relative units (%) and apply media queries, 
 > so their designs can automatically adapt to the browser space to ensure content consistency across devices.
 
-
+----
 12. what is Serverless computing?
 > Serverless computing allows you to build and run applications and services without thinking about servers. 
 > With serverless computing, your application still runs on servers, but all the server management is done by AWS.
-
+----
 11. what is java steams?
 >Introduced in Java 8, the Stream API is used to process collections of objects. 
 > A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result.
@@ -283,7 +284,7 @@ The features of Java stream are –
 - Each intermediate operation is lazily executed and returns a stream as a result, 
 - hence various intermediate operations can be pipelined. 
 - Terminal operations mark the end of the stream and return the result.
-
+----
 12. what factory class java having?
 
 >This design pattern has been widely used in JDK, such as
@@ -294,10 +295,10 @@ The features of Java stream are –
 - java.net.URL.openConnection(), 
 - java.lang.Class.newInstance(), 
 - java.lang.Class.forName() are some of their example where factory method design pattern has been used.
-
+----
 13. flow of Spring MVC?
 > ![MVC](https://user-images.githubusercontent.com/16031518/196950237-c8c079a6-ebd3-448a-aab8-a35486abf2ec.png)
-
+----
 14. How you test json implementation?
  ```
 @Test
@@ -317,11 +318,13 @@ throws ClientProtocolException, IOException {
       equalTo(HttpStatus.SC_NOT_FOUND));
 }
  ```
+----
 15. Explain MVC architectute?
     
 > ![MVC](https://user-images.githubusercontent.com/16031518/196950237-c8c079a6-ebd3-448a-aab8-a35486abf2ec.png)
-
+----
 16. how to process: 10000 request handling at once & persist in DB ?
+----
 17. what is SAAS?
 > What is SaaS? Software as a service (or SaaS) is a way of delivering applications over the Internet—as a service. 
 > Instead of installing and maintaining software, you simply access it via the Internet, 
@@ -329,7 +332,7 @@ throws ClientProtocolException, IOException {
 > eg. Netflix, Spotify, Dropbox and Slack are common SaaS products, in which the product 
 > is then delivered to users over the internet on a subscription basis, 
 > giving users the flexibility to not have to worry about upfront installation purchases or ongoing maintenance costs.
-
+----
 18. How to handle Transactions in Spring?
 > ### Using @Transactional power
 > As we defined before, in a transaction, if a single process fails then all transactions should fail. 
@@ -398,7 +401,7 @@ public void addMoneyToAccount(long account) {`
 - [spring-core-managing-transactions](https://medium.com/javarevisited/spring-core-managing-transactions-effectively-781bba6c47e8)
 - [Transaction Management](https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html)
 
-
+----
 19. explain Transactions in hibernate?
 
 ## Transaction Interface in Hibernate
@@ -416,10 +419,10 @@ A transaction is associated with Session and instantiated by calling session.beg
 - void registerSynchronization(Synchronization s) registers a user synchronization callback for this transaction. 
 - boolean wasCommited() checks if the transaction is commited successfully. 
 - boolean wasRolledBack() checks if the transaction is rolledback successfully.
-
+----
 20. explain RESTFUL FLOW ?
 
-
+----
 
 21. what are RESTFUL annotations?
 >>JAX-RS Annotations
@@ -435,16 +438,16 @@ A transaction is associated with Session and instantiated by calling session.beg
 @MatrixParam()
 @FormParam()
 
-
+----
 22. Explain microservices?
 
-
+----
 23. What DB model is prefered in microservice architecture?
 >Different services have different data storage requirements. For some services, a relational database 
 > is the best choice. Other services might need a NoSQL database such as MongoDB,
 > which is good at storing complex, unstructured data, or Neo4J, 
 > which is designed to efficiently store and query graph data.
-
+----
 24. What is @autowire usage?
 >The @Autowired annotation provides more fine-grained control over where and how 
 > autowiring should be accomplished. The @Autowired annotation can be used to 
@@ -465,7 +468,7 @@ class Blue implements Color {
 public void setColor(Color color) {
 this.color = color;
 }`
-
+----
 25. Explain how to create user defined annotations ?
 
 ## Create Custom Annotation
@@ -492,22 +495,22 @@ public String key() default "";
 @Target(ElementType.METHOD)
 public @interface Init {
 }`
-
+----
 26. How many ways to connect DB from Hibernate & Spring ?
 ----
 27. what are Microservices design patterns?
->Microservices Design Patterns:
-Aggregator
-API Gateway
-Chained or Chain of Responsibility
-Asynchronous Messaging
-Database or Shared Data
-Event Sourcing
-Branch
-Command Query Responsibility Segregator
-Circuit Breaker
-Decomposition
-[design-patterns-for-microservices](https://dzone.com/articles/design-patterns-for-microservices)
+### Microservices Design Patterns:
+- Aggregator
+- API Gateway 
+- Chained or Chain of Responsibility 
+- Asynchronous Messaging 
+- Database or Shared Data 
+- Event Sourcing 
+- Branch 
+- Command Query Responsibility Segregator 
+- Circuit Breaker 
+- Decomposition
+> [design-patterns-for-microservices](https://dzone.com/articles/design-patterns-for-microservices)
 ----
 28. SQL queries with Functions & stored procedures
 29. Basic packages requires to create spring boot application
