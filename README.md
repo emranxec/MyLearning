@@ -69,8 +69,8 @@ List<Integer> withoutDupes = withDupes.stream() .distinct() .collect(Collectors.
 This pattern can be useful when managing shared resources or providing cross-cutting services, such as logging.
 
 #### Singleton Beans
-> Generally, a singleton is globally unique for an application, but in Spring, this constraint is relaxed. Instead, Spring restricts 
-a singleton to one object per Spring IoC container. In practice, this means Spring will only create one bean for each type per application context.
+> Generally, a singleton is globally unique for an application, but in Spring, this constraint is relaxed. Instead, Spring restricts
+> a singleton to one object per Spring IoC container. In practice, this means Spring will only create one bean for each type per application context.
 
 #### Autowired Singletons
 > we can create two controllers within a single application context and inject a bean of the same type into each.
@@ -84,8 +84,8 @@ a singleton to one object per Spring IoC container. In practice, this means Spri
 
 #### Application Context
 > Spring uses this technique at the root of its Dependency Injection (DI) framework.
-Fundamentally, Spring treats a bean container as a factory that produces beans.
-Thus, Spring defines the BeanFactory interface as an abstraction of a bean container:
+> Fundamentally, Spring treats a bean container as a factory that produces beans.
+> Thus, Spring defines the BeanFactory interface as an abstraction of a bean container:
 ```
 public interface BeanFactory {
 
@@ -97,15 +97,15 @@ public interface BeanFactory {
 ]
 ```
 
->Each of the getBean methods is considered a factory method, which returns a bean matching the criteria supplied to the method, like the bean's type and name.
-Spring then extends BeanFactory with the ApplicationContext interface, which introduces additional application configuration. 
+> Each of the getBean methods is considered a factory method, which returns a bean matching the criteria supplied to the method, like the bean's type and name.
+> Spring then extends BeanFactory with the ApplicationContext interface, which introduces additional application configuration. 
 
 ## Proxy Pattern
 
 #### Transactions
 > To create a proxy, we create an object that implements the same interface as our subject and contains a reference to the subject.
-We can then use the proxy in place of the subject.
-In Spring, beans are proxied to control access to the underlying bean. We see this approach when using transactions:
+> We can then use the proxy in place of the subject.
+> In Spring, beans are proxied to control access to the underlying bean. We see this approach when using transactions:
 ```
 @Service
 public class BookManager {
@@ -147,8 +147,8 @@ T extractData(ResultSet rs) throws SQLException, DataAccessException;
 }
 ```
 
->Spring further reduces boilerplate code by creating more specific callback interfaces.
-For example, the RowMapper interface is used to convert a single row of SQL data into a domain object of type T.
+> Spring further reduces boilerplate code by creating more specific callback interfaces.
+> For example, the RowMapper interface is used to convert a single row of SQL data into a domain object of type T.
 
 ```
 @FunctionalInterface
@@ -174,11 +174,11 @@ template.query("SELECT * FROM books", new BookRowMapper());
 
 - Step 1: Creating a MySQL Database
 > CREATE DATABASE restapi;
-USE restapi;
-CREATE TABLE blog (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-title VARCHAR(500) NOT NULL,
-content VARCHAR(5000) NOT NULL
+> USE restapi;
+> CREATE TABLE blog (
+> id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+> title VARCHAR(500) NOT NULL,
+> content VARCHAR(5000) NOT NULL
 );
 - Step 2: Append MySQL Dependencies
 ```
@@ -192,9 +192,9 @@ content VARCHAR(5000) NOT NULL
 </dependency>
 ```
 - Step 3: Set Spring Boot MySQL Connection Configuration
->spring.datasource.url=jdbc:mysql://localhost:3306/restapi
-spring.datasource.username=root
-spring.datasource.password=
+> spring.datasource.url=jdbc:mysql://localhost:3306/restapi
+> spring.datasource.username=root
+> spring.datasource.password=
 - Step 4: Build a Repository Class for Spring Boot
 ```
 - @Repository
@@ -232,10 +232,10 @@ BlogRespository blogRespository;
 > It uses HTTP endpoints or JMX beans to enable us to interact with it.
 ----
 7. Map vs flatMap?
->map() can be used where we have to map the elements of a particular collection to a certain function, and then we need to return the stream which contains the updated results.
-Example: Multiplying All the elements of the list by 3 and returning the updated list.
-flatMap() can be used where we have to flatten or transform out the string, as we cannot flatten our string using map().
-Example: Getting the 1st Character of all the String present in a List of Strings and returning the result in form of a stream.
+> map() can be used where we have to map the elements of a particular collection to a certain function, and then we need to return the stream which contains the updated results.
+> Example: Multiplying All the elements of the list by 3 and returning the updated list.
+> flatMap() can be used where we have to flatten or transform out the string, as we cannot flatten our string using map().
+> Example: Getting the 1st Character of all the String present in a List of Strings and returning the result in form of a stream.
  ```
 List list = fruit.stream()
 .map(s -> s.length())
@@ -276,9 +276,9 @@ List<Integer> flatList
 > With serverless computing, your application still runs on servers, but all the server management is done by AWS.
 ----
 11. what is java steams?
->Introduced in Java 8, the Stream API is used to process collections of objects. 
+> Introduced in Java 8, the Stream API is used to process collections of objects. 
 > A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result.
-The features of Java stream are –
+> The features of Java stream are –
 - A stream is not a data structure instead it takes input from the Collections, Arrays or I/O channels.
 - Streams don’t change the original data structure, they only provide the result as per the pipelined methods.
 - Each intermediate operation is lazily executed and returns a stream as a result, 
@@ -364,18 +364,18 @@ accountService.addMoneyToAccount(accountTo);
 
 }
  ```
->@Transactional will make sure all our operations are successfully executed, 
+> @Transactional will make sure all our operations are successfully executed, 
 > if not, it will roll back all operations at the database as if nothing happened.
->Resuming why we should use transaction management:
-Transactional operations are atomic units
-The same connection is reused across all transactions.
+> Resuming why we should use transaction management:
+> Transactional operations are atomic units
+> The same connection is reused across all transactions.
 
 * To keep in mind, @Transactional could be used at class level too,
 * then all inner methods will be considered single transaction. 
 
 #### Isolation
->Spring allows managing the isolation level. The default strategy for most databases is READ_COMMITTED, 
-but we have other ones such as: READ_UNCOMMITTED, REPEATABLE_READ and SERIALIZABLE.
+> Spring allows managing the isolation level. The default strategy for most databases is READ_COMMITTED,
+> but we have other ones such as: READ_UNCOMMITTED, REPEATABLE_READ and SERIALIZABLE.
 
 - READ_COMMITTED will only read committed operations to the database and maintain us safe from dirty reads.
 - READ_UNCOMMITTED allows the current transaction to read the uncommitted changes from another transaction. The lowest isolation level.
@@ -405,9 +405,9 @@ public void addMoneyToAccount(long account) {`
 19. explain Transactions in hibernate?
 
 ## Transaction Interface in Hibernate
->In hibernate framework, we have Transaction interface that defines the unit of work. 
+> In hibernate framework, we have Transaction interface that defines the unit of work. 
 > It maintains abstraction from the transaction implementation (JTA,JDBC).
-A transaction is associated with Session and instantiated by calling session.beginTransaction().
+> A transaction is associated with Session and instantiated by calling session.beginTransaction().
 
 #### The methods of Transaction interface are as follows:
 - void begin() starts a new transaction. 
@@ -612,13 +612,13 @@ Dependencies can be classified into:
 commententity0_.text as text2_1_0_, commententity0_.owner
 as owner3_1_0_ from comment commententity0_ where commententity0_.id=?`
 >
-`Hibernate: update comment set text=? where id=?` 
+**`Hibernate: update comment set text=? where id=?`**
 
 #### What is the solution?
->When an entity is loaded, the 'Hibernate dirty checking mechanism' compares the snapshot of the current entity
+> When an entity is loaded, the 'Hibernate dirty checking mechanism' compares the snapshot of the current entity
 > with the loaded entity, but we can also turn off this comparison when we are not going to update it.
 `@Transactional(readOnly = true)`
-If we mark the method we are processing as readOnly = true, there will be no 'Hibernate dirty check' operation,
+> If we mark the method we are processing as readOnly = true, there will be no 'Hibernate dirty check' operation,
 > as there will be no update operation. This gives us performance.
 ----
 33. why String immutable ?
