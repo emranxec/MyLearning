@@ -672,7 +672,7 @@ return "Response!";
 ```
 
 >or Set your response type to MediaType.APPLICATION_JSON_VALUE (= "application/json")
-```
+```json lines
 @RequestMapping(value = "/getString", method = RequestMethod.GET,
                 produces = MediaType.APPLICATION_JSON_VALUE)
                 
@@ -682,10 +682,14 @@ return "Response!";
 ```
 ----
 39. when to used native query & hibernate query?
->
+>You do not need to create a native query unless you want to. 
+###### JPQL eventually is translated into SQL by the framework but the framework lets you call the native query also. Why would want to do that:
+- Low level access, which means that you can optimize and handle the mapping by yourself; with SQL you actually access the database table while with JPQL you access the entity objects; 
+- Maybe you do not want to learn JPQL if you already know SQL 
+- You already have the queries written in SQL, and do not have resources/time to port them to JPQL
 ----
 40. what is criteria in hibernate ?
->
+ [hibernate-criteria-queries](https://www.geeksforgeeks.org/hibernate-criteria-queries/)
 ----
 42. why jquery over javascript ?
 >
