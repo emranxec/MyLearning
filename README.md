@@ -384,13 +384,13 @@ but we have other ones such as: READ_UNCOMMITTED, REPEATABLE_READ and SERIALIZAB
 
 ### Propagation
 >Below are propagation levels:
-REQUIRED
-REQUIRES_NEW
-SUPPORTS
-MANDATORY
-NEVER
-NOT_SUPPORTED
-NESTED
+- REQUIRED 
+- REQUIRES_NEW 
+- SUPPORTS 
+- MANDATORY 
+- NEVER 
+- NOT_SUPPORTED 
+- NESTED
 
 ### Rollback rules
 >We can add specific configuration to allow rollback or non-rollback depending on the exception thrown:
@@ -425,18 +425,18 @@ A transaction is associated with Session and instantiated by calling session.beg
 ----
 
 21. what are RESTFUL annotations?
->>JAX-RS Annotations
-@Path(‘Path‘)
-@GET
-@POST
-@PUT
-@DELETE
-@Produces(MediaType.TEXT_PLAIN [, more-types])
-@Consumes(type[, more-types])
-@PathParam()
-@QueryParam()
-@MatrixParam()
-@FormParam()
+### JAX-RS Annotations
+- @Path(‘Path‘)
+- @GET 
+- @POST 
+- @PUT 
+- @DELETE 
+- @Produces(MediaType.TEXT_PLAIN [, more-types])
+- @Consumes(type[, more-types])
+- @PathParam()
+- @QueryParam()
+- @MatrixParam()
+- @FormParam()
 
 ----
 22. Explain microservices?
