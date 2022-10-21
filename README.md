@@ -68,11 +68,11 @@ List<Integer> withoutDupes = withDupes.stream() .distinct() .collect(Collectors.
     The singleton pattern is a mechanism that ensures only one instance of an object exists per application. 
 This pattern can be useful when managing shared resources or providing cross-cutting services, such as logging.
 
-### Singleton Beans
+#### Singleton Beans
 > Generally, a singleton is globally unique for an application, but in Spring, this constraint is relaxed. Instead, Spring restricts 
 a singleton to one object per Spring IoC container. In practice, this means Spring will only create one bean for each type per application context.
 
-### Autowired Singletons
+#### Autowired Singletons
 > we can create two controllers within a single application context and inject a bean of the same type into each.
 > First, we create a BookRepository that manages our Book domain objects.
 > Next, we create LibraryController, which uses the BookRepository to return the number of books in the library
@@ -82,7 +82,7 @@ a singleton to one object per Spring IoC container. In practice, this means Spri
 
 ## Factory Method Pattern
 
-### Application Context
+#### Application Context
 > Spring uses this technique at the root of its Dependency Injection (DI) framework.
 Fundamentally, Spring treats a bean container as a factory that produces beans.
 Thus, Spring defines the BeanFactory interface as an abstraction of a bean container:
@@ -102,7 +102,7 @@ Spring then extends BeanFactory with the ApplicationContext interface, which int
 
 ## Proxy Pattern
 
-### Transactions
+#### Transactions
 > To create a proxy, we create an object that implements the same interface as our subject and contains a reference to the subject.
 We can then use the proxy in place of the subject.
 In Spring, beans are proxied to control access to the underlying bean. We see this approach when using transactions:
@@ -126,7 +126,7 @@ public class BookManager {
 
 ## Template Method Pattern
 
-### JdbcTemplate
+#### JdbcTemplate
 > The JdbcTemplate class provides the query method, which accepts a query String and ResultSetExtractor object:
 ```
 public class JdbcTemplate {
@@ -334,7 +334,7 @@ throws ClientProtocolException, IOException {
 > giving users the flexibility to not have to worry about upfront installation purchases or ongoing maintenance costs.
 ----
 18. How to handle Transactions in Spring?
-> ### Using @Transactional power
+> #### Using @Transactional power
 > As we defined before, in a transaction, if a single process fails then all transactions should fail. 
 > We can implement this behavior using @Transactional annotation.
  ```
@@ -373,7 +373,7 @@ The same connection is reused across all transactions.
 * To keep in mind, @Transactional could be used at class level too,
 * then all inner methods will be considered single transaction. 
 
-### Isolation
+#### Isolation
 >Spring allows managing the isolation level. The default strategy for most databases is READ_COMMITTED, 
 but we have other ones such as: READ_UNCOMMITTED, REPEATABLE_READ and SERIALIZABLE.
 
@@ -382,7 +382,7 @@ but we have other ones such as: READ_UNCOMMITTED, REPEATABLE_READ and SERIALIZAB
 - REPEATABLE_READ prevent dirty reads and if one row is read more than one time in a single transaction, the read result will always be the same.
 - SERIALIZABLE prevents non-repeatable reads, dirty reads, and phantom reads. Has impact on performance.
 
-### Propagation
+#### Propagation
 >Below are propagation levels:
 - REQUIRED 
 - REQUIRES_NEW 
@@ -392,7 +392,7 @@ but we have other ones such as: READ_UNCOMMITTED, REPEATABLE_READ and SERIALIZAB
 - NOT_SUPPORTED 
 - NESTED
 
-### Rollback rules
+#### Rollback rules
 >We can add specific configuration to allow rollback or non-rollback depending on the exception thrown:
 
 `@Transactional(rollbackFor=MyException.class, noRollbackFor=OtherException.class)
@@ -409,7 +409,7 @@ public void addMoneyToAccount(long account) {`
 > It maintains abstraction from the transaction implementation (JTA,JDBC).
 A transaction is associated with Session and instantiated by calling session.beginTransaction().
 
-### The methods of Transaction interface are as follows:
+#### The methods of Transaction interface are as follows:
 - void begin() starts a new transaction. 
 - void commit() ends the unit of work unless we are in FlushMode.NEVER. 
 - void rollback() forces this transaction to rollback. 
@@ -425,7 +425,7 @@ A transaction is associated with Session and instantiated by calling session.beg
 ----
 
 21. what are RESTFUL annotations?
-### JAX-RS Annotations
+#### JAX-RS Annotations
 - @Path(‘Path‘)
 - @GET 
 - @POST 
@@ -478,21 +478,21 @@ this.color = color;
 - Field Level Annotation
 - Method Level Annotation
 
-### Class Level Annotation
+#### Class Level Annotation
 
 `@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.Type)
 public @interface GFG {
 }`
 
-### Field Level Annotation
+#### Field Level Annotation
 `@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface GFGElement { 
 public String key() default "";
 }`
 
-### Method Level Annotation
+#### Method Level Annotation
 `@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Init {
@@ -501,7 +501,7 @@ public @interface Init {
 26. How many ways to connect DB from Hibernate & Spring ?
 ----
 27. what are Microservices design patterns?
-### Microservices Design Patterns:
+#### Microservices Design Patterns:
 - Aggregator
 - API Gateway 
 - Chained or Chain of Responsibility 
@@ -515,12 +515,12 @@ public @interface Init {
 > [design-patterns-for-microservices](https://dzone.com/articles/design-patterns-for-microservices)
 ----
 28. SQL queries with Functions & stored procedures
-> ### Stored Procedures
+> #### Stored Procedures
 > Stored Procedures are pre-compiled objects which are compiled for the first time and its compiled format is saved, which executes (compiled code) whenever it is called. For more about a stored procedure, please refer to the article Different types of Stored Procedure.
-### Functions
+#### Functions
 > A function is compiled and executed every time whenever it is called. A function must return a value and cannot modify the data received as parameters. For more about functions, please refer to the article Different types of Functions.
 
-### Diffrences
+#### Diffrences
 - The function must return a value but in Stored Procedure it is optional. Even a procedure can return zero or n values. 
 - Functions can have only input parameters for it whereas Procedures can have input or output parameters. 
 - Functions can be called from Procedure whereas Procedures cannot be called from a Function. 
@@ -534,17 +534,17 @@ public @interface Init {
 
 ----
 29. Basic packages requires to create spring boot application
-### For instance, we would like to develop a Spring WebApplication with Tomcat WebServer. Then we need to add the following minimal jar dependencies in your Maven’s pom.xml file or Gradle’s build.gradle file
+#### For instance, we would like to develop a Spring WebApplication with Tomcat WebServer. Then we need to add the following minimal jar dependencies in your Maven’s pom.xml file or Gradle’s build.gradle file
 
 - Spring core Jar file(spring-core-xx.jar)
 - Spring Web Jar file(spring-web-xx.jar)
 - Spring Web MVC Jar file(spring-webmvc-xx.jar)
 - Servlet Jar file(servlet-xx.jar)
-###  If we want to add some database stuff, then we need to add database related jars like Spring JDBC jar file, Spring ORM jar files,Spring Transaction Jar file etc.
+####  If we want to add some database stuff, then we need to add database related jars like Spring JDBC jar file, Spring ORM jar files,Spring Transaction Jar file etc.
 - Spring JDBC Jar file(spring-jdbc-xx.jar)
 - Spring ORM Jar file(spring-orm-xx.jar)
 - Spring Transaction Jar file(spring-transaction-xx.jar)
-### Spring Boot Starter Web comes pre-packaged with these.
+#### Spring Boot Starter Web comes pre-packaged with these.
 Dependencies can be classified into:
 - Spring - core, beans, context, app
 - Web MVC - (Spring MVC)
@@ -560,44 +560,44 @@ Dependencies can be classified into:
 > Spring Security is a framework which provides various security features like: authentication, authorization to create secure Java Enterprise Applications.
 ## Spring Security Features
 
-### LDAP (Lightweight Directory Access Protocol)
+#### LDAP (Lightweight Directory Access Protocol)
 >It is an open application protocol for maintaining and accessing distributed directory information services over an Internet Protocol.
 
-### Single sign-on
+#### Single sign-on
 >This feature allows a user to access multiple applications with the help of single account(user name and password).
 
-### JAAS (Java Authentication and Authorization Service) LoginModule
+#### JAAS (Java Authentication and Authorization Service) LoginModule
 >It is a Pluggable Authentication Module implemented in Java. Spring Security supports it for its authentication process.
 
-### Basic Access Authentication
+#### Basic Access Authentication
 >Spring Security supports Basic Access Authentication that is used to provide user name and password while making request over the network.
 
-### Digest Access Authentication
+#### Digest Access Authentication
 >This feature allows us to make authentication process more secure than Basic Access Authentication. It asks to the browser to confirm the identity of the user before sending sensitive data over the network.
 
-### Remember-me
+#### Remember-me
 >Spring Security supports this feature with the help of HTTP Cookies. It remember to the user and avoid login again from the same machine until the user logout.
 
-### Web Form Authentication
+#### Web Form Authentication
 >In this process, web form collect and authenticate user credentials from the web browser. Spring Security supports it while we want to implement web form authentication.
 
-### Authorization
+#### Authorization
 >Spring Security provides the this feature to authorize the user before accessing resources. It allows developers to define access policies against the resources.
 
-### Software Localization
+#### Software Localization
 >This feature allows us to make application user interface in any language.
 
-### HTTP Authorization
+#### HTTP Authorization
 >Spring provides this feature for HTTP authorization of web request URLs using Apache Ant paths or regular expressions.
 
 ## Features added in Spring Security 5.0
-### OAuth 2.0 Login
+#### OAuth 2.0 Login
 >This feature provides the facility to the user to login into the application by using their existing account at GitHub or Google. This feature is implemented by using the **Authorization Code Grant** that is specified in the OAuth 2.0 Authorization Framework.
 
-### Reactive Support
+#### Reactive Support
 >From version Spring Security 5.0, it provides reactive programming and reactive web runtime support and even, we can integrate with Spring WebFlux.
 
-### Modernized Password Encoding
+#### Modernized Password Encoding
 >Spring Security 5.0 introduced new Password encoder **DelegatingPasswordEncoder** which is more modernize and solve all the problems of previous encoder **NoOpPasswordEncoder**.
 ----
 32. expalin Dirty - Hibernate?
