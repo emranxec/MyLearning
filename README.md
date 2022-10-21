@@ -809,7 +809,7 @@ tx = session.beginTransaction();
 > Bootstrap provides a collection of syntax for template designs.
 ----
 44. what is service layer in Spring?
-https://blog1.westagilelabs.com/why-to-use-service-layer-in-spring-mvc-5f4fc52643c0
+    [why-to-use-service-layer-in-spring-mvc](https://blog1.westagilelabs.com/why-to-use-service-layer-in-spring-mvc-5f4fc52643c0)
 ----
 45. Do we need DAO layer if we have Service layer?
 >
