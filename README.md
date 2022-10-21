@@ -626,7 +626,7 @@ as owner3_1_0_ from comment commententity0_ where commententity0_.id=?`
 > If several references point to the same String without even knowing it, 
 > it would be bad if one of the references modified that String value. That’s why String objects are immutable.
 
-****_[java-string-is-immutable](geeksforgeeks.org/java-string-is-immutable-what-exactly-is-the-meaning/?ref=lbp)****_
+[java-string-is-immutable](geeksforgeeks.org/java-string-is-immutable-what-exactly-is-the-meaning/?ref=lbp)
 
 `String str = "knowledge"`
 >
@@ -634,22 +634,48 @@ as owner3_1_0_ from comment commententity0_ where commententity0_.id=?`
 
 >At this point in the example above, we have two String objects: the first one we created with value “knowledge”, 
 pointed to by s, and the second one “knowledge base”, pointed to by str. But, technically, we have three String 
-objects, the third one being the literal “base” in the concat statement.
+objects, **the third one being the literal “base” in the concat statement.**
 ----
 34. how to configure Spring & hibernate?
->
+> [spring-boot-with-hibernate](https://www.javadevjournal.com/spring-boot/spring-boot-with-hibernate/)
 ----
 35. what is Class not found and No class def error?
->
+> ClassNotFoundException is raised in the above program as class “GeeksForGeeks” is not found in the classpath.
+    `try {Class.forName("GeeksForGeeks");
+        }
+ catch (ClassNotFoundException ex) {
+  ex.printStackTrace();
+        }`
+> remove any .class file and run that .class when we saw that at Java runtime NoClassDefFoundError will be thrown.
+
+- [classnotfoundexception-vs-noclassdeffounderror](https://www.geeksforgeeks.org/classnotfoundexception-vs-noclassdeffounderror-java/?ref=lbp)
 ----
 36. is static method override possible?
->
+> We can declare static methods with the same signature in the subclass, 
+> but it is not considered overriding as there won't be any run-time polymorphism. Hence the answer is 'No
 ----
 37. explain save,update, save and persist methods?
->
+- [hibernate-save-persist-update-merge-saveorupdate](https://www.baeldung.com/hibernate-save-persist-update-merge-saveorupdate)
 ----
 38. how to convert data in rest response in spring?
->
+> Either return text/plain as
+```
+@RequestMapping(value="/controller", method=GET)
+@ResponseBody
+public String foo() {
+return "Response!";
+}
+```
+
+>or Set your response type to MediaType.APPLICATION_JSON_VALUE (= "application/json")
+```
+@RequestMapping(value = "/getString", method = RequestMethod.GET,
+                produces = MediaType.APPLICATION_JSON_VALUE)
+                
+//and you'll have a JSON that looks like
+
+{  "response" : "your string value" }
+```
 ----
 39. when to used native query & hibernate query?
 >
