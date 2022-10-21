@@ -601,7 +601,22 @@ Dependencies can be classified into:
 >Spring Security 5.0 introduced new Password encoder **DelegatingPasswordEncoder** which is more modernize and solve all the problems of previous encoder **NoOpPasswordEncoder**.
 ----
 32. expalin Dirty - Hibernate?
->
+>When an entity object is loaded, a copy of all properties of that entity object is created. 
+> At the time of synchronization, which we call flush time, the properties of the entity object are matched 
+> with the properties of the loaded object and the difference is checked. 
+> This process is called “Hibernate Dirty Check”.
+###### Each time, Hibernate checks the properties of the entity object with the last loaded snapshot. If there is a change, it performs the update.
+###### That's why this situation is called "Hibernate Dirty Check". In fact, it causes a performance loss.
+
+`Hibernate: select commententity0_.id as id1_1_0_,
+commententity0_.text as text2_1_0_, commententity0_.owner
+as owner3_1_0_ from comment commententity0_ where commententity0_.id=?
+Hibernate: update comment set text=? where id=?` 
+
+#### What is the solution?
+>When an entity is loaded, the 'Hibernate dirty checking mechanism' compares the snapshot of the current entity with the loaded entity, but we can also turn off this comparison when we are not going to update it.
+`@Transactional(readOnly = true)`
+If we mark the method we are processing as readOnly = true, there will be no 'Hibernate dirty check' operation, as there will be no update operation. This gives us performance.
 ----
 33. why String immutable ?
 >
