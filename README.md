@@ -672,7 +672,7 @@ return "Response!";
 ```
 
 >or Set your response type to MediaType.APPLICATION_JSON_VALUE (= "application/json")
-```json lines
+```
 @RequestMapping(value = "/getString", method = RequestMethod.GET,
                 produces = MediaType.APPLICATION_JSON_VALUE)
                 
@@ -689,7 +689,50 @@ return "Response!";
 - You already have the queries written in SQL, and do not have resources/time to port them to JPQL
 ----
 40. what is criteria in hibernate ?
+```
+tx = session.beginTransaction();
+
+        // This will simply return every object that
+        // corresponds to the GeekEmployee class.
+        Criteria geekEmployeeCriteria
+            = session.createCriteria(GeekEmployee.class);
+ 
+        // Here 2 expectations are there one with salary and
+        // second one is name. Both are expected to be
+        // present. Let us see how to do that
+        Criterion salaryExpectation
+            = Restrictions.gt("salary", 40000);
+ 
+        Criterion nameExpectation
+            = Restrictions.ilike("firstName", "Geek%");
+        // As we are combining 2 conditions and that two
+        // logically And, we need to add as Restrictions.and
+        // To get records matching with AND conditions we
+        // need to give below way
+        LogicalExpression logicalAndExpression
+            = Restrictions.and(salaryExpectation,
+                               nameExpectation);
+        geekEmployeeCriteria.add(logicalAndExpression);
+ 
+        // As a list we can collect them and can iterate
+        List geekEmployeeList = geekEmployeeCriteria.list();
+ 
+        for (Iterator iterator
+             = geekEmployeeList.iterator();
+             iterator.hasNext();) {
+            GeekEmployee employee
+                = (GeekEmployee)iterator.next();
+            System.out.print("First Name: "
+                             + employee.getFirstName());
+            System.out.print("  Last Name: "
+                             + employee.getLastName());
+            System.out.println("  Salary: "
+                               + employee.getSalary());
+        }
+        tx.commit();
+```
  [hibernate-criteria-queries](https://www.geeksforgeeks.org/hibernate-criteria-queries/)
+
 ----
 42. why jquery over javascript ?
 >
