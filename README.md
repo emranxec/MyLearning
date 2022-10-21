@@ -521,16 +521,16 @@ public @interface Init {
 > A function is compiled and executed every time whenever it is called. A function must return a value and cannot modify the data received as parameters. For more about functions, please refer to the article Different types of Functions.
 
 ### Diffrences
-> The function must return a value but in Stored Procedure it is optional. Even a procedure can return zero or n values. 
-> Functions can have only input parameters for it whereas Procedures can have input or output parameters. 
-> Functions can be called from Procedure whereas Procedures cannot be called from a Function.
-> The procedure allows SELECT as well as DML(INSERT/UPDATE/DELETE) statement in it whereas Function allows only SELECT statement in it. 
-> Procedures cannot be utilized in a SELECT statement whereas Function can be embedded in a SELECT statement. 
-> Stored Procedures cannot be used in the SQL statements anywhere in the WHERE/HAVING/SELECT section whereas Function can be. 
-> Functions that return tables can be treated as another rowset. This can be used in JOINs with other tables. 
-> Inline Function can be though of as views that take parameters and can be used in JOINs and other Rowset operations. 
-> An exception can be handled by try-catch block in a Procedure whereas try-catch block cannot be used in a Function. 
-> We can use Transactions in Procedure whereas we can't use Transactions in Function.
+- The function must return a value but in Stored Procedure it is optional. Even a procedure can return zero or n values. 
+- Functions can have only input parameters for it whereas Procedures can have input or output parameters. 
+- Functions can be called from Procedure whereas Procedures cannot be called from a Function. 
+- The procedure allows SELECT as well as DML(INSERT/UPDATE/DELETE) statement in it whereas Function allows only SELECT statement in it. 
+- Procedures cannot be utilized in a SELECT statement whereas Function can be embedded in a SELECT statement. 
+- Stored Procedures cannot be used in the SQL statements anywhere in the WHERE/HAVING/SELECT section whereas Function can be. 
+- Functions that return tables can be treated as another rowset. This can be used in JOINs with other tables. 
+- Inline Function can be though of as views that take parameters and can be used in JOINs and other Rowset operations. 
+- An exception can be handled by try-catch block in a Procedure whereas try-catch block cannot be used in a Function. 
+- We can use Transactions in Procedure whereas we can't use Transactions in Function.
 
 ----
 29. Basic packages requires to create spring boot application
