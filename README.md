@@ -421,7 +421,8 @@ public void addMoneyToAccount(long account) {`
 - boolean wasRolledBack() checks if the transaction is rolledback successfully.
 ----
 20. explain RESTFUL FLOW ?
- ![microservices artchitecture](https://user-images.githubusercontent.com/16031518/197209817-ff57757f-0e8b-497b-ab46-6deb8030886b.jpg)
+
+> ![microservices artchitecture](https://user-images.githubusercontent.com/16031518/197209817-ff57757f-0e8b-497b-ab46-6deb8030886b.jpg)
 
 ----
 
@@ -442,7 +443,7 @@ public void addMoneyToAccount(long account) {`
 ----
 22. Explain microservices?
 
-![microservices artchitecture](https://user-images.githubusercontent.com/16031518/197209817-ff57757f-0e8b-497b-ab46-6deb8030886b.jpg)
+> ![microservices artchitecture](https://user-images.githubusercontent.com/16031518/197209817-ff57757f-0e8b-497b-ab46-6deb8030886b.jpg)
 
 ----
 23. What DB model is prefered in microservice architecture?
