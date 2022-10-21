@@ -622,7 +622,12 @@ as owner3_1_0_ from comment commententity0_ where commententity0_.id=?`
 > as there will be no update operation. This gives us performance.
 ----
 33. why String immutable ?
->
+> In the String constant pool, a String object is likely to have one or many references. 
+> If several references point to the same String without even knowing it, 
+> it would be bad if one of the references modified that String value. That’s why String objects are immutable.
+
+****_[java-string-is-immutable](geeksforgeeks.org/java-string-is-immutable-what-exactly-is-the-meaning/?ref=lbp)****_
+
 ----
 34. how to configure Spring & hibernate?
 >
