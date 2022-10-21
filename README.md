@@ -534,13 +534,81 @@ public @interface Init {
 
 ----
 29. Basic packages requires to create spring boot application
->
+>For instance, we would like to develop a Spring WebApplication with Tomcat WebServer. Then we need to add the following minimal jar dependencies in your Maven’s pom.xml file or Gradle’s build.gradle file
+
+- Spring core Jar file(spring-core-xx.jar)
+- Spring Web Jar file(spring-web-xx.jar)
+- Spring Web MVC Jar file(spring-webmvc-xx.jar)
+- Servlet Jar file(servlet-xx.jar)
+> If we want to add some database stuff, then we need to add database related jars like Spring JDBC jar file, Spring ORM jar files,Spring Transaction Jar file etc.
+- Spring JDBC Jar file(spring-jdbc-xx.jar)
+- Spring ORM Jar file(spring-orm-xx.jar)
+- Spring Transaction Jar file(spring-transaction-xx.jar)
+> Spring Boot Starter Web comes pre-packaged with these.
+Dependencies can be classified into:
+- Spring - core, beans, context, app
+- Web MVC - (Spring MVC)
+- Jackson - for JSON Binding 
+- Validation - Hibernate Validator, Validation API 
+- Embedded Servlet Container - Tomcat 
+- Logging - logback, slf4j
 ----
 30. What inbuilt server spring uses?
->
+> With SpringBoot, the default embedded server is Tomcat. Other options available are Jetty and UnderTow.
 ----
 31. explain Spring security?
->
+> Spring Security is a framework which provides various security features like: authentication, authorization to create secure Java Enterprise Applications.
+## Spring Security Features
+- LDAP (Lightweight Directory Access Protocol)
+- Single sign-on 
+- JAAS (Java Authentication and Authorization Service) LoginModule 
+- Basic Access Authentication 
+- Digest Access Authentication 
+- Remember-me 
+- Web Form Authentication 
+- Authorization 
+- Software Localization 
+- HTTP Authorization
+
+### LDAP (Lightweight Directory Access Protocol)
+>It is an open application protocol for maintaining and accessing distributed directory information services over an Internet Protocol.
+
+### Single sign-on
+>This feature allows a user to access multiple applications with the help of single account(user name and password).
+
+### JAAS (Java Authentication and Authorization Service) LoginModule
+>It is a Pluggable Authentication Module implemented in Java. Spring Security supports it for its authentication process.
+
+### Basic Access Authentication
+>Spring Security supports Basic Access Authentication that is used to provide user name and password while making request over the network.
+
+### Digest Access Authentication
+>This feature allows us to make authentication process more secure than Basic Access Authentication. It asks to the browser to confirm the identity of the user before sending sensitive data over the network.
+
+### Remember-me
+>Spring Security supports this feature with the help of HTTP Cookies. It remember to the user and avoid login again from the same machine until the user logout.
+
+### Web Form Authentication
+>In this process, web form collect and authenticate user credentials from the web browser. Spring Security supports it while we want to implement web form authentication.
+
+### Authorization
+>Spring Security provides the this feature to authorize the user before accessing resources. It allows developers to define access policies against the resources.
+
+### Software Localization
+>This feature allows us to make application user interface in any language.
+
+### HTTP Authorization
+>Spring provides this feature for HTTP authorization of web request URLs using Apache Ant paths or regular expressions.
+
+## Features added in Spring Security 5.0
+### OAuth 2.0 Login
+>This feature provides the facility to the user to login into the application by using their existing account at GitHub or Google. This feature is implemented by using the Authorization Code Grant that is specified in the OAuth 2.0 Authorization Framework.
+
+### Reactive Support
+>From version Spring Security 5.0, it provides reactive programming and reactive web runtime support and even, we can integrate with Spring WebFlux.
+
+### Modernized Password Encoding
+>Spring Security 5.0 introduced new Password encoder DelegatingPasswordEncoder which is more modernize and solve all the problems of previous encoder NoOpPasswordEncoder.
 ----
 32. expalin Dirty - Hibernate?
 >
