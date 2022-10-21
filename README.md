@@ -605,13 +605,14 @@ Dependencies can be classified into:
 > At the time of synchronization, which we call flush time, the properties of the entity object are matched 
 > with the properties of the loaded object and the difference is checked. 
 > This process is called “Hibernate Dirty Check”.
-###### Each time, Hibernate checks the properties of the entity object with the last loaded snapshot. If there is a change, it performs the update.
-###### That's why this situation is called "Hibernate Dirty Check". In fact, it causes a performance loss.
+
+###### Each time, Hibernate checks the properties of the entity object with the last loaded snapshot.If there is a change, it performs the update. That's why this situation is called "Hibernate Dirty Check". In fact, it causes a performance loss.
 
 `Hibernate: select commententity0_.id as id1_1_0_,
 commententity0_.text as text2_1_0_, commententity0_.owner
-as owner3_1_0_ from comment commententity0_ where commententity0_.id=?
-Hibernate: update comment set text=? where id=?` 
+as owner3_1_0_ from comment commententity0_ where commententity0_.id=?`
+>
+`Hibernate: update comment set text=? where id=?` 
 
 #### What is the solution?
 >When an entity is loaded, the 'Hibernate dirty checking mechanism' compares the snapshot of the current entity
