@@ -454,15 +454,17 @@ A transaction is associated with Session and instantiated by calling session.beg
 > autowire bean on the setter method just like @Required annotation, 
 > constructor, a property or methods with arbitrary names and/or multiple arguments.
 
-
+>class Red
 `@Qualifier("redBean")
 class Red implements Color {
 // Class code here
 }`
+>class Blue
 `@Qualifier("blueBean")
 class Blue implements Color {
 // Class code here
 }`
+>creating Red class injection using autowire
 `@Autowired
 @Qualifier("redBean")
 public void setColor(Color color) {
