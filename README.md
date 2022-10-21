@@ -515,7 +515,16 @@ public @interface Init {
 > [design-patterns-for-microservices](https://dzone.com/articles/design-patterns-for-microservices)
 ----
 28. SQL queries with Functions & stored procedures
->
+> ### Stored Procedures
+> Stored Procedures are pre-compiled objects which are compiled for the first time and its compiled format is saved, which executes (compiled code) whenever it is called. For more about a stored procedure, please refer to the article Different types of Stored Procedure.
+### Functions
+> A function is compiled and executed every time whenever it is called. A function must return a value and cannot modify the data received as parameters. For more about functions, please refer to the article Different types of Functions.
+
+### Diffrences
+>The function must return a value but in Stored Procedure it is optional. Even a procedure can return zero or n values.
+Functions can have only input parameters for it whereas Procedures can have input or output parameters.
+Functions can be called from Procedure whereas Procedures cannot be called from a Function.
+
 ----
 29. Basic packages requires to create spring boot application
 >
