@@ -598,7 +598,7 @@ Dependencies can be classified into:
 >From version Spring Security 5.0, it provides reactive programming and reactive web runtime support and even, we can integrate with Spring WebFlux.
 
 ### Modernized Password Encoding
->Spring Security 5.0 introduced new Password encoder DelegatingPasswordEncoder which is more modernize and solve all the problems of previous encoder NoOpPasswordEncoder.
+>Spring Security 5.0 introduced new Password encoder **DelegatingPasswordEncoder** which is more modernize and solve all the problems of previous encoder **NoOpPasswordEncoder**.
 ----
 32. expalin Dirty - Hibernate?
 >
