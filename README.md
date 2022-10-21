@@ -804,10 +804,12 @@ tx = session.beginTransaction();
 >Angular is better than React if your application is enterprise-grade and you need to incorporate complex functionalities like progressive, single-page, and native web apps. However, React specializes in creating UI components and can be used in any application, including single-page apps
 ----
 43. what is bootstrap?
->
+>Bootstrap is a free, open source front-end development framework for the creation of websites and web apps. 
+> Designed to enable responsive development of mobile-first websites, 
+> Bootstrap provides a collection of syntax for template designs.
 ----
 44. what is service layer in Spring?
->
+https://blog1.westagilelabs.com/why-to-use-service-layer-in-spring-mvc-5f4fc52643c0
 ----
 45. Do we need DAO layer if we have Service layer?
 >
