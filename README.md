@@ -534,17 +534,17 @@ public @interface Init {
 
 ----
 29. Basic packages requires to create spring boot application
->For instance, we would like to develop a Spring WebApplication with Tomcat WebServer. Then we need to add the following minimal jar dependencies in your Maven’s pom.xml file or Gradle’s build.gradle file
+### For instance, we would like to develop a Spring WebApplication with Tomcat WebServer. Then we need to add the following minimal jar dependencies in your Maven’s pom.xml file or Gradle’s build.gradle file
 
 - Spring core Jar file(spring-core-xx.jar)
 - Spring Web Jar file(spring-web-xx.jar)
 - Spring Web MVC Jar file(spring-webmvc-xx.jar)
 - Servlet Jar file(servlet-xx.jar)
-> If we want to add some database stuff, then we need to add database related jars like Spring JDBC jar file, Spring ORM jar files,Spring Transaction Jar file etc.
+###  If we want to add some database stuff, then we need to add database related jars like Spring JDBC jar file, Spring ORM jar files,Spring Transaction Jar file etc.
 - Spring JDBC Jar file(spring-jdbc-xx.jar)
 - Spring ORM Jar file(spring-orm-xx.jar)
 - Spring Transaction Jar file(spring-transaction-xx.jar)
-> Spring Boot Starter Web comes pre-packaged with these.
+### Spring Boot Starter Web comes pre-packaged with these.
 Dependencies can be classified into:
 - Spring - core, beans, context, app
 - Web MVC - (Spring MVC)
@@ -559,16 +559,6 @@ Dependencies can be classified into:
 31. explain Spring security?
 > Spring Security is a framework which provides various security features like: authentication, authorization to create secure Java Enterprise Applications.
 ## Spring Security Features
-- LDAP (Lightweight Directory Access Protocol)
-- Single sign-on 
-- JAAS (Java Authentication and Authorization Service) LoginModule 
-- Basic Access Authentication 
-- Digest Access Authentication 
-- Remember-me 
-- Web Form Authentication 
-- Authorization 
-- Software Localization 
-- HTTP Authorization
 
 ### LDAP (Lightweight Directory Access Protocol)
 >It is an open application protocol for maintaining and accessing distributed directory information services over an Internet Protocol.
