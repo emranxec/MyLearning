@@ -614,9 +614,11 @@ as owner3_1_0_ from comment commententity0_ where commententity0_.id=?
 Hibernate: update comment set text=? where id=?` 
 
 #### What is the solution?
->When an entity is loaded, the 'Hibernate dirty checking mechanism' compares the snapshot of the current entity with the loaded entity, but we can also turn off this comparison when we are not going to update it.
+>When an entity is loaded, the 'Hibernate dirty checking mechanism' compares the snapshot of the current entity
+> with the loaded entity, but we can also turn off this comparison when we are not going to update it.
 `@Transactional(readOnly = true)`
-If we mark the method we are processing as readOnly = true, there will be no 'Hibernate dirty check' operation, as there will be no update operation. This gives us performance.
+If we mark the method we are processing as readOnly = true, there will be no 'Hibernate dirty check' operation,
+> as there will be no update operation. This gives us performance.
 ----
 33. why String immutable ?
 >
