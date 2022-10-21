@@ -713,6 +713,58 @@ tx = session.beginTransaction();
             = Restrictions.and(salaryExpectation,
                                nameExpectation);
         geekEmployeeCriteria.add(logicalAndExpression);
+        
+        // setFirstResult-> It takes an integer and it is
+        // represented as the first row in your result set,
+        // starting with row 0.
+ 
+        geekEmployeeCriteria.setFirstResult(1);
+        // setMaxResults->fixed number maxResults of objects
+        // are returned here
+        geekEmployeeCriteria.setMaxResults(3);
+        
+           geekEmployeeCriteria.add(
+            Restrictions.gt("salary", 20000));
+ 
+        // Display the results in descending order
+        geekEmployeeCriteria.addOrder(Order.desc("salary"));
+        
+          // Get total number of records by using rowcount
+        geekEmployeeCriteria.setProjection(
+            Projections.rowCount());
+        List employeeRowCount = geekEmployeeCriteria.list();
+ 
+        System.out.println("Total row Count: "
+                           + employeeRowCount.get(0));
+ 
+        // Getting sum(salary)
+        geekEmployeeCriteria.setProjection(
+            Projections.sum("salary"));
+        List totalSalary = geekEmployeeCriteria.list();
+ 
+        System.out.println("Total Salary of GeekEmployees: "
+                           + totalSalary.get(0));
+ 
+        // Getting average(salary)
+        geekEmployeeCriteria.setProjection(
+            Projections.avg("salary"));
+        List averageSalary = geekEmployeeCriteria.list();
+        System.out.println(
+            "Average Salary of GeekEmployees: "
+            + averageSalary.get(0));
+ 
+        // Getting max(salary)
+        geekEmployeeCriteria.setProjection(
+            Projections.max("salary"));
+        List maxSalary = geekEmployeeCriteria.list();
+        System.out.println(
+            "Maximum Salary among GeekEmployees: "
+            + maxSalary.get(0));
+ 
+        // Getting min(salary)
+        geekEmployeeCriteria.setProjection(
+            Projections.min("salary"));
+        
  
         // As a list we can collect them and can iterate
         List geekEmployeeList = geekEmployeeCriteria.list();
@@ -735,7 +787,21 @@ tx = session.beginTransaction();
 
 ----
 42. why jquery over javascript ?
->
+
+##### JavaScript
+> JavaScript is a dynamic, multiparadigm programming language. It is interpreted and not compiled. Therefore, as the name suggests, it is a scripting language.
+
+##### jQuery
+> jQuery is a lightweight, feature-rich JavaScript library. It allows us to perform various tasks in a much simpler and quicker way. With jQuery, DOM manipulation, AJAX calls, event handling, and animations become a cinch.
+
+##### Angular JS
+> Angular JS can do everything that JQuery does and even much more. It is easy to write and run unit tests in Angular JS applications. Dependency management is effortless and binding dynamic data is powerful. For building testable web applications, we can use Angular JS than JQuery.
+
+##### React
+> React Is Faster Than jQuery. One of the biggest things that React has going for it is the use of the Virtual DOM (Document Object Model) instead of the traditional DOM. While jQuery works with the DOM directly, React uses the virtual DOM which is what makes React so much faster.
+
+##### Is Angular better than React? 
+>Angular is better than React if your application is enterprise-grade and you need to incorporate complex functionalities like progressive, single-page, and native web apps. However, React specializes in creating UI components and can be used in any application, including single-page apps
 ----
 43. what is bootstrap?
 >
