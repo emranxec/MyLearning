@@ -592,7 +592,7 @@ Dependencies can be classified into:
 
 ## Features added in Spring Security 5.0
 ### OAuth 2.0 Login
->This feature provides the facility to the user to login into the application by using their existing account at GitHub or Google. This feature is implemented by using the Authorization Code Grant that is specified in the OAuth 2.0 Authorization Framework.
+>This feature provides the facility to the user to login into the application by using their existing account at GitHub or Google. This feature is implemented by using the **Authorization Code Grant** that is specified in the OAuth 2.0 Authorization Framework.
 
 ### Reactive Support
 >From version Spring Security 5.0, it provides reactive programming and reactive web runtime support and even, we can integrate with Spring WebFlux.
