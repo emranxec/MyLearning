@@ -628,6 +628,13 @@ as owner3_1_0_ from comment commententity0_ where commententity0_.id=?`
 
 ****_[java-string-is-immutable](geeksforgeeks.org/java-string-is-immutable-what-exactly-is-the-meaning/?ref=lbp)****_
 
+`String str = "knowledge"`
+>
+`str = str.concat(" base");`
+
+>At this point in the example above, we have two String objects: the first one we created with value “knowledge”, 
+pointed to by s, and the second one “knowledge base”, pointed to by str. But, technically, we have three String 
+objects, the third one being the literal “base” in the concat statement.
 ----
 34. how to configure Spring & hibernate?
 >
