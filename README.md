@@ -594,7 +594,35 @@ public @interface Init {
 }`
 ----
 ## Q. what data structure does executer service hold?
-> 
+
+![pool](https://user-images.githubusercontent.com/16031518/197357824-9175b364-59f2-4d9f-9ecb-04e6f63f0511.png)
+
+`
+ ExecutorService threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime,
+        TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
+`
+
+#### Jargons in Thread Pool Executors:
+1. CorePoolSize
+2. MaximumPoolSize
+3. KeepAliveTime
+4. workQueue
+5. ThreadFactory
+6. RejectedExecutionHandler(AbortPolicy,CallerRunsPolicy,DiscardPolicy,DiscardOldestPolicy)
+
+#### some inbuilt methods present with above configurations:
+1.  Fixed thread pool executor(reuses a fixed number of threads to execute any number of tasks)
+2.  Cached thread pool executor( it has maximumPoolSize set to be Infinite.)
+3.  Scheduled thread pool executor(Creates a thread pool that can schedule commands to run after a given delay, or to execute periodically.)
+4.  Single thread pool executor (Creates single thread to execute all tasks.)
+
+#### Note that ThreadPool has 5 states:
+- Running:
+- Shutdown:
+- Stop:
+- Tidying:
+- Terminated:
+
 ----
 ## Q. what are Microservices design patterns?
 #### Microservices Design Patterns:
