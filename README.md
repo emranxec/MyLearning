@@ -909,16 +909,27 @@ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";
 [SQL_Injection_Prevention_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 ----
 50. what is functional interface?
->
+[functional-interfaces-java](https://www.geeksforgeeks.org/functional-interfaces-java/?ref=lbp)
 ----
 51. what is @Transactional in DB?
->
+[using-transactional-power](https://github.com/emranxec/MyLearning/blob/master/README.md#using-transactional-power)
 ----
 52. explain Design patterns any?
->
+    [designPattern](https://github.com/emranxec/MyLearning/blob/master/designPattern/interviewQuestions.md)
 ----
 53. what is default spring bean status?
->
+>The default scope for the bean is a singleton, like the example below, 
+> in which we haven't explicitly given a scope. Singleton means that the Spring container 
+> creates only one instance of the bean, and cached in memory, 
+> and all the requests for that bean will return a shared reference to the same bean.
+
+##### we can change scope by
+```java
+@Component
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+public class TwitterMessageService implements MessageService {
+}
+```
 ----
 >
 ----
@@ -1081,7 +1092,7 @@ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";
 >
 ----
 106. explain Bean lifecycle?
->
+> https://www.topcoder.com/thrive/articles/bean-scopes-and-lifecycle-spring
 ----
 107. explain Maven in detail?
 >
@@ -1110,7 +1121,7 @@ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";
 115. what is docker?
 >
 ----
-116. what is @Transactional?
+116. How to load balance in 60% ,40% weightage ?
 >
 ----
 117. what is default spring bean status?
