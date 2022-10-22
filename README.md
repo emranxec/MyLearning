@@ -569,9 +569,6 @@ this.color = color;
 ## Q. Explain how to create user defined annotations ?
 
 ### Create Custom Annotation
-- Class Level Annotation
-- Field Level Annotation
-- Method Level Annotation
 
 #### Class Level Annotation
 
