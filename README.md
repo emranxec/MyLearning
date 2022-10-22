@@ -13,7 +13,7 @@
   - A parameterized constructor should initialize all the fields performing a deep copy so that data members can’t be modified with an object reference.
   - Deep Copy of objects should be performed in the getter methods to return a copy rather than returning the actual object reference)
 
-```
+```java
 final class immmutableClass{
     final private String name;
 
@@ -86,15 +86,17 @@ This pattern can be useful when managing shared resources or providing cross-cut
 > Spring uses this technique at the root of its Dependency Injection (DI) framework.
 > Fundamentally, Spring treats a bean container as a factory that produces beans.
 > Thus, Spring defines the BeanFactory interface as an abstraction of a bean container:
-```
+```java
 public interface BeanFactory {
 
     getBean(Class<T> requiredType);
+
     getBean(Class<T> requiredType, Object... args);
+
     getBean(String name);
 
     // ...
-]
+}
 ```
 
 > Each of the getBean methods is considered a factory method, which returns a bean matching the criteria supplied to the method, like the bean's type and name.
@@ -106,7 +108,7 @@ public interface BeanFactory {
 > To create a proxy, we create an object that implements the same interface as our subject and contains a reference to the subject.
 > We can then use the proxy in place of the subject.
 > In Spring, beans are proxied to control access to the underlying bean. We see this approach when using transactions:
-```
+```java
 @Service
 public class BookManager {
 
@@ -128,7 +130,7 @@ public class BookManager {
 
 #### JdbcTemplate
 > The JdbcTemplate class provides the query method, which accepts a query String and ResultSetExtractor object:
-```
+```java
 public class JdbcTemplate {
 
     public <T> T query(final String sql, final ResultSetExtractor<T> rse) throws DataAccessException {
@@ -140,7 +142,7 @@ public class JdbcTemplate {
 ```
 
 > The ResultSetExtractor converts the ResultSet object — representing the result of the query — into a domain object of type T:
-```
+```java
 @FunctionalInterface
 public interface ResultSetExtractor<T> {
 T extractData(ResultSet rs) throws SQLException, DataAccessException;
@@ -150,7 +152,7 @@ T extractData(ResultSet rs) throws SQLException, DataAccessException;
 > Spring further reduces boilerplate code by creating more specific callback interfaces.
 > For example, the RowMapper interface is used to convert a single row of SQL data into a domain object of type T.
 
-```
+```java
 @FunctionalInterface
 public interface RowMapper<T> {
 T mapRow(ResultSet rs, int rowNum) throws SQLException;
@@ -181,8 +183,9 @@ template.query("SELECT * FROM books", new BookRowMapper());
 > content VARCHAR(5000) NOT NULL
 );
 - Step 2: Append MySQL Dependencies
-```
-><dependency>
+```xml
+<dependencies>
+<dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
@@ -190,6 +193,7 @@ template.query("SELECT * FROM books", new BookRowMapper());
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
 </dependency>
+</dependencies>
 ```
 - Step 3: Set Spring Boot MySQL Connection Configuration
 > spring.datasource.url=jdbc:mysql://localhost:3306/restapi
@@ -205,7 +209,7 @@ public interface BlogRespository extends JpaRepository<Blog, Integer> {
     
  ```
 - Step 5: Convert the Blog Class to Entity
- ```
+ ```java
 @Entity
 public class Blog {
 @Id
@@ -216,6 +220,7 @@ private int id;
     private String content;
 
     public Blog() {  }
+    }
  ```
 - Step 6: Add the Controller to Spring Boot MySQL Integration
  ```
@@ -300,22 +305,24 @@ List<Integer> flatList
 > ![MVC](https://user-images.githubusercontent.com/16031518/196950237-c8c079a6-ebd3-448a-aab8-a35486abf2ec.png)
 ----
 14. How you test json implementation?
- ```
+ ```java
 @Test
-public void givenUserDoesNotExists_whenUserInfoIsRetrieved_then404IsReceived()
-throws ClientProtocolException, IOException {
+class test {
+    public void givenUserDoesNotExists_whenUserInfoIsRetrieved_then404IsReceived()
+            throws ClientProtocolException, IOException {
 
-    // Given
-    String name = RandomStringUtils.randomAlphabetic( 8 );
-    HttpUriRequest request = new HttpGet( "https://api.github.com/users/" + name );
+        // Given
+        String name = RandomStringUtils.randomAlphabetic(8);
+        HttpUriRequest request = new HttpGet("https://api.github.com/users/" + name);
 
-    // When
-    HttpResponse httpResponse = HttpClientBuilder.create().build().execute( request );
+        // When
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
 
-    // Then
-    assertThat(
-      httpResponse.getStatusLine().getStatusCode(),
-      equalTo(HttpStatus.SC_NOT_FOUND));
+        // Then
+        assertThat(
+                httpResponse.getStatusLine().getStatusCode(),
+                equalTo(HttpStatus.SC_NOT_FOUND));
+    }
 }
  ```
 ----
@@ -337,7 +344,7 @@ throws ClientProtocolException, IOException {
 > #### Using @Transactional power
 > As we defined before, in a transaction, if a single process fails then all transactions should fail. 
 > We can implement this behavior using @Transactional annotation.
- ```
+ ```java
 @Service
 public class TransferService {
 
@@ -689,7 +696,10 @@ return "Response!";
 - You already have the queries written in SQL, and do not have resources/time to port them to JPQL
 ----
 40. what is criteria in hibernate ?
-```
+```java
+class DBCOnnections{
+
+public void employeeDetails(){
 tx = session.beginTransaction();
 
         // This will simply return every object that
@@ -782,6 +792,8 @@ tx = session.beginTransaction();
                                + employee.getSalary());
         }
         tx.commit();
+        }
+        }
 ```
  [hibernate-criteria-queries](https://www.geeksforgeeks.org/hibernate-criteria-queries/)
 
@@ -931,10 +943,8 @@ public class TwitterMessageService implements MessageService {
 }
 ```
 ----
->
-----
 54. what is scope of hibernate attribute?
->
+> 
 ----
 55. Why concurrent HashMap used?
 >
