@@ -808,23 +808,92 @@ tx = session.beginTransaction();
 > Designed to enable responsive development of mobile-first websites, 
 > Bootstrap provides a collection of syntax for template designs.
 ----
-44. what is service layer in Spring?
-    [why-to-use-service-layer-in-spring-mvc](https://blog1.westagilelabs.com/why-to-use-service-layer-in-spring-mvc-5f4fc52643c0)
+44. what is service layer in Spring? 
+### Reasons to use :
+
+- Provides separation of concern-
+
+>Service layer provides code modularity,the business logic and rules are specified in the service layer which in turn calls DAO layer ,the DAO layer is then only responsible for interacting with DB.
+
+- Provides Security -
+
+>If you provide a service layer that has no relation to the DB, then it is more difficult to gain access to the DB from the client except through the service. If the DB cannot be accessed directly from the client (and there is no trivial DAO module acting as the service) then an attacker who has taken over the client cannot have access to your data directly.
+
+- Provide Loose Coupling-
+
+>Service layer can also be used to serve loose coupling in the application.Suppose your controller has 50 methods and in turn it calls 20 Dao methods,Now at later point you decide to change the Dao methods serving these controllers.You need to change all the 50 methods in controller. Instead if you have 20 service methods calling those 20 Dao methods, you need to make change in only 20 Service methods to point to a new Dao.
+    
+[why-to-use-service-layer-in-spring-mvc](https://blog1.westagilelabs.com/why-to-use-service-layer-in-spring-mvc-5f4fc52643c0)
+
 ----
 45. Do we need DAO layer if we have Service layer?
->
+>They way you put it, the alternative to having a DAO layer is not having a DAO layer. 
+> Not having a DAO layer means that the code on the next higher level is responsible 
+> for handling low level persistence aspects, which contradicts the principle of single responsibility.
+
 ----
 46. String vs String builder?
->
+- [string-vs-stringbuilder-vs-stringbuffer](https://www.geeksforgeeks.org/string-vs-stringbuilder-vs-stringbuffer-in-java/) 
+
 ----
 47. What is docker?
->
+>Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.
+
+##### What can I use Docker for?
+- Fast, consistent delivery of your applications
+- Responsive deployment and scaling
+- Running more workloads on the same hardware
+
+`docker run -i -t ubuntu /bin/bash`
+
+[docker-cheat-sheet](https://www.docker.com/wp-content/uploads/2022/03/docker-cheat-sheet.pdf)
 ----
 48. How to configure CI/CD process?
->
+- [build-ci-cd-pipeline-in-azure-devops](https://www.lambdatest.com/blog/build-ci-cd-pipeline-in-azure-devops/)
+- [azure-devops-pipeline-tutorial](https://medium.com/abn-amro-developer/azure-devops-pipeline-tutorial-part-1-ci-pipeline-fundamentals-41e590ff1d80)
+
 ----
-49. expain Flow of Rest?
->
+49. how to avoid sql injection?
+- Option 1: Use of Prepared Statements (with Parameterized Queries)
+>Prepared statements ensure that an attacker is not able to change the intent of a query, 
+> even if SQL commands are inserted by an attacker.
+##### Hibernate Query Language (HQL) Prepared Statement (Named Parameters) Examples:
+
+`//First is an unsafe HQL Statement
+Query unsafeHQLQuery = session.createQuery("from Inventory where productID='"+userSuppliedParameter+"'");
+//Here is a safe version of the same query using named parameters
+Query safeHQLQuery = session.createQuery("from Inventory where productID=:productid");
+safeHQLQuery.setParameter("productid", userSuppliedParameter);`
+
+- Option 2: Use of Properly Constructed Stored Procedures 
+> The difference between prepared statements and stored procedures is that the SQL code for a stored procedure
+> is defined and stored in the database itself, and then called from the application. Both of these techniques have
+> the same effectiveness in preventing SQL injection so your organization should choose which approach makes 
+> the most sense for you.
+`// This should REALLY be validated
+String custname = request.getParameter("customerName");
+try {
+CallableStatement cs = connection.prepareCall("{call sp_getAccountBalance(?)}");
+cs.setString(1, custname);
+ResultSet results = cs.executeQuery();
+// … result set handling
+} catch (SQLException se) {
+// … logging and error handling
+}`
+- Option 3: Allow-list Input Validation
+>Escaping Dynamic Queries¶
+To use an ESAPI database codec is pretty simple. An Oracle example looks something like:
+`ESAPI.encoder().encodeForSQL( new OracleCodec(), queryparam );`
+> it would now be safe from SQL injection, regardless of the input supplied.
+`Codec ORACLE_CODEC = new OracleCodec();
+String query = "SELECT user_id FROM user_data WHERE user_name = '"
++ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("userID"))
++ "' and user_password = '"
++ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";`
+[Input_Validation_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
+ 
+- Option 4: Escaping All User Supplied Input
+- [SQL_Injection_Prevention_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 ----
 50. what is functional interface?
 >
