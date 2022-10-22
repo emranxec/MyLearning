@@ -326,8 +326,13 @@ class test {
  ```
 ----
 15.  can mutable object is instance of immutable class? how to fix? 
-15.1. can private constructer of immutable class always create a new object of mutable instance? 
-15.2. getter of immutable class always return a new object of mutable instance?
+
+- can private constructer of immutable class always create a new object of mutable instance? 
+- getter of immutable class always return a new object of mutable instance? 
+- what if we have a mutable instance in your immutable class such as Date? 
+- in private constructor of your immutable class always? 
+- create a new instance of mutable field? 
+- and in getter always return a new instance of mutable field?
 >
 ----
 16. how to process: 10000 request handling at once & persist in DB ?
@@ -1043,7 +1048,7 @@ throw new RuntimeException();
 63. Load a file and do operations?
 >
 ----
-64. what are diff types of garbage collector?
+64. Garbage collectors? what are diff types of garbage collector? Different method of garbage collector?
 >
 ----
 65. jdbc versus hibernate?
@@ -1061,13 +1066,13 @@ throw new RuntimeException();
 69. MQS?
 >
 ----
-70. Java 8 - functional interface?
+70. explain Maven in detail? explain Pom.xml in detail?
 >
 ----
-71. Garbage collectors?
+71. Why to overide run in springApplication?
 >
 ----
-72. Different method of garbage collector?
+72. try with resources vs try with finally?
 >
 ----
 73. How to configure techniques of JVM?
@@ -1121,16 +1126,16 @@ throw new RuntimeException();
 89. Sort hashmap on basis of value.?
 >
 ----
-90. what if we have a mutable instance in your immutable class such as Date?
+90. how to manage two different session factory?
 >
 ----
-91. in private constructor of your immutable class always?
+91.  what are Different library for hibernate,spring & SQI?
 >
 ----
-92. create a new instance of mutable field?
+92. What data structure does Executer service hold?
 >
 ----
-93. and in getter always return a new instance of mutable field?
+93. Function vs procedures?
 >
 ----
 94. explain Serialisation, UUID and its concepts?
@@ -1167,33 +1172,11 @@ throw new RuntimeException();
 ----
 104. how to Configure ehcache?
 >
+
 ----
-105. Function vs procedures?
->
-----
-106. explain Bean lifecycle?
+5explain Bean lifecycle?
 > https://www.topcoder.com/thrive/articles/bean-scopes-and-lifecycle-spring
-----
-107. explain Maven in detail?
->
-----
-108. explain Pom.xml in detail?
->
-----
-109. Why to overide run in springApplication?
->
-----
-110. try with resources vs try with finally?
->
-----
-111. how to manage two different session factory?
->
-----
-112. what are Different library for hibernate,spring & SQI?
->
-----
-113. What data structure does Executer service hold?
->
+
 ----
 
 self:
