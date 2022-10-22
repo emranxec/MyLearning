@@ -254,7 +254,42 @@ List<Integer> flatList
 > [difference-between-map-and-flatmap-in-java-stream](https://www.geeksforgeeks.org/difference-between-map-and-flatmap-in-java-stream/) 
 ----
 ## Q. what is spring global exception?
-> 
+> Spring framework offers developers several options for handling exceptions in their applications. 
+One of which is global exception handler with @ControllerAdvice and @ExceptionHandler annotations
+ ```java
+@ControllerAdvice
+public class GlobalExceptionHandler {
+        
+    @ExceptionHandler(TeacherNotFoundException.class)
+    public ResponseEntity<Object> handleExceptions( TeacherNotFoundException exception, WebRequest webRequest) {
+        ExceptionResponse response = new ExceptionResponse();
+        response.setDateTime(LocalDateTime.now());
+        response.setMessage("Not found");
+        ResponseEntity<Object> entity = new ResponseEntity<>(response,HttpStatus.NOT_FOUND);
+        return entity;
+    }
+    // handlers for other exceptions...
+}
+
+public class ExceptionResponse { }
+@RestController
+public class ResourceController {
+
+    @Autowired
+    ResourceService resourceService;
+
+    @GetMapping("/getTeacherDetails/{id}")
+    public Teacher getTeacherDetails(@PathVariable("id") int id){
+        Teacher teacher = resourceService.getTeacherDetails(id);
+        if(teacher == null)
+            throw new TeacherNotFoundException();
+
+        return teacher;
+    }
+}
+ ```
+[spring-boot-global-exception-handling](https://www.studytonight.com/spring-boot/spring-boot-global-exception-handling)
+
 ----
 ## Q.  what is Azure function?
 
@@ -433,11 +468,14 @@ public void addMoneyToAccount(long account) {`
 - boolean wasCommited() checks if the transaction is commited successfully. 
 - boolean wasRolledBack() checks if the transaction is rolledback successfully.
 ----
-20. linkedhashmap internal works?
+20. LinkedHashmap internal works?
 
-> 
+| BEFORE | KEY | VALUE | AFTER |
+|--------|-----|-------|-------|
+
+[how-linkedhashmap-works-internally-in-java](https://medium.com/@greekykhs/how-linkedhashmap-works-internally-in-java-409846a4f08)
+
 ----
-
 ## Q. what are RESTFUL annotations?
 #### JAX-RS Annotations
 - @Path(‘Path‘)
@@ -455,7 +493,49 @@ public void addMoneyToAccount(long account) {`
 ----
 ## Q. write code to hit new api request from your code?
 
-> 
+#### Spring RestTemplate
+```java
+public class PostsClientService {
+    public PostDTO[] getAllPosts() {
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            return restTemplate.getForObject("https://jsonplaceholder.typicode.com/not-posts", PostDTO[].class);
+        }
+        catch (HttpClientErrorException ex) {
+            // here you can do whatever you want with exception
+            // in this example we will just print the status code
+            System.out.println(ex.getRawStatusCode());
+        }
+        return new PostDTO[0];
+    }
+}
+```
+
+>In any case, dealing with errors or any other case like using a custom encoder or decoder for the request or the response will end in :
+- more lines of code, probably repeated across many rest call methods.
+- harder to maintain in the future.
+> **Netflix had to deal with these problems, thus they chose to build their rest client leveraging 
+the Spring framework's capabilities: `Feign` was the name given to it.**
+
+
+[spring-restful-client-resttemplate-example](https://howtodoinjava.com/spring-boot2/resttemplate/spring-restful-client-resttemplate-example/)
+
+#### OpenFeign
+```java
+@FeignClient(name = "posts-client", url = "https://jsonplaceholder.typicode.com/posts")
+public interface PostsClient {
+@GetMapping
+List<PostDTO> getAllPosts();
+}
+```
+
+#### So why use Feign?
+- we don't need to learn any new syntax,
+- easy to read and maintain
+- each Feign client is composed of a set of customizable components(Decoder,Encoder,Logger,Contract).
+
+[consuming-rest-api-using-feign/](https://blog.nimbleways.com/consuming-rest-api-using-feign/)
+
 ----
 ## Q. What DB model is prefered in microservice architecture?
 >Different services have different data storage requirements. For some services, a relational database 
@@ -616,7 +696,7 @@ Dependencies can be classified into:
 #### Modernized Password Encoding
 >Spring Security 5.0 introduced new Password encoder **DelegatingPasswordEncoder** which is more modernize and solve all the problems of previous encoder **NoOpPasswordEncoder**.
 ----
-## Q. expalin Dirty - Hibernate?
+## Q. explain Dirty - Hibernate?
 >When an entity object is loaded, a copy of all properties of that entity object is created. 
 > At the time of synchronization, which we call flush time, the properties of the entity object are matched 
 > with the properties of the loaded object and the difference is checked. 
@@ -1067,7 +1147,7 @@ throw new RuntimeException();
 ## Q. MQS?
 >
 ----
-70. explain Maven in detail? explain Pom.xml in detail?
+## Q. explain Maven in detail? explain Pom.xml in detail?
 >
 ----
 ## Q. Why to overide run in springApplication?
@@ -1104,9 +1184,6 @@ throw new RuntimeException();
 >
 ----
 ## Q. diffrence between @Primary & @Qualifier?
->
-----
-## Q. Spring global exceptions?
 >
 ----
 ## Q. Controller vs rest controlled?
