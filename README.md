@@ -588,10 +588,12 @@ public String key() default "";
 }`
 
 #### Method Level Annotation
+
 `@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Init {
 }`
+
 ----
 ## Q. what data structure does executer service hold?
 
