@@ -885,11 +885,13 @@ ResultSet results = cs.executeQuery();
 To use an ESAPI database codec is pretty simple. An Oracle example looks something like:
 `ESAPI.encoder().encodeForSQL( new OracleCodec(), queryparam );`
 > it would now be safe from SQL injection, regardless of the input supplied.
+
 `Codec ORACLE_CODEC = new OracleCodec();
-String query = "SELECT user_id FROM user_data WHERE user_name = '"
-+ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("userID"))
-+ "' and user_password = '"
-+ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";`
+ String query = "SELECT user_id FROM user_data WHERE user_name = '"
+ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("userID"))
+"' and user_password = '"
+ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";`
+
 [Input_Validation_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
  
 - Option 4: Escaping All User Supplied Input
