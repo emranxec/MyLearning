@@ -1047,6 +1047,7 @@ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";
 >
 ----
 ## Q. why serialize a object?
+
 - You can think of serialization as the process of converting an object instance into a sequence of bytes (which may be binary or not depending on the implementation).
 - It is very useful when you want to transmit one object data across the network, for instance from one JVM to another.
 - In Java, the serialization mechanism is built into the platform, but you need to implement the Serializable interface to make an object serializable.
