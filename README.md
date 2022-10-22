@@ -588,8 +588,7 @@ public @interface GFGElement {
 public String key() default "";
 }
 
- //Method Level Annotation
-
+//Method Level Annotation
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Init {
