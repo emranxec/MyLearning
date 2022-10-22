@@ -854,15 +854,15 @@ tx = session.beginTransaction();
 
 ----
 49. how to avoid sql injection?
-#### Option 1: Use of Prepared Statements (with Parameterized Queries)
+#### Option 1: Use of **Prepared Statements** (with Parameterized Queries)
 >Prepared statements ensure that an attacker is not able to change the intent of a query, 
 > even if SQL commands are inserted by an attacker.
-##### Hibernate Query Language (HQL) Prepared Statement (Named Parameters) Examples:
+- Hibernate Query Language (HQL) Prepared Statement (Named Parameters) Examples:
 
-`//First is an unsafe HQL Statement
-Query unsafeHQLQuery = session.createQuery("from Inventory where productID='"+userSuppliedParameter+"'");
-//Here is a safe version of the same query using named parameters
-Query safeHQLQuery = session.createQuery("from Inventory where productID=:productid");
+>First is an unsafe HQL Statement
+`Query unsafeHQLQuery = session.createQuery("from Inventory where productID='"+userSuppliedParameter+"'");`
+>Here is a safe version of the same query using named parameters
+`Query safeHQLQuery = session.createQuery("from Inventory where productID=:productid");
 safeHQLQuery.setParameter("productid", userSuppliedParameter);`
 
 ####  Option 2: Use of Properly Constructed Stored Procedures 
@@ -870,7 +870,8 @@ safeHQLQuery.setParameter("productid", userSuppliedParameter);`
 > is defined and stored in the database itself, and then called from the application. Both of these techniques have
 > the same effectiveness in preventing SQL injection so your organization should choose which approach makes 
 > the most sense for you.
-`// This should REALLY be validated
+``` java
+// This should REALLY be validated
 String custname = request.getParameter("customerName");
 try {
 CallableStatement cs = connection.prepareCall("{call sp_getAccountBalance(?)}");
@@ -879,23 +880,32 @@ ResultSet results = cs.executeQuery();
 // … result set handling
 } catch (SQLException se) {
 // … logging and error handling
-}`
+}
+```
 ####  Option 3: Allow-list Input Validation
->Escaping Dynamic Queries¶
-To use an ESAPI database codec is pretty simple. An Oracle example looks something like:
-`ESAPI.encoder().encodeForSQL( new OracleCodec(), queryparam );`
-
-> it would now be safe from SQL injection, regardless of the input supplied.
-
-`Codec ORACLE_CODEC = new OracleCodec();
- String query = "SELECT user_id FROM user_data WHERE user_name = '"
-ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("userID"))
-"' and user_password = '"
-ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";`
-
 [Input_Validation_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 
 ####  Option 4: Escaping All User Supplied Input
+>This technique works like this. Each DBMS supports one or more character escaping schemes specific
+> to certain kinds of queries. If you then escape all user supplied input using the proper
+> escaping scheme for the database you are using, the DBMS will not confuse that input with SQL code
+> written by the developer, thus avoiding any possible SQL injection vulnerabilities.
+
+##### Escaping Dynamic Queries
+- To use an ESAPI database codec is pretty simple. An Oracle example looks something like:
+
+`ESAPI.encoder().encodeForSQL( new OracleCodec(), queryparam );`
+
+- it would now be safe from SQL injection, regardless of the input supplied.
+
+```
+Codec ORACLE_CODEC = new OracleCodec();
+ String query = "SELECT user_id FROM user_data WHERE user_name = '"
+ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("userID"))
+"' and user_password = '"
+ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";
+```
+
 [SQL_Injection_Prevention_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 ----
 50. what is functional interface?
