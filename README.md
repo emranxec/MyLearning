@@ -262,7 +262,8 @@ List<Integer> flatList
 > and save on costs. Instead of worrying about deploying and maintaining servers, 
 > the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
 ----
-10. Azure kubernate?
+
+## Q. what is Azure kubernate?
 
 >Azure Kubernetes Service is a managed container orchestration service based on the open source 
 > Kubernetes system, which is available on the Microsoft Azure public cloud. An organization can 
