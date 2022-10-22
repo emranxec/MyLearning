@@ -442,9 +442,10 @@ accountService.addMoneyToAccount(accountTo);
 
 #### Rollback rules
 >We can add specific configuration to allow rollback or non-rollback depending on the exception thrown:
-
-`@Transactional(rollbackFor=MyException.class, noRollbackFor=OtherException.class)
-public void addMoneyToAccount(long account) {`
+```
+@Transactional(rollbackFor=MyException.class, noRollbackFor=OtherException.class)
+public void addMoneyToAccount(long account) {
+```
 
 - [spring-core-managing-transactions](https://medium.com/javarevisited/spring-core-managing-transactions-effectively-781bba6c47e8)
 - [Transaction Management](https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html)
@@ -599,6 +600,7 @@ public @interface Init {
 
 ![pool](https://user-images.githubusercontent.com/16031518/197357824-9175b364-59f2-4d9f-9ecb-04e6f63f0511.png)
 
+- LinkedBlockingQueue:
 `
  ExecutorService threadPoolExecutor = new ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime,
         TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
@@ -810,7 +812,8 @@ return "Response!";
 - Maybe you do not want to learn JPQL if you already know SQL 
 - You already have the queries written in SQL, and do not have resources/time to port them to JPQL
 ----
-40. what is criteria in hibernate ?
+## Q. what is criteria in hibernate ?
+
 ```java
 class DBCOnnections{
 
@@ -1044,7 +1047,38 @@ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";
 >
 ----
 ## Q. why serialize a object?
->
+- You can think of serialization as the process of converting an object instance into a sequence of bytes (which may be binary or not depending on the implementation).
+- It is very useful when you want to transmit one object data across the network, for instance from one JVM to another.
+- In Java, the serialization mechanism is built into the platform, but you need to implement the Serializable interface to make an object serializable.
+- You can also prevent some data in your object from being serialized by marking the attribute as transient.
+
+#### Real World Example:
+>ATM: When the account holder tries to withdraw money from the server through ATM, 
+the account holder information like withdrawal details will be serialized and sent 
+to the server where the details are deserialized and used to perform operations.
+
+#### This will answer a few frequent questions:
+
+- How not to serialize any field in the class.
+> Ans: use transient keyword
+
+- When child class is serialized does parent class get serialized?
+> Ans: No, If a parent is not extending the Serializable interface parents field don't get serialized.
+
+- When a parent is serialized does child class get serialized?
+> Ans: Yes, by default child class also gets serialized.
+
+- How to avoid child class from getting serialized?
+> Ans:
+> a. Override writeObject and readObject method and throw NotSerializableException. 
+> b. also you can mark all fields transient in child class.
+
+- Additionally:
+>Some system-level classes such as Thread, OutputStream, 
+> and its subclasses, and Socket are not serializable.
+
+[java-serialization](https://www.baeldung.com/java-serialization)
+
 ----
 ## Q. what is default spring bean status?
 >The default scope for the bean is a singleton, like the example below, 
