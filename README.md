@@ -253,9 +253,8 @@ List<Integer> flatList
  ```
 > [difference-between-map-and-flatmap-in-java-stream](https://www.geeksforgeeks.org/difference-between-map-and-flatmap-in-java-stream/) 
 ----
-8. what is singleton, factory pattern,builder pattern ?
-
-> [design patterns](https://github.com/emranxec/MyLearning/blob/master/designPattern/interviewQuestions.md)
+8. what is spring global exception?
+> 
 ----
 9.  what is Azure function?
 
@@ -326,9 +325,10 @@ class test {
 }
  ```
 ----
-15. Explain MVC architectute?
-    
-> ![MVC](https://user-images.githubusercontent.com/16031518/196950237-c8c079a6-ebd3-448a-aab8-a35486abf2ec.png)
+15.  can mutable object is instance of immutable class? how to fix? 
+15.1. can private constructer of immutable class always create a new object of mutable instance? 
+15.2. getter of immutable class always return a new object of mutable instance?
+>
 ----
 16. how to process: 10000 request handling at once & persist in DB ?
 ----
@@ -427,10 +427,9 @@ public void addMoneyToAccount(long account) {`
 - boolean wasCommited() checks if the transaction is commited successfully. 
 - boolean wasRolledBack() checks if the transaction is rolledback successfully.
 ----
-20. explain RESTFUL FLOW ?
+20. linkedhashmap internal works?
 
-> ![microservices artchitecture](https://user-images.githubusercontent.com/16031518/197209817-ff57757f-0e8b-497b-ab46-6deb8030886b.jpg)
-
+> 
 ----
 
 21. what are RESTFUL annotations?
@@ -448,10 +447,9 @@ public void addMoneyToAccount(long account) {`
 - @FormParam()
 
 ----
-22. Explain microservices?
+22. write code to hit new api request from your code?
 
-> ![microservices artchitecture](https://user-images.githubusercontent.com/16031518/197209817-ff57757f-0e8b-497b-ab46-6deb8030886b.jpg)
-
+> 
 ----
 23. What DB model is prefered in microservice architecture?
 >Different services have different data storage requirements. For some services, a relational database 
@@ -509,7 +507,8 @@ public String key() default "";
 public @interface Init {
 }`
 ----
-26. How many ways to connect DB from Hibernate & Spring ?
+26. what data structure does executer service hold?
+> 
 ----
 27. what are Microservices design patterns?
 #### Microservices Design Patterns:
@@ -796,7 +795,9 @@ tx = session.beginTransaction();
         }
 ```
  [hibernate-criteria-queries](https://www.geeksforgeeks.org/hibernate-criteria-queries/)
-
+----
+41. load a big trnsactional file and fetch the trnasction records using best data structures?
+> 
 ----
 42. why jquery over javascript ?
 
@@ -923,11 +924,11 @@ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";
 50. what is functional interface?
 [functional-interfaces-java](https://www.geeksforgeeks.org/functional-interfaces-java/?ref=lbp)
 ----
-51. what is @Transactional in DB?
-[using-transactional-power](https://github.com/emranxec/MyLearning/blob/master/README.md#using-transactional-power)
+51. how to configure techniques of JVM?
+>
 ----
-52. explain Design patterns any?
-    [designPattern](https://github.com/emranxec/MyLearning/blob/master/designPattern/interviewQuestions.md)
+52. why serialize a object?
+>
 ----
 53. what is default spring bean status?
 >The default scope for the bean is a singleton, like the example below, 
@@ -993,8 +994,7 @@ public class Controller {
 
 [spring-validate-requestparam-pathvariable](https://www.baeldung.com/spring-validate-requestparam-pathvariable)
 ----
-58. update vs merge?
-[hibernate-save-persist-update-merge-saveorupdate](https://www.baeldung.com/hibernate-save-persist-update-merge-saveorupdate)
+58. what is reflaction API?
 ----
 59. at what time/place rollback gets called?
 > In Spring Boot, when @Transactional annotation is used, Spring Boot implicitly creates a proxy 
@@ -1022,8 +1022,8 @@ throw new RuntimeException();
 
 [spring-transactional-rollback-handling](https://medium.com/geekculture/spring-transactional-rollback-handling-741fcad043c6)
 ----
-60. Microservice design pattern atleast 10?
-    [design-patterns-for-microservices](https://dzone.com/articles/design-patterns-for-microservices)
+60. what are diffrent types of class loader?
+
 ----
 61. How to convert monolithic application to microservices?
 1. Identify logical components.
@@ -1037,10 +1037,10 @@ throw new RuntimeException();
 
 [8-steps-for-migrating-existing-applications-to-microservices](https://insights.sei.cmu.edu/blog/8-steps-for-migrating-existing-applications-to-microservices/)
 ----
-62. explain security handling?
-> Refer 31 
+62. How to load balance in 60% ,40% weightage ?
+
 ----
-63. expalin hibernate entity states?
+63. Load a file and do operations?
 >
 ----
 64. what are diff types of garbage collector?
@@ -1193,65 +1193,6 @@ throw new RuntimeException();
 >
 ----
 113. What data structure does Executer service hold?
->
-----
-114. Load a file and do operations?
->
-----
-115. what is docker?
->
-----
-116. How to load balance in 60% ,40% weightage ?
->
-----
-117. what is default spring bean status?
->
-----
-118. can two threads updated concurrent hashmap?
->
-----
-119. how to validate request param and path param in spring?
->
-----
-120. how many ways to connect DB from spring and hibernate?
->
-----
-121. how to configure techniques of JVM?
->
-----
-122. why serialize a object?
->
-----
-123. what is reflaction API?
->
-----
-124. what are diffrent types of class loader?
->
-----
-125. what is spring global exception?
->
-----
-126. can mutable object is instance of immutable class?
->
----- how to fix?
->
-----
-127. can private constructer of immutable class always create a new object of mutable instance?
->
-----
-128. getter of immutable class always return a new object of mutable instance?
->
-----
-129. linkedhashmap internal works?
->
-----
-130. write code to hit new api request from your code?
->
-----
-131. what data structure does executer service hold?
->
-----
-132. load a big trnsactional file and fetch the trnasction records using best data structures?
 >
 ----
 
