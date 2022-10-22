@@ -884,6 +884,7 @@ ResultSet results = cs.executeQuery();
 >Escaping Dynamic Queries¶
 To use an ESAPI database codec is pretty simple. An Oracle example looks something like:
 `ESAPI.encoder().encodeForSQL( new OracleCodec(), queryparam );`
+
 > it would now be safe from SQL injection, regardless of the input supplied.
 
 `Codec ORACLE_CODEC = new OracleCodec();
