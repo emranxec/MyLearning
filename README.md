@@ -854,7 +854,7 @@ tx = session.beginTransaction();
 
 ----
 49. how to avoid sql injection?
-- Option 1: Use of Prepared Statements (with Parameterized Queries)
+#### Option 1: Use of Prepared Statements (with Parameterized Queries)
 >Prepared statements ensure that an attacker is not able to change the intent of a query, 
 > even if SQL commands are inserted by an attacker.
 ##### Hibernate Query Language (HQL) Prepared Statement (Named Parameters) Examples:
@@ -865,7 +865,7 @@ Query unsafeHQLQuery = session.createQuery("from Inventory where productID='"+us
 Query safeHQLQuery = session.createQuery("from Inventory where productID=:productid");
 safeHQLQuery.setParameter("productid", userSuppliedParameter);`
 
-- Option 2: Use of Properly Constructed Stored Procedures 
+####  Option 2: Use of Properly Constructed Stored Procedures 
 > The difference between prepared statements and stored procedures is that the SQL code for a stored procedure
 > is defined and stored in the database itself, and then called from the application. Both of these techniques have
 > the same effectiveness in preventing SQL injection so your organization should choose which approach makes 
@@ -880,7 +880,7 @@ ResultSet results = cs.executeQuery();
 } catch (SQLException se) {
 // … logging and error handling
 }`
-- Option 3: Allow-list Input Validation
+####  Option 3: Allow-list Input Validation
 >Escaping Dynamic Queries¶
 To use an ESAPI database codec is pretty simple. An Oracle example looks something like:
 `ESAPI.encoder().encodeForSQL( new OracleCodec(), queryparam );`
@@ -894,9 +894,9 @@ ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("userID"))
 ESAPI.encoder().encodeForSQL( ORACLE_CODEC, req.getParameter("pwd")) +"'";`
 
 [Input_Validation_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
- 
-- Option 4: Escaping All User Supplied Input
-- [SQL_Injection_Prevention_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+
+####  Option 4: Escaping All User Supplied Input
+[SQL_Injection_Prevention_Cheat_Sheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 ----
 50. what is functional interface?
 >
