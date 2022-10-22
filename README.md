@@ -943,29 +943,99 @@ public class TwitterMessageService implements MessageService {
 }
 ```
 ----
-54. what is scope of hibernate attribute?
-> 
+54. what is states of hibernate attribute?
+#### transient 
+− A new instance of a persistent class, which is not associated with a Session and has no representation in the database and no identifier value is considered transient by Hibernate.
+
+#### persistent 
+− You can make a transient instance persistent by associating it with a Session. A persistent instance has a representation in the database, an identifier value and is associated with a Session.
+
+#### detached 
+- Once we close the Hibernate Session, the persistent instance will become a detached instance.
 ----
 55. Why concurrent HashMap used?
->
+[concurrenthashmap-in-java](https://www.geeksforgeeks.org/concurrenthashmap-in-java/?ref=lbp)
 ----
 56. can two threads update in concurrent HashMap?
->
+>	Yes, Thread safety is ensured by having separate locks for separate buckets, 
+> resulting in better performance. Performance is further improved by providing 
+> read access concurrently without any blocking.
 ----
 57. how you validate the request param and path param Done in spring?
->
+```xml
+<dependency>
+    <groupId>org.hibernate.validator</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>6.0.10.Final</version>
+</dependency>
+```
+##### @Validated
+
+```java
+@RestController
+@RequestMapping("/")
+@Validated
+public class Controller {
+// ...
+
+    @GetMapping("/name-for-day")
+    public String getNameOfDayByNumber(@RequestParam @Min(1) @Max(7) Integer dayOfWeek) {
+        // ...
+    }
+    @GetMapping("/valid-name/{name}")
+    public void createUsername(@PathVariable("name") @NotBlank @Size(max = 10) String username) {
+        // ...
+    }
+}
+```
+>We can change the default message by adding a custom one:
+`@Max(value = 1, message = “day number has to be less than or equal to 7”)`
+
+[spring-validate-requestparam-pathvariable](https://www.baeldung.com/spring-validate-requestparam-pathvariable)
 ----
 58. update vs merge?
->
+[hibernate-save-persist-update-merge-saveorupdate](https://www.baeldung.com/hibernate-save-persist-update-merge-saveorupdate)
 ----
 59. at what time/place rollback gets called?
->
+> In Spring Boot, when @Transactional annotation is used, Spring Boot implicitly creates a proxy 
+> that will be creating a connection to the database. A transaction will be started and commit 
+> after the code has been executed errorless. Otherwise, it will roll back the changes if an 
+> exception occurred.
+
+```java
+class someClass{
+@Transactional
+public void createProduct() {  
+System.out.println("------ createProduct ------");
+Product prod = new Product();
+prod.setDescription("This is an example with runtime exception and transactional annotation.");
+prod.setPrice(10);
+prod.setTitle("Second Product");
+productRepository.save(prod);
+System.out.println("Second Product inserted.");
+throw new RuntimeException();
+}
+}
+```
+
+**_Take note, Spring only rolled back on unchecked exceptions by default. To roll back checked exception, we need to specify the rollbackFor_**
+
+[spring-transactional-rollback-handling](https://medium.com/geekculture/spring-transactional-rollback-handling-741fcad043c6)
 ----
 60. Microservice design pattern atleast 10?
->
+    [design-patterns-for-microservices](https://dzone.com/articles/design-patterns-for-microservices)
 ----
 61. How to convert monolithic application to microservices?
->
+1. Identify logical components.
+2. Flatten and refactor components.
+3. Identify component dependencies.
+4. Identify component groups.
+5. Create an API for remote user interface.
+6. Migrate component groups to macroservices (move component groups to separate projects and make separate deployments).
+7. Migrate macroservices to microservices.
+8. Repeat steps 6-7 until complete.
+
+[8-steps-for-migrating-existing-applications-to-microservices](https://insights.sei.cmu.edu/blog/8-steps-for-migrating-existing-applications-to-microservices/)
 ----
 62. explain security handling?
 >
