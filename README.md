@@ -550,21 +550,25 @@ List<PostDTO> getAllPosts();
 > constructor, a property or methods with arbitrary names and/or multiple arguments.
 
 >class Red
-`@Qualifier("redBean")
+```java
+@Qualifier("redBean")
 class Red implements Color {
 // Class code here
-}`
->class Blue
-`@Qualifier("blueBean")
+}
+
+@Qualifier("blueBean")
 class Blue implements Color {
 // Class code here
-}`
->creating Red class injection using autowire
-`@Autowired
-@Qualifier("redBean")
-public void setColor(Color color) {
-this.color = color;
-}`
+}
+//creating Red class injection using autowire
+class someClass {
+    @Autowired
+    @Qualifier("redBean")
+    public void setColor(Color color) {
+        this.color = color;
+    }
+}
+```
 ----
 ## Q. Explain how to create user defined annotations ?
 
