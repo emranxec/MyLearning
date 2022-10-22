@@ -642,7 +642,7 @@ as owner3_1_0_ from comment commententity0_ where commententity0_.id=?`
 > If several references point to the same String without even knowing it, 
 > it would be bad if one of the references modified that String value. That’s why String objects are immutable.
 
-[java-string-is-immutable](geeksforgeeks.org/java-string-is-immutable-what-exactly-is-the-meaning/?ref=lbp)
+[java-string-is-immutable](http://geeksforgeeks.org/java-string-is-immutable-what-exactly-is-the-meaning/?ref=lbp)
 
 `String str = "knowledge"`
 >
