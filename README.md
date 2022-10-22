@@ -574,27 +574,27 @@ class someClass {
 
 ### Create Custom Annotation
 
-#### Class Level Annotation
-
-`@Retention(RetentionPolicy.RUNTIME)
+```java
+//Class Level Annotation
+@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.Type)
 public @interface GFG {
-}`
+}
 
-#### Field Level Annotation
-`@Retention(RetentionPolicy.RUNTIME)
+//Field Level Annotation
+@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface GFGElement { 
 public String key() default "";
-}`
+}
 
-#### Method Level Annotation
+ //Method Level Annotation
 
-`@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Init {
-}`
-
+}
+```
 ----
 ## Q. what data structure does executer service hold?
 
