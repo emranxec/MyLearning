@@ -1284,9 +1284,6 @@ throw new RuntimeException();
 ----
 ## Q. explain @mappedBy?
 
-@Entity
-public class Branch implements Serializable {
-
 > In JPA or Hibernate, entity associations are directional, either unidirectional or 
 bidirectional. Always mappedBy attribute is used in bidirectional association to link 
 with other side of entity.
