@@ -1334,11 +1334,92 @@ public class Branch implements Serializable {
 [difference-between-joincolumn-and-mappedby/](https://javabydeveloper.com/difference-between-joincolumn-and-mappedby/)
 
 ----
-## Q. explain hibernate criteria?
->
-----
 ## Q. explain hibernate caching?
->
+> Hibernate is an ORM (Object-relational model) tool that is widely used by developers 
+> worldwide. It has many in-built features available that make the developer’s life simple.
+> One of them is a **caching mechanism**.
+
+###### There are mainly two types of caching:
+- First level cache (default,can not disable,until Session is open)
+>Long-lived sessions with several large objects consume more memory 
+> and may cause out of memory errors.
+- Second-level cache (default disabled,)
+
+######  Some useful methods:
+- Session.evict(): to remove the cached/stored entity. 
+- refresh(): method to refresh the cache. 
+- clear(): method to remove all the entities from the cache.
+
+###### Cache is stored in the RAM only. And because of that, it gives faster access to data rather than databases.
+
+#### Ehcache
+
+- Maven dependency:
+```xml
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-ehcache</artifactId>
+    <version>5.2.2.Final</version>
+</dependency>
+```
+
+##### Enabling Second-Level Caching
+```lombok.config
+hibernate.cache.use_second_level_cache=true
+hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
+```
+
+- persistance.xml
+```xml
+<properties>
+    ...
+    <property name="hibernate.cache.use_second_level_cache" value="true"/>
+    <property name="hibernate.cache.region.factory_class" 
+      value="org.hibernate.cache.ehcache.EhCacheRegionFactory"/>
+    ...
+</properties>
+```
+
+##### Making an Entity Cacheable
+```java
+@Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+public class Foo {
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+@Column(name = "ID")
+private long id;
+
+    @Column(name = "NAME")
+    private String name;
+    
+    // getters and setters
+}
+```
+
+##### Cache Concurrency Strategy
+- READ_ONLY
+> Used only for entities that never change. eg. static data
+- NONSTRICT_READ_WRITE
+> Cache is updated after the transaction that changed the affected data has been committed
+- READ_WRITE
+> This strategy guarantees strong consistency, which it achieves by using ‘soft' locks.
+- TRANSACTIONAL 
+>  Cache changes are done in distributed XA transactions.
+
+###### Collections aren't cached by default, and we need to explicitly mark them as cacheable.
+
+#### Query Cache
+```lombok.config
+hibernate.cache.use_query_cache=true
+```
+```
+entityManager.createQuery("select f from Foo f")
+.setHint("org.hibernate.cacheable", true)
+.getResultList();
+```
+
 ----
 ## Q. MQS?
 >
