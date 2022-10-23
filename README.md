@@ -1145,7 +1145,26 @@ public class Controller {
 
 [spring-validate-requestparam-pathvariable](https://www.baeldung.com/spring-validate-requestparam-pathvariable)
 ----
-## Q. what is reflaction API?
+## Q. what is reflaction API? (java.lang.reflect)
+
+> Reflection is an API that is used to examine or modify the behavior of methods, classes, 
+> and interfaces at runtime.
+
+![javalang](https://user-images.githubusercontent.com/16031518/197360863-da2c22f9-8b23-4077-bbc3-5936df723405.jpg)
+
+#### methods
+- getClass()
+- getConstructors()
+- getMethods()
+
+#### We can invoke a method through reflection if we know its name and parameter types. We use two methods for this purpose as described below before moving ahead as follows:
+- Class.getDeclaredMethod(name, parametertype)
+- Method.invoke(Object, parameter)
+- Class.getDeclaredField(FieldName)
+- Field.setAccessible(true)
+
+[reflection-in-java/](https://www.geeksforgeeks.org/reflection-in-java/)
+
 ----
 ## Q. at what time/place rollback gets called?
 > In Spring Boot, when @Transactional annotation is used, Spring Boot implicitly creates a proxy 
