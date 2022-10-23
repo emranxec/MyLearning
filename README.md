@@ -1422,6 +1422,11 @@ entityManager.createQuery("select f from Foo f")
 [hibernate-second-level-cache](https://www.baeldung.com/hibernate-second-level-cache)
 
 ----
+## Q. explain Bean lifecycle?
+
+[bean-scopes-and-lifecycle-spring](https://www.topcoder.com/thrive/articles/bean-scopes-and-lifecycle-spring)
+
+----
 ## Q. MQS?
 >
 ----
@@ -1440,9 +1445,6 @@ entityManager.createQuery("select f from Foo f")
 ## Q. Why to serialize a object?
 >
 ----
-## Q. Reflaction API?
->
-----
 ## Q. How to serialize and deserialize object?
 >
 ----
@@ -1455,22 +1457,19 @@ entityManager.createQuery("select f from Foo f")
 ## Q. what are Design principles?
 >
 ----
-80. explain Classnotfound, NoClassDefError,StackOverFlow,OOM?
+## Q. explain Classnotfound, NoClassDefError,StackOverFlow,OOM?
 >
 ----
 ## Q. explain Microservice framework Netflix?
 >
 ----
-## Q. diffrence between @Primary & @Qualifier?
+## Q. difference between @Primary & @Qualifier?
 >
 ----
 ## Q. Controller vs rest controlled?
 >
 ----
 ## Q. Spring actuators?
->
-----
-## Q. Different types of class loaders?
 >
 ----
 ## Q. explain Hibernate inheritance?
@@ -1512,28 +1511,22 @@ entityManager.createQuery("select f from Foo f")
 ## Q. Where vs having in sql?
 >
 ----
-100. Why overloading?
->
-----and Over loading concept?
+## Q. Why overloading? and Over loading concept?
 >
 ----
-101. Create outgoing service call from application?
+## Q. Create outgoing service call from application?
 >
 ----
-102. is Synchronized block entire object?
+## Q. is Synchronized block entire object?
 >
 ----
-103. explain Thread with caching?
+## Q. explain Thread with caching?
 >
 ----
-104. how to Configure ehcache?
+## Q. how to Configure ehcache?
 >
+----
 
-----
-105. explain Bean lifecycle?
-> https://www.topcoder.com/thrive/articles/bean-scopes-and-lifecycle-spring
-
-----
 
 self:
 ## Q. how you identify which Asset type?
