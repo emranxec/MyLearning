@@ -1257,6 +1257,8 @@ throw new RuntimeException();
 > of application threads for more than 10 ms,
 > It also handles heaps ranging from 8MB to 16TB in size.
 
+[jvm-garbage-collectors](https://www.baeldung.com/jvm-garbage-collectors)
+
 - Types of Activities in Java Garbage Collection
 1. Minor or incremental Garbage Collection
 2. Major or Full Garbage Collection
@@ -1274,6 +1276,8 @@ throw new RuntimeException();
 ###### Finalization
 - Just before destroying an object, Garbage Collector calls finalize() method on the object to perform cleanup activities.
 - The finalize() method is never invoked more than once for any object.
+
+[garbage-collection-java](https://www.geeksforgeeks.org/garbage-collection-java/)
 ----
 ## Q. jdbc versus hibernate?
 >
