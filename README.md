@@ -1428,13 +1428,14 @@ entityManager.createQuery("select f from Foo f")
 
 ----
 ## Q. MQS?
-- A message queue is mostly meant for asynchronous things where you dont have to wait for the response. 
-- You could block the caller until a response is sought, but thats typically what an MQ is not meant for. 
-- You would use it only in cases where a user is NOT waiting for an output. A webservice is the opposite. 
-- You get a request, process it and return it back in a finite time. The caller will mostly block until a response is received.
-- You can send String, Objects , Maps, Byte Arrays to an MQ.
-- There are no constraints regarding the placement of the MQs. 
-- Just like webservices they can be anywhere and you can write and read from the Queue.
+>A message queue is mostly meant for asynchronous things where you dont have to wait for the response. 
+You could block the caller until a response is sought, but thats typically what an MQ is not meant for. 
+You would use it only in cases where a user is NOT waiting for an output. 
+> A webservice is the opposite. You get a request, process it and return it back in a 
+> finite time. The caller will mostly block until a response is received.
+You can send String, Objects , Maps, Byte Arrays to an MQ.
+There are no constraints regarding the placement of the MQs. 
+Just like webservices they can be anywhere and you can write and read from the Queue.
 
 ##### Benefits of Message Queues
 - Better performance
