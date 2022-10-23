@@ -1519,14 +1519,10 @@ Just like webservices they can be anywhere and you can write and read from the Q
 [prefer-try-with-resources-to-try-catch-finally](https://recepinanc.medium.com/til-18-prefer-try-with-resources-to-try-catch-finally-afc8c0dc9c05)
 
 ----
-## Q. How to configure techniques of JVM?
->
-----
-## Q. Why to serialize a object?
->
-----
 ## Q. How to serialize and deserialize object?
->
+
+[serialization-in-java](https://www.geeksforgeeks.org/serialization-in-java/)
+
 ----
 ## Q. Function vs bifunction?
 >
