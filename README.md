@@ -1327,6 +1327,7 @@ public class Branch implements Serializable {
 > within owner entity (in this example, branch is the reference name used in 
 > Student entity to map Branch entity).
 
+[difference-between-joincolumn-and-mappedby/](https://javabydeveloper.com/difference-between-joincolumn-and-mappedby/)
 ----
 ## Q. explain hibernate criteria?
 >
