@@ -1515,7 +1515,9 @@ Just like webservices they can be anywhere and you can write and read from the Q
 
 ----
 ## Q. try with resources vs try with finally?
->
+
+[prefer-try-with-resources-to-try-catch-finally](https://recepinanc.medium.com/til-18-prefer-try-with-resources-to-try-catch-finally-afc8c0dc9c05)
+
 ----
 ## Q. How to configure techniques of JVM?
 >
