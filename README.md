@@ -1328,6 +1328,7 @@ public class Branch implements Serializable {
 > Student entity to map Branch entity).
 
 [difference-between-joincolumn-and-mappedby/](https://javabydeveloper.com/difference-between-joincolumn-and-mappedby/)
+
 ----
 ## Q. explain hibernate criteria?
 >
