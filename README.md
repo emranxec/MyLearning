@@ -1291,10 +1291,6 @@ public class Branch implements Serializable {
 bidirectional. Always mappedBy attribute is used in bidirectional association to link 
 with other side of entity.
 
-> mappedBy attribute indicates that which entity owns the relationship (in this example,
-> Student) and what reference is used for non-owning entity within owner entity
-> (in this example, branch is the reference name used in Student entity to map Branch entity).
-
 
 ```java
 
