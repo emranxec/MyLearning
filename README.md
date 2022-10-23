@@ -1471,9 +1471,42 @@ Just like webservices they can be anywhere and you can write and read from the Q
 - Amazon MQ
 - Azure Event Hubs 
 - Azure Service Bus
+
+[introduction-to-message-queuing](https://medium.com/tech-sauce/introduction-to-message-queuing-4a7ab8968b59)
+
 ----
 ## Q. explain Maven in detail? explain Pom.xml in detail?
->
+
+#### What is Maven?
+>Maven is a powerful project management tool that is based on POM (project object model). 
+> It is used for projects build, dependency and documentation.
+
+##### What maven does?
+- We can easily build a project using maven.
+- We can add jars and other dependencies of the project easily using the help of maven.
+- Maven provides project information (log document, dependency list, unit test reports etc.)
+- Maven is very helpful for a project while updating central repository of JARs and other dependencies.
+- we can build any number of projects into output types like the JAR, WAR etc without doing any scripting.
+- Using maven we can easily integrate our project with source control system (such as Subversion or Git).
+
+##### Core Concepts of Maven?
+- POM Files
+- Dependencies and Repositories
+- Build Life Cycles, Phases and Goals
+- Build Profiles
+- Build Plugins
+
+##### Maven has three types of repository
+1. Local repository 
+2. Central repository 
+3. Remote repository
+##### Maven - POM
+> POM stands for Project Object Model. It is fundamental unit of work in Maven. It is an XML file that resides
+> in the base directory of the project as pom.xml.
+- It should be noted that there should be a single POM file for each project.
+
+###### Super POM
+> The Super POM is Maven’s default POM. All POMs inherit from a parent or default
 ----
 ## Q. Why to overide run in springApplication?
 >
