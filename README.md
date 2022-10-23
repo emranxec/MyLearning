@@ -1163,6 +1163,9 @@ public class Controller {
 - Class.getDeclaredField(FieldName)
 - Field.setAccessible(true)
 
+> **Note:** Through reflection, we can access the private variables and methods of a class with the help of its class object and invoke the method by 
+> using the object as discussed above. We use below two methods for this purpose.
+
 [reflection-in-java/](https://www.geeksforgeeks.org/reflection-in-java/)
 
 ----
@@ -1192,8 +1195,20 @@ throw new RuntimeException();
 
 [spring-transactional-rollback-handling](https://medium.com/geekculture/spring-transactional-rollback-handling-741fcad043c6)
 ----
-60. what are diffrent types of class loader?
+## Q. what are different types of class loader?
+- A Java Classloader is of three types:
+1. BootStrap ClassLoader
+2. Extension ClassLoader
+3. System ClassLoader
 
+- Methods of Java.lang.ClassLoader
+1. loadClass(String name, boolean resolve):
+2. defineClass()
+3. findClass(String name)
+4. findLoadedClass(String name)
+5. Class.forName(String name, boolean initialize, ClassLoader loader)
+
+- [classloader-in-java/](https://www.geeksforgeeks.org/classloader-in-java/)
 ----
 ## Q. How to convert monolithic application to microservices?
 ## Q. Identify logical components.
