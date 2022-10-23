@@ -1428,7 +1428,48 @@ entityManager.createQuery("select f from Foo f")
 
 ----
 ## Q. MQS?
->
+- A message queue is mostly meant for asynchronous things where you dont have to wait for the response. 
+- You could block the caller until a response is sought, but thats typically what an MQ is not meant for. 
+- You would use it only in cases where a user is NOT waiting for an output. A webservice is the opposite. 
+- You get a request, process it and return it back in a finite time. The caller will mostly block until a response is received.
+- You can send String, Objects , Maps, Byte Arrays to an MQ.
+- There are no constraints regarding the placement of the MQs. 
+- Just like webservices they can be anywhere and you can write and read from the Queue.
+
+##### Benefits of Message Queues
+- Better performance
+- Increased Reliability
+- Granular Scalability
+- Simplified Decoupling
+
+##### Types of message queues
+- Point-to-Point
+- Publish/Subscribe
+
+![MQ](https://user-images.githubusercontent.com/16031518/197407771-da28b2e5-1d21-47ca-afdf-644443a27134.png)
+
+###### Message Broker: 
+>Software that allows applications, systems, and services to communicate and exchange data. 
+> A Message Broker can perform a range of operations on data like validation, transformation, aggregation, decomposition, rerouting, storage, and guaranteed delivery. Some prominent examples of Message Brokers include RabbitMQ, Apache Kafka, Redis, Amazon SQS, IBM MQ, and IronMQ.
+
+###### Message Queue: A Simple Use Case of Sending Emails
+
+![MQ1](https://user-images.githubusercontent.com/16031518/197408145-861f11bf-3bf7-4069-a948-f69e4cb8b636.png)
+
+###### Synchronous vs. Asynchronous
+
+1. Synchronous protocol: like HTTP (REST, SOAP or any other RPC)
+
+2. Asynchronous protocol: message queue protocols like AMQP(RabbitMQ), Apache Kafka, STOMP, MQTT, etc.
+
+##### Message Brokers
+- RabbitMQ 
+- Apache Kafka 
+- Apache ActiveMQ 
+- Redis
+- Amazon MQ
+- Azure Event Hubs 
+- Azure Service Bus
 ----
 ## Q. explain Maven in detail? explain Pom.xml in detail?
 >
