@@ -1211,14 +1211,14 @@ throw new RuntimeException();
 - [classloader-in-java/](https://www.geeksforgeeks.org/classloader-in-java/)
 ----
 ## Q. How to convert monolithic application to microservices?
-## Q. Identify logical components.
-## Q. Flatten and refactor components.
-## Q. Identify component dependencies.
-## Q. Identify component groups.
-## Q. Create an API for remote user interface.
-## Q. Migrate component groups to macroservices (move component groups to separate projects and make separate deployments).
-## Q. Migrate macroservices to microservices.
-## Q. Repeat steps 6-7 until complete.
+1. Identify logical components.
+2. Flatten and refactor components.
+3. Identify component dependencies.
+4. Identify component groups.
+5. Create an API for remote user interface.
+6. Migrate component groups to macroservices (move component groups to separate projects and make separate deployments).
+7. Migrate macroservices to microservices.
+8. Repeat steps 6-7 until complete.
 
 [8-steps-for-migrating-existing-applications-to-microservices](https://insights.sei.cmu.edu/blog/8-steps-for-migrating-existing-applications-to-microservices/)
 ----
