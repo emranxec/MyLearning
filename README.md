@@ -1509,7 +1509,10 @@ Just like webservices they can be anywhere and you can write and read from the Q
 > The Super POM is Maven’s default POM. All POMs inherit from a parent or default
 ----
 ## Q. Why to overide run in springApplication?
->
+
+[run-method-on-application-startup-in-spring-boot
+](https://medium.com/@cancerian0684/run-method-on-application-startup-in-spring-boot-37aa5e82c948)
+
 ----
 ## Q. try with resources vs try with finally?
 >
