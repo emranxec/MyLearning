@@ -1280,10 +1280,60 @@ throw new RuntimeException();
 [garbage-collection-java](https://www.geeksforgeeks.org/garbage-collection-java/)
 ----
 ## Q. jdbc versus hibernate?
->
+[difference-between-jdbc-and-hibernate-in-java](https://www.geeksforgeeks.org/difference-between-jdbc-and-hibernate-in-java/)
 ----
 ## Q. explain @mappedBy?
->
+
+@Entity
+public class Branch implements Serializable {
+
+> In JPA or Hibernate, entity associations are directional, either unidirectional or 
+bidirectional. Always mappedBy attribute is used in bidirectional association to link 
+with other side of entity.
+
+> mappedBy attribute indicates that which entity owns the relationship (in this example,
+> Student) and what reference is used for non-owning entity within owner entity
+> (in this example, branch is the reference name used in Student entity to map Branch entity).
+
+
+```java
+
+@Entity
+public class Student implements Serializable {
+
+    @Id
+    private int id;
+
+    private String fname;
+
+    //bi-directional many-to-one association to Branch
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="BRANCH_ID")
+    private Branch branch;
+
+       ....
+}
+@Entity
+public class Branch implements Serializable {
+	@Id
+	@Column(name="BRANCH_ID")
+	private int branchId;
+    
+	//bi-directional many-to-one association to Student
+	@OneToMany(mappedBy="branch", cascade={CascadeType.ALL},
+			orphanRemoval = true)
+	private List<Student> students;
+
+        .... omitted setters getters etc
+}
+}
+
+```
+>mappedBy attribute indicates that which entity owns the relationship
+> (in this example, Student) and what reference is used for non-owning entity
+> within owner entity (in this example, branch is the reference name used in 
+> Student entity to map Branch entity).
+
 ----
 ## Q. explain hibernate criteria?
 >
