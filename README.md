@@ -1419,6 +1419,7 @@ entityManager.createQuery("select f from Foo f")
 .setHint("org.hibernate.cacheable", true)
 .getResultList();
 ```
+[hibernate-second-level-cache](https://www.baeldung.com/hibernate-second-level-cache)
 
 ----
 ## Q. MQS?
