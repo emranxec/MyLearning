@@ -1209,6 +1209,7 @@ throw new RuntimeException();
 5. Class.forName(String name, boolean initialize, ClassLoader loader)
 
 - [classloader-in-java/](https://www.geeksforgeeks.org/classloader-in-java/)
+
 ----
 ## Q. How to convert monolithic application to microservices?
 1. Identify logical components.
@@ -1221,6 +1222,7 @@ throw new RuntimeException();
 8. Repeat steps 6-7 until complete.
 
 [8-steps-for-migrating-existing-applications-to-microservices](https://insights.sei.cmu.edu/blog/8-steps-for-migrating-existing-applications-to-microservices/)
+
 ----
 ## Q. How to load balance in 60% ,40% weightage ?
 
@@ -1278,9 +1280,11 @@ throw new RuntimeException();
 - The finalize() method is never invoked more than once for any object.
 
 [garbage-collection-java](https://www.geeksforgeeks.org/garbage-collection-java/)
+
 ----
 ## Q. jdbc versus hibernate?
 [difference-between-jdbc-and-hibernate-in-java](https://www.geeksforgeeks.org/difference-between-jdbc-and-hibernate-in-java/)
+
 ----
 ## Q. explain @mappedBy?
 
