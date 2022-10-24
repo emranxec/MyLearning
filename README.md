@@ -1632,19 +1632,19 @@ class GFG {
 
 ##### SOLID design is an acronym for the following five principles:
 - Single Responsibility Principle 
-> Everything in the class should be related to that single purpose. 
+> Everything in the class should be related to that **single purpose.** 
 > It does not mean that your classes should only contain one method or property.
 
 > If you have multiple responsibilities combined into one class, it might be difficult to change one part without breaking others.
 
 - Open-Closed Principle 
 > This principle is described as follows: software entities (classes, modules, functions, etc.) 
-> should be open for extension, but closed for modification.
+> should be **open for extension, but closed for modification.**
 
 > This means that the system must be flexible, able to work in changing conditions without changing the source code.
 
 - Liskov Substitution Principle 
-> Subclasses must override the methods of the base class so that 
+> Subclasses **must override the methods of the base class** so that 
 > the functionality is not broken from the point of view of the client.
 ```java
 public class OrderStockAndPackValidator extends OrderStockValidator {
@@ -1655,7 +1655,7 @@ public class OrderStockAndPackValidator extends OrderStockValidator {
 ```
 - Interface Segregation Principle 
 
->client should not be forced to implement methods that they will not use.
+>client should **not be forced to implement methods** that they will not use.
 
 > Consider this example: Alex, a developer, has created a "report" interface and added two methods: 
 > generateExcel() and generatedPdf(). 
@@ -1663,7 +1663,7 @@ public class OrderStockAndPackValidator extends OrderStockValidator {
 > Will this functionality satisfy this client?
 
 - Dependency Inversion Principle
-> Higher-level modules do not depend on lower-level modules. Abstractions should not depend on details. Details should depend on abstractions. 
+> Higher-level modules do not depend on lower-level modules. Abstractions should not depend on details. **Details should depend on abstractions**. 
 > Software needs to be designed so that the various modules are self-contained 
 > and connected to each other through abstraction.
 ```java
