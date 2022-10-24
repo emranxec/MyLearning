@@ -1710,7 +1710,53 @@ The class need to implement all the functionalities
 The child class can be used as a substitute for our parent class.
 ----
 ## Q. explain StackOverFlow vs OOM?
->
+>Whenever you run a java program or java application, operating system allocates some memory to JVM. 
+> JVM divides this memory into two parts. One is Stack and another one is Heap. Stack is used for 
+> execution of methods and heap is used to store the objects. When the Stack becomes full, 
+> JVM throws java.lang.StackOverflowError and when the heap becomes full, JVM throws java.lang.OutOfMemoryError.
+
+##### StackOverflowError
+- A stack is used for the execution of methods. For every method call, one block is created in the stack memory
+- The data related to the method like parameters, local variables or references to objects are stored in this block.
+- When the method finishes its execution, this block is removed from the stack along with data stored in it.
+- Whenever we call a method, it must finish its execution and leave the stack memory.
+- If methods are staying in the stack then the stack will be full and JVM will throw java.lang.StackOverflowError.
+
+```java 
+    public class StackOverflowErrorExample
+    {
+    private static void addItself(int i)
+    {
+    addItself(i+i);   //calling itself with no terminating condition
+    }
+    
+        public static void main(String[] args) 
+        {
+            addItself(10);
+        }
+    }
+```
+##### OutOfMemoryError
+- The objects we created in Java are stored in the heap memory. When the objects are no more required, they must be removed from the memory.
+- The garbage collector removes the unwanted objects from the heap memory.
+- If our objects have live references, the garbage collector doesn’t remove them. It removes only those objects which don’t have live references.
+- Whenever we call a method, it must finish its execution and leave the stack memory.
+- If there is no space left for new objects in the heap memory then JVM will throw java.lang.OutOfMemoryError.
+
+```java 
+    public class OutOfMemoryErrorExample
+    {   
+    public static void main(String[] args)
+    {   
+    //Creating new objects in never ending loop
+    
+            for (int i = 1; i > 0; i++)
+            {
+                new Object();
+            }
+        }
+    }
+```
 ----
 ## Q. explain Microservice framework Netflix?
 >
