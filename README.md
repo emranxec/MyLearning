@@ -1709,7 +1709,7 @@ public class OrderProcessor {
 The class need to implement all the functionalities
 The child class can be used as a substitute for our parent class.
 ----
-## Q. explain Classnotfound, NoClassDefError,StackOverFlow,OOM?
+## Q. explain StackOverFlow vs OOM?
 >
 ----
 ## Q. explain Microservice framework Netflix?
