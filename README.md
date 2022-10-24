@@ -1591,6 +1591,36 @@ can be used where we have to flatten or transform out the string, as we cannot f
 
 ###### Example: 
 Getting the 1st Character of all the String present in a List of Strings and returning the result in form of a stream.
+```java 
+class GFG {
+
+    public static void main(String[] args)
+    {
+        ArrayList<String> fruit = new ArrayList<>();
+        fruit.add("Apple");
+        fruit.add("mango");
+        fruit.add("pineapple");
+        fruit.add("kiwi");
+
+        List<List<Integer> > number = new ArrayList<>();
+        // adding the elements to number arraylist
+        number.add(Arrays.asList(1, 2));
+        number.add(Arrays.asList(3, 4));
+        number.add(Arrays.asList(5, 6));
+        number.add(Arrays.asList(7, 8));
+ 
+        List list = fruit.stream()
+                        .map(s -> s.length())
+                        .collect(Collectors.toList());
+
+        // using flatmap() to flatten this list
+        List<Integer> flatList
+            = number.stream()
+                  .flatMap(list -> list.stream())
+                  .collect(Collectors.toList());
+    }
+}
+```
 
 [difference-between-map-and-flatmap-in-java](https://www.geeksforgeeks.org/difference-between-map-and-flatmap-in-java-stream/?ref=lbp)
 
