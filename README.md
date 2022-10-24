@@ -1525,7 +1525,51 @@ Just like webservices they can be anywhere and you can write and read from the Q
 
 ----
 ## Q. Function vs bifunction?
->
+
+##### Function
+It represents a function which takes in one argument and produces a result
+- T: denotes the type of the input argument 
+- R: denotes the return type of the function
+
+##### BiFunction 
+is a functional interface, which accepts two arguments and returns a result. The interface contains two methods:
+- The apply() method
+- The andThen() method
+
+Hence this functional interface which takes in 3 parameters namely:-
+
+- T: denotes the type of the input argument
+- U: denotes the type of the second argument to the function
+- R: denotes the return type of the function
+
+
+```java
+Syntax
+@FunctionalInterface
+public interface Function<T, R> {
+}
+
+@FunctionalInterface
+public interface BiFunction<T, U, R>{
+}
+
+import java.util.function.BiFunction;
+        import java.util.function.Function;
+
+public class SampleFunctionBiFunctionTest {
+    public static void main(String[] args) {
+        Function<Integer, Integer> printNumber = a -> a*10;
+        System.out.println("The number is: "+ printNumber.apply(10));
+
+        BiFunction<Integer, Integer, Integer> add = (a, b) -> a+b;
+        System.out.println("The addition of two numbers are: "+ add.apply(3,2));
+    }
+}
+```
+
+[function-interface-in-java](https://www.geeksforgeeks.org/function-interface-in-java-with-examples/)
+[bifunction-interface-methods-apply-and-addthen](https://www.geeksforgeeks.org/java-bifunction-interface-methods-apply-and-addthen/)
+
 ----
 ## Q. Mapping vs flat mapping?
 >
