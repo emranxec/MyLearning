@@ -1692,6 +1692,7 @@ public class OrderProcessor {
     private OrderRepository repository;
 }
 ```
+[Solid-five-basic-principles-of-class-design-in-java](https://codegym.cc/groups/posts/232-solid-five-basic-principles-of-class-design-in-java)
 
 ----
 ## Q. explain Classnotfound, NoClassDefError,StackOverFlow,OOM?
