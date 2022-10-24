@@ -1815,7 +1815,38 @@ public class UniversityController {
 
 ----
 ## Q. Spring actuators?
->
+> Actuator is mainly used to expose operational information about the running application 
+> — health, metrics, info, dump, env, etc.
+
+###### Advantages of Monitoring/Managing the Application
+- It increases customer satisfaction. 
+- It reduces downtime. 
+- It boosts productivity. 
+- It improves Cyber security Management. 
+- It increases the conversion rate.
+
+##### In Maven:
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+###### by default, all Actuator endpoints are now placed under the /actuator path.
+
+###### Enable All Endpoints
+- We need to add the following configuration to expose all endpoints:
+>management.endpoints.web.exposure.include=*
+
+- To explicitly enable a specific endpoint (e.g., /shutdown), we use:
+>management.endpoint.shutdown.enabled=true
+
+- To expose all enabled endpoints except one (e.g., /loggers), we use:
+>management.endpoints.web.exposure.include=*
+management.endpoints.web.exposure.exclude=loggers
+
+[spring-boot-actuator](https://www.geeksforgeeks.org/spring-boot-actuator/)
+
 ----
 ## Q. explain Hibernate inheritance?
 >
