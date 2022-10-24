@@ -1810,7 +1810,9 @@ public class UniversityController {
 
 ----
 ## Q. Controller vs rest controlled?
->
+
+[difference-between-controller-and-restcontroller](https://www.geeksforgeeks.org/difference-between-controller-and-restcontroller-annotation-in-spring/?ref=lbp)
+
 ----
 ## Q. Spring actuators?
 >
