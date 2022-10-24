@@ -1644,8 +1644,28 @@ class GFG {
 > This means that the system must be flexible, able to work in changing conditions without changing the source code.
 
 - Liskov Substitution Principle 
+> Subclasses must override the methods of the base class so that 
+> the functionality is not broken from the point of view of the client.
+```java
+public class OrderStockAndPackValidator extends OrderStockValidator {
+ @Override
+    public boolean isValid(Order order) {
+}
+}
+```
 - Interface Segregation Principle 
+
+>client should not be forced to implement methods that they will not use.
+
+> Consider this example: Alex, a developer, has created a "report" interface and added two methods: 
+> generateExcel() and generatedPdf(). 
+> Now a client wants to use this interface, but only intends to use reports in PDF format, not in Excel. 
+> Will this functionality satisfy this client?
+
 - Dependency Inversion Principle
+> Higher-level modules do not depend on lower-level modules. Abstractions should not depend on details. Details should depend on abstractions. 
+> Software needs to be designed so that the various modules are self-contained 
+> and connected to each other through abstraction.
 
 
 
