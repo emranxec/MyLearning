@@ -1527,7 +1527,15 @@ Just like webservices they can be anywhere and you can write and read from the Q
 ## Q. Function vs bifunction?
 
 ##### Function
-It represents a function which takes in one argument and produces a result
+
+It represents a function which takes in one argument and produces a result.The interface contains four methods:
+- The apply() method
+- The andThen() method
+- compose()
+- identity()
+
+this functional interface which takes in 2 parameters namely:-
+
 - T: denotes the type of the input argument 
 - R: denotes the return type of the function
 
