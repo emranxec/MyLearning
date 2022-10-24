@@ -1762,7 +1762,52 @@ The child class can be used as a substitute for our parent class.
 >
 ----
 ## Q. difference between @Primary & @Qualifier?
->
+
+#### @Primary
+> When more than one bean qualifies for the dependency to be autowired, 
+> @Primary specifies which bean should be given preference.
+Among the eligible beans, there should be exactly one primary bean.
+
+#### @Qualifier
+>When more than one bean meets the requirements for the dependency, we may use a qualifier annotation to explicitly 
+> define the bean name and let spring know which dependency should be really called for.
+```java
+@Service("Alpha")
+public class AlphaUniversity implements University {
+
+    @Override
+    public String display() {
+
+        return "This is a message from Alpha University";
+    }
+}
+@Service("Beta")
+@Primary
+public class BetaUniversity implements University {
+
+    @Override
+    public String display() {
+
+        return "This is a message from Beta University";
+    }
+}
+@RestController
+public class UniversityController {
+
+    @Autowired
+    @Qualifier("Alpha")
+    private University AlphaUniversity;
+
+    @GetMapping ("/university")
+    public String getUniversity() {
+
+        return AlphaUniversity.display();
+    }
+}
+```
+- Both annotations can be used together
+- @Qualifier has higher priority than @Primary annotation
+
 ----
 ## Q. Controller vs rest controlled?
 >
