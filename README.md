@@ -1534,7 +1534,7 @@ It represents a function which takes in one argument and produces a result.The i
 - compose()
 - identity()
 
-this functional interface which takes in 2 parameters namely:-
+This functional interface which takes in 2 parameters namely:-
 
 - T: denotes the type of the input argument 
 - R: denotes the return type of the function
@@ -1544,7 +1544,7 @@ is a functional interface, which accepts two arguments and returns a result. The
 - The apply() method
 - The andThen() method
 
-Hence this functional interface which takes in 3 parameters namely:-
+This functional interface which takes in 3 parameters namely:-
 
 - T: denotes the type of the input argument
 - U: denotes the type of the second argument to the function
