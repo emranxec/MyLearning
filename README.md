@@ -1697,14 +1697,14 @@ public class OrderProcessor {
 #### Other Principles
 
 - DRY Principles
-> The DRY principle stands for the Don't Repeat Yourself principle.
+> The DRY principle stands for the **Don't Repeat Yourself** principle.
 > Within a system, each piece of logic should have a single unambiguous representation.
 - KISS Principle
-> It is another designing principle that stands for Keep It Simple and Stupid Principle.
+> It is another designing principle that stands for **Keep It Simple and Stupid** Principle.
 > This principle is just a reminder to keep our code readable and simple for humans. 
 > If several use cases are handled by the method, we need to split them into smaller functions.
 - Composition Over Inheritance Principle
-> The principle states that we should have to implement interfaces rather than extending the classes. 
+> The principle states that we should have to **implement interfaces rather than extending the classes.** 
 > We implement the inheritance when
 The class need to implement all the functionalities
 The child class can be used as a substitute for our parent class.
