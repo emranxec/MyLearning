@@ -1626,7 +1626,30 @@ class GFG {
 
 ----
 ## Q. what are Design principles?
->
+#### SOLID Design Principles
+> SOLID principles are class-level, object-oriented design concepts that, in conjunction with an extensive test suite, 
+> help you avoid code rot.
+
+##### SOLID design is an acronym for the following five principles:
+- Single Responsibility Principle 
+> Everything in the class should be related to that single purpose. 
+> It does not mean that your classes should only contain one method or property.
+
+> If you have multiple responsibilities combined into one class, it might be difficult to change one part without breaking others.
+
+- Open-Closed Principle 
+> This principle is described as follows: software entities (classes, modules, functions, etc.) 
+> should be open for extension, but closed for modification.
+
+> This means that the system must be flexible, able to work in changing conditions without changing the source code.
+
+- Liskov Substitution Principle 
+- Interface Segregation Principle 
+- Dependency Inversion Principle
+
+
+
+
 ----
 ## Q. explain Classnotfound, NoClassDefError,StackOverFlow,OOM?
 >
