@@ -1733,7 +1733,7 @@ The child class can be used as a substitute for our parent class.
 ## Q. Sort hashmap on basis of value.?
 >
 ----
-90. how to manage two different session factory?
+## Q. how to manage two different session factory?
 >
 ----
 ## Q.  what are Different library for hibernate,spring & SQI?
