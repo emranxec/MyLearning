@@ -1666,9 +1666,32 @@ public class OrderStockAndPackValidator extends OrderStockValidator {
 > Higher-level modules do not depend on lower-level modules. Abstractions should not depend on details. Details should depend on abstractions. 
 > Software needs to be designed so that the various modules are self-contained 
 > and connected to each other through abstraction.
+```java
+public interface MailSender {
+void sendConfirmationEmail(Order order);
+}
 
+public interface OrderRepository {
+boolean save(Order order);
+}
 
+public class ConfirmationEmailSender implements MailSender {
+    @Override
+    public void sendConfirmationEmail(Order order) {
+    }
+}
 
+public class MySQLOrderRepository implements OrderRepository {
+    @Override
+    public boolean save(Order order) {
+    }
+}
+public class OrderProcessor {
+
+    private MailSender mailSender;
+    private OrderRepository repository;
+}
+```
 
 ----
 ## Q. explain Classnotfound, NoClassDefError,StackOverFlow,OOM?
