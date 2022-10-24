@@ -1583,12 +1583,14 @@ public class SampleFunctionBiFunctionTest {
 ##### map() 
 can be used where we have to map the elements of a particular collection to a certain function, and then we need to return the stream which contains the updated results.
 
-###### Example: Multiplying All the elements of the list by 3 and returning the updated list.
+###### Example: 
+Multiplying All the elements of the list by 3 and returning the updated list.
 
 ##### flatMap() 
 can be used where we have to flatten or transform out the string, as we cannot flatten our string using map().
 
-###### Example: Getting the 1st Character of all the String present in a List of Strings and returning the result in form of a stream.
+###### Example: 
+Getting the 1st Character of all the String present in a List of Strings and returning the result in form of a stream.
 
 [difference-between-map-and-flatmap-in-java](https://www.geeksforgeeks.org/difference-between-map-and-flatmap-in-java-stream/?ref=lbp)
 
