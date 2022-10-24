@@ -1843,7 +1843,8 @@ public class UniversityController {
 
 - To expose all enabled endpoints except one (e.g., /loggers), we use:
 >management.endpoints.web.exposure.include=*
-management.endpoints.web.exposure.exclude=loggers
+
+>management.endpoints.web.exposure.exclude=loggers
 
 [spring-boot-actuator](https://www.geeksforgeeks.org/spring-boot-actuator/)
 
