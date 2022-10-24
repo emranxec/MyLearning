@@ -1429,13 +1429,20 @@ entityManager.createQuery("select f from Foo f")
 ----
 ## Q. MQS?
 >A message queue is mostly meant for asynchronous things where you dont have to wait for the response. 
-You could block the caller until a response is sought, but thats typically what an MQ is not meant for. 
-You would use it only in cases where a user is NOT waiting for an output. 
-> A webservice is the opposite. You get a request, process it and return it back in a 
-> finite time. The caller will mostly block until a response is received.
-You can send String, Objects , Maps, Byte Arrays to an MQ.
-There are no constraints regarding the placement of the MQs. 
-Just like webservices they can be anywhere and you can write and read from the Queue.
+
+>You could block the caller until a response is sought, but thats typically what an MQ is not meant for. 
+
+>You would use it only in cases where a user is NOT waiting for an output. A webservice is the opposite. 
+
+> You get a request, process it and return it back in a  finite time. 
+
+>The caller will mostly block until a response is received.
+
+>You can send String, Objects , Maps, Byte Arrays to an MQ.
+
+>There are no constraints regarding the placement of the MQs. 
+
+>Just like webservices they can be anywhere and you can write and read from the Queue.
 
 ##### Benefits of Message Queues
 - Better performance
@@ -1450,8 +1457,9 @@ Just like webservices they can be anywhere and you can write and read from the Q
 ![MQ](https://user-images.githubusercontent.com/16031518/197407771-da28b2e5-1d21-47ca-afdf-644443a27134.png)
 
 ###### Message Broker: 
->Software that allows applications, systems, and services to communicate and exchange data. 
-> A Message Broker can perform a range of operations on data like validation, transformation, aggregation, decomposition, rerouting, storage, and guaranteed delivery. Some prominent examples of Message Brokers include RabbitMQ, Apache Kafka, Redis, Amazon SQS, IBM MQ, and IronMQ.
+> Software that allows applications, systems, and services to communicate and exchange data. 
+
+>A Message Broker can perform a range of operations on data like validation, transformation, aggregation, decomposition, rerouting, storage, and guaranteed delivery. Some prominent examples of Message Brokers include RabbitMQ, Apache Kafka, Redis, Amazon SQS, IBM MQ, and IronMQ.
 
 ###### Message Queue: A Simple Use Case of Sending Emails
 
@@ -1479,6 +1487,7 @@ Just like webservices they can be anywhere and you can write and read from the Q
 
 #### What is Maven?
 >Maven is a powerful project management tool that is based on POM (project object model). 
+
 > It is used for projects build, dependency and documentation.
 
 ##### What maven does?
@@ -1502,8 +1511,9 @@ Just like webservices they can be anywhere and you can write and read from the Q
 3. Remote repository
 ##### Maven - POM
 > POM stands for Project Object Model. It is fundamental unit of work in Maven. It is an XML file that resides
-> in the base directory of the project as pom.xml.
-- It should be noted that there should be a single POM file for each project.
+> in the base directory of the project as pom.xml. 
+
+>It should be noted that there should be a single POM file for each project.
 
 ###### Super POM
 > The Super POM is Maven’s default POM. All POMs inherit from a parent or default
@@ -1635,13 +1645,13 @@ class GFG {
 > Everything in the class should be related to that **single purpose.** 
 > It does not mean that your classes should only contain one method or property.
 
-> If you have multiple responsibilities combined into one class, it might be difficult to change one part without breaking others.
+>If you have multiple responsibilities combined into one class, it might be difficult to change one part without breaking others.
 
 - Open-Closed Principle 
 > This principle is described as follows: software entities (classes, modules, functions, etc.) 
 > should be **open for extension, but closed for modification.**
-
-> This means that the system must be flexible, able to work in changing conditions without changing the source code.
+ 
+>This means that the system must be flexible, able to work in changing conditions without changing the source code.
 
 - Liskov Substitution Principle 
 > Subclasses **must override the methods of the base class** so that 
@@ -1766,10 +1776,10 @@ The child class can be used as a substitute for our parent class.
 #### @Primary
 > When more than one bean qualifies for the dependency to be autowired, 
 > @Primary specifies which bean should be given preference.
-Among the eligible beans, there should be exactly one primary bean.
+> Among the eligible beans, there should be exactly one primary bean.
 
 #### @Qualifier
->When more than one bean meets the requirements for the dependency, we may use a qualifier annotation to explicitly 
+> When more than one bean meets the requirements for the dependency, we may use a qualifier annotation to explicitly 
 > define the bean name and let spring know which dependency should be really called for.
 ```java
 @Service("Alpha")
